@@ -220,9 +220,9 @@ Everything that is good in Python was stolen from other languages.
 
 ** 万物皆对象
 
-- 对象是python对数据的进行抽象表达的术语。python程序中，所有数据均表示
+- 对象是python对数据进行抽象表达的术语。python程序中，所有数据均表示
   为对象或对象间的关系。
-- 每个对象都有一个唯一标识、属于某个数据类型，有一个值。
+- 每个对象有一个唯一标识、属于某个数据类型，有一个值。
 
 #+begin_example
     Objects are Python’s abstraction for data. All data in a Python
@@ -237,7 +237,7 @@ Everything that is good in Python was stolen from other languages.
 - 在Python中所有事物都是对象。数字42是对象，字符串是对象，列表是对象，
   函数是对象，模块是对象。每一个对象都有一个数据类型(Data type)，和一
   个身份标识符(id)。
-- python中，数据类型(Data type)和类(class)本质上是相同的。一般按习惯，
+- python中，数据类型(Data type)和类(class)本质上是相同的。一般习惯，
   内置的数据类型，称为数据类型，自定义的数据类型，称为类。
 
 #+begin_src python :results output
@@ -275,7 +275,7 @@ type(type(type(42)))
 
 ** 数字
 
-- 有三种类型的数字字面量（Numeric literals）,亦称数字类型numeric types：
+- 有三种类型的数字字面量（Numeric literals）,亦称数字类型numeric types
 　+ 整数 integers
   + 浮点数 floating point numbers
   + 复数 imaginary numbers
@@ -323,11 +323,11 @@ print(format(0.1, '.17f'))
 - 1/10 = 0.1
   + B_10: 1 * 10^(-1)
   + B_2: .00011001100...
-    * 2^(-4) + 2^(-5) = 2/32 + 1/32 = 3/32 = 0.9375
-    * 2^(-4) + 2^(-5) + 2^(-8) + 2^(-9) = 1/16 + 1/32 + 1/256 + 1/512 = 0.9960938
+    * 2^(-4) + 2^(-5) = 2/32 + 1/32 = 3/32 = 0.09375
+    * 2^(-4) + 2^(-5) + 2^(-8) + 2^(-9) = 1/16 + 1/32 + 1/256 + 1/512 = 0.09960938
 
-- 计算机字长（位数）是有限的，没办法精确表示无限循环二进制小数。　最终
-  只能舍入到17位小数。
+- 计算机字长（位数）是有限的，无法精确表示无限循环二进制小数。　最终,只
+  得舍入到17位小数。
 
 - 所以，浮点数是实数的近似（不精确）表示。
 
