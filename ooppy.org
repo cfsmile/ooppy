@@ -275,8 +275,8 @@ type(type(type(42)))
 
 ** 数字
 
-- 有三种类型的数字字面量（Numeric literals）,亦称数字类型numeric types
-　+ 整数 integers
+- 有三种类型的数字字面量（Numeric literals）,亦称数字类型（numeric types）
+  + 整数 integers
   + 浮点数 floating point numbers
   + 复数 imaginary numbers
 - 注意：数字字面量不含符号，-1不是字面量，而是表达式，具体说，是由操作
@@ -1146,7 +1146,7 @@ database
   + 列表以[]为界定符，以,为分隔符
   + 使用=将变量赋值给列表即可创建列表对象，事实上，是先创建列表对象，
     再将变量绑定到列表
-　+ 使用list()函数可将其他类型（迭代对象类型iterable）的数据转换为列表
+  + 使用list()函数可将其他类型（迭代对象类型iterable）的数据转换为列表
 #+BEGIN_SRC python :results output
   # 创建列表
   a_list = ['a','b','mpilgrim','z','example',2018] # 创建列表组合了字符串和数字。
