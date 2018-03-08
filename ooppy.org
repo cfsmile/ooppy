@@ -1134,7 +1134,7 @@ for chick in range(0, 31):
 - 当希望使用组合数据时，序列即派上用场。本节以列表为序列例。
 
 #+BEGIN_SRC python :results output
- = ['ZhangSan', 20]
+zs= ['ZhangSan', 20]
 ls = ['LiSi', 19]
 database = [zs, ls]
 database
