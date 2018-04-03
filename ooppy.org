@@ -1207,8 +1207,8 @@ a_list[4] # out of range
 - 一般使用两个索引，中间一个冒号
   + 注意序列从0计数
   + 切片第一个索引的元素在，而第二个索引元素不在访问范围内
-  + 第一个索引位置要在第二个索引前，颠倒了，只能得到空序列。
-  + 切片可以使用3个数字，第三个称为步长number[0:10:2]
+  + 第一个索引位置要在第二个索引前，颠倒了，只能得到空序列
+  + 切片可以使用3个数字，第三个称为步长，number[0:10:2]
 
 #+begin_src python :result output
   tag = '<a href="http://www.python.org">Python web site</a>'
@@ -1596,7 +1596,7 @@ print(x)
 *** 列表推导
 
 - 列表是python的workhorse，而在列表技术中，列表推导(list
-  comprehensione，来源于Haskell)是开发应用最多的技术之一
+  comprehension，来源于Haskell)是开发应用最多的技术之一
 - 列表推导就一个目的：生成列表
 - 其技术功能类似循环，又非常简洁，在很多地方替代了循环
 
@@ -2669,7 +2669,7 @@ print(x)  # None
 
 - 函数定义时圆括号内用逗号分割形式参数(formal parameters)列表
 - 函数调用时，调用者向函数传递实际参数(actual parameters or arguments)
-- 函数通过参数从得到外界值
+- 函数通过参数得到外界值
 
 #+begin_src python :results output
 def try_to_change(n):
@@ -2680,7 +2680,7 @@ try_to_change(name)
 name
 #+end_src
 
-- 同名变量，函数内局部变量屏遮蔽(shadowing)外部的局部变量或全局变量
+- 同名变量，函数内局部变量屏蔽(shadowing)外部的局部变量或全局变量
 - 字符串本身是不可改变的，如果以可改变数据做参数会怎样呢？
 
 #+begin_src python :results output
@@ -2711,9 +2711,6 @@ def hello1(greeting, name):
     print('%s, %s!' % (greeting, name))
 
 def hello2(name, greeting):
-    print('%s, %s!' % (name, greeting))
-
-def hello3(name, greeting):
     print('%s, %s!' % (name, greeting))
 
 hello1('hello', 'world')
@@ -2822,7 +2819,7 @@ add(*params)  # 在调用时，而不是定义时，给参数加*，即可将参
               # 量。 * 适用于元组、列表
 
 params = {'name': 'Sir Robin', 'greeting': 'Well met'}
-hello3(**params)  # ** 适用于字典
+hello2(**params)  # ** 适用于字典
 
 
 # 定义函数和调用函数，仅一方使用时，才能体现可变参数优势。
@@ -2933,8 +2930,9 @@ x
 #+End_SRC
 
 - 尽量减少使用全局变量，尽量不要在函数内绑定全局变量
-- 频繁使用全局变量是不良编程风格
-
+- 频繁使用全局变量是不良编程风格。但在某些并行编程中，如multithread,
+  multiproecessing，为了共享存储(shared memory)，需要访问函数外的全局
+  变量，常用global。遇到时认识即可，其他编程场景，尽量少用。
 *** 递归
 
 - 函数可以调用其他函数。而且，函数还可以调用自身（函数），调用自身称为
@@ -4052,56 +4050,125 @@ class Friend(Contact, AddressHolder):
 - 示例如下，该例涵盖继承、覆盖、多态技术
 
 #+begin_src python :results output
+########################
+# polymorphism demo
 class AudioFile:
     def __init__(self, filename):
-        if not filename.endswith(self.ext):
+        if not filename.endswith(filename[-3:]):
             raise Exception("Invalid file format")
         self.filename = filename
+        self.ext = filename[-3:]
 
     def play(self):
-        print("Now an audio file is going to play...")
+        print("Now an audio file is going to play...{} as {}".format(self.filename, self.ext))
 
 
 class MP3File(AudioFile):
-    ext = "mp3"
+    def __init__(self, filename):
+        super().__init__(filename)
+        self.ext = "mp3"
+        
     def play(self):
-        super().play()
+        # super().play()
         print("playing {} as mp3".format(self.filename))
 
 
 class WavFile(AudioFile):
-    ext = "wav"
+    def __init__(self, filename):
+        super().__init__(filename)
+        self.ext = filename[-3:]
+        
     def play(self):
-        print("playing {} as mp3".format(self.filename))
+        print("playing {} as {}".format(self.filename, self.ext))
 
 
 class OggFile(AudioFile):
-    ext = "ogg"
+    def __init__(self, filename):
+        super().__init__(filename)
+        self.ext = filename[-3:]
+        
     def play(self):
         print("playing {} as ogg".format(self.filename))
 
-
-ogg = OggFile("myfile.ogg")
-ogg.play()
-
-mp3 = MP3File("myfile.mp3")
-mp3.play()
-
-# not_an_mp3 = MP3File("myfile.ogg")
-
-class FlacFile:
+        
+class FlacFile(AudioFile):
     def __init__(self,filename):
-        if not filename.endswith(".flac"):
-            raise Exceptioin("Invalid file format")
-        self.filename = filename
-
+        super().__init__(filename)
+        self.ext = filename[-3:]
+        
     def play(self):
-        #  It could not insert a super() method.
+ 
         print("playing {} as flac".format(self.filename))
 
-
+print("===split line ===")
+mp3 = MP3File("myfile.mp3")
+mp3.play()
+print("===split line ===")
+wav = WavFile("myfile.wav")
+wav.play()
+print("===split line ===")
+not_an_mp3 = MP3File("myfile.nothing")
+not_an_mp3.play()
+print('Clearly, it is going to cause decoding error!')
+print("===split line ===")
 flac = FlacFile("myfile.flac")
 flac.play()
+print(flac.ext)
+print("===split line ===")
+
+print('----------another split line------------')
+afile = MP3File("myfile.mp3")
+bfile = WavFile("myfile.wav")
+cfile = FlacFile("myfile.flac")
+
+music_file = [afile, bfile, cfile]
+for x in music_file:
+    x.play()
+#######################
+# -*- coding: utf-8 -*-    
+# 类的多态示例                 
+  
+# 定义Person父类
+class Person(object):      
+    def __init__(self, name, gender):
+        self.name = name   
+        self.gender = gender
+
+    def whoAmI(self):      
+        return 'I am a Person，my name is %s' % self.name
+ 
+ 
+# Student类继承Person      
+class Student(Person):     
+    def __init__(self, name, gender, score):
+        self.name = name   
+        self.gender = gender
+
+    def whoAmI(self):      
+        return 'I am a Student, my name is %s' % self.name
+ 
+# Teacher类继承Person      
+class Teacher(Person):                                                                                                                                             
+    def __init__(self, name, gender, course):
+        super(Teacher, self).__init__(name, gender)
+        self.course = course
+    def whoAmI(self):
+        return 'I am a Teacher, my name is %s' % self.name
+ 
+  
+# Who_am_i调用父类whoAmI函数
+def who_am_i(x):
+    print(x.whoAmI())
+
+    
+p = Person('Tim', 'Male')
+s = Student('Bob', 'Male', 88)
+t = Teacher('Alice','Female', 'English')
+ 
+who_am_i(p)
+who_am_i(s)
+who_am_i(t)
+
 #+end_src
 
 **** duck typing
