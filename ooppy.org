@@ -8,6 +8,10 @@
 
 #+End_SRC
 
+TODO: 第一部分 基础数据类型、结构、函数、模块、自学方法。第二部分 类、对象、封装、继承、多态、案例。第三部分 高级decorator, iterator, generator,special methods
+
+
+
 * 第一章　安装并搭建环境
 
 ** python版本
