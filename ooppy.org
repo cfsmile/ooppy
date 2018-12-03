@@ -48,6 +48,8 @@ https://pypi.python.org/pypi/virtualenv
 - pyenv – 另有一个名字相近的包，切勿混淆。A Python version
   manager. Installs different versions and flavors of Python
   interpreters.
+  
+- TODO: conda
 
 ** 编程环境
 
@@ -1600,6 +1602,8 @@ print(x)
 - 列表推导就一个目的：生成列表
 - 其技术功能类似循环，又非常简洁，在很多地方替代了循环
 
+- TODO: list comprehension pattern
+
 #+begin_src python :results output
 # example 1.
 alist = [x*x for x in range(10)]
@@ -1715,7 +1719,7 @@ vt = (Fasle, 3.5, 'exp')
 - 列表推导式的结果是列表对象
 - 生成器推导式的结果却不是列表，也不是元组，而是一个生成器对象
 - 生成器是较新的技术
-
+- TODO: iterator, generator, generator expression pattern <ref: python tricks> closure
 #+begin_src python :results output
 g = ((i+2)**2 for i in range(10))
 g
@@ -2330,6 +2334,7 @@ print('=' * width)
 - 目前，python社区推荐使用str.format()方法格式化字符串
 - 该方法使用{}和:，代替传统的%，格式化字符串
 - 该方法可以使用位置、参数名字格式化，支持序列解包等
+- TODO: f-string
 
 #+BEGIN_SRC python :results output
 # 例子取自 https://docs.python.org/3.6/library/string.html#template-strings
@@ -3222,7 +3227,7 @@ datetime, itertools, logging, getopt and optparse, cmd
 - 面向对象编程，强调创建既包含数据又包含处理功能的对象。每个对象代表了
   真实世界的一个客观事物(object)或概念，其处理功能代表了客体之间的关联
   互动
-
+- TODO: 封装、继承、多态例子
 ** 一切皆对象
 
 - 对象是python对数据的进行抽象表达的术语。python程序中，所有数据均表示
@@ -4630,7 +4635,7 @@ Myclass.cmeth()
   itself at all.
 - It eases the readability of the code: seeing @staticmethod, we know
   that the method does not depend on the state of the object itself
-
+- TODO：对比 instance method, class method, staticmethod, @decorator
 #+begin_src python :results output
 # example
 # IND = 'ON'
