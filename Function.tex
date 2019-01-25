@@ -537,7 +537,7 @@ dir(copy)
   [ n for n in dir(copy) if not n.startswith('_')]
 \end{python}
 看看上面这个程序做了什么，能否解释下。
-\subsection{\pyth{__all__}}
+\subsection{\_\_all\_\_}
 \pyth{copy.__all__}会输出一个列表，列出可用名字。与上一个列表推导式基本一致。区别在于，\pyth{__all__}的内容是由工具包作者拟定的，也就是说作者认为，用户应当重点关注这些函数和类。
 
 看copy.py里面的\pyth{__all__}变量声明，就知道作者在哪里可以告诉用户，哪些类和函数是他希望用户关注的。
@@ -545,11 +545,11 @@ dir(copy)
 使用\pyth{from copy import *}得到的正是\pyth{__all__}中列出的函数。当程序员自己写模块时，也应在模块中声明\pyth{__all__}变量，明确告诉读者，哪些函数是可用的，这是个好习惯。
 \subsection{help}
 \pyth{help(copy.copy)}给出的信息，基本够一个程序员正常所需。
-\subsection{\pyth{__doc__}}
+\subsection{\_\_doc\_\_}
 \pyth{print(copy.copy.__doc__)}显示copy模块中copy函数的\pyth{__doc__}属性\pyth{help}一般比doc给出更多关于模块的信息。
 \subsection{参考手册}
 \href{https://docs.python.org/3.7/library/index.html}{Python Library Reference(for Python 3.7)}描述了所有内置库的模块。遇到问题，尤其是想了解关于Python的具体情况时，一定要去这里找到答案。
-\subsection{\pyth{__file__}}
+\subsection{\_\_file\_\_}
 真想理解Python，真想透彻搞清一个模块，哪个办法能比直接阅读模块的源代码更好呢？阅读Python源码是第二有效的学习Python的方法。第一有效呢？动手写Python代码。那么，如何找到源码文件？先要找到该源文件的位置，\pyth{print(copy.__file__)}。到这个文件夹下，打开文件，开始阅读理解这个模块的工作原理和技术细节吧。
 
 \section{练习：自学以下内置模块}
