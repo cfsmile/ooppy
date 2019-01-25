@@ -1,4 +1,11 @@
-/misc
-/TeachingPaper
+.gitignore
 
-.emacs.desktop
+tmp_test/
+
+*.*~
+*.*aux
+*.*log
+*.*out
+*.*pdf
+*.*gz
+*.*toc

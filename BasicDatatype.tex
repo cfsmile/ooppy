@@ -1,0 +1,159 @@
+\chapter{基本数据类型}
+\section{字面量}
+字面量是某些内置数据类型常量值的记号。记号则指称特定实体。  名－值：名字是记号，值是实体。 例如，1, one, 一是记号，数学概念“1”是实体。  再如，重名的“张三”，记号同，实体不同。 名字和学号，记号不同，实体同。
+
+\section{数字}
+
+数字，亦称数字类型，是字面量。共有三种类型的数字字面量： 整数、浮点数、复数。数字字面量不含符号。例如，-1不是字面量，而是表达式，是由操作符负号-和字面量1组成的表达式。
+\subsection{整数}
+整数是准确的。
+\begin{itemize}
+\item 十进制整数 decimal 0,-1,9,123
+\item 十六进整制 hexadecimal 0x10, 0xfa
+\item 八进制整数 octals 0o35
+\item 二进制整数 0b0101
+\end{itemize}
+\subsection{浮点数}
+浮点数是实数的近似（不精确）表示。
+\subsection{练习：浮点数}
+\inputpython{examples/float.py}{4}{5}
+% \paragraph{浮点数的机内存储}
+% \paragraph{机内存储释义}
+% \paragraph{奇怪的结果}
+避免用很小的小数做除数，避免两个相近的浮点数相减、相除，那样会损失精度，造成结果失真。科学计算和数值分析，一般不直接用Python原生功能，而应\pyth{import numpy}使用专用数值计算API。
+\subsection{Complex Numbers}
+\begin{framed}
+\begin{verbatim}
+  a = 3 + 4j
+  b = 5 + 6j
+  c = a + b
+\end{verbatim}
+\end{framed}
+\section{Operator}
+%\section{运算符}
+称数字为算子，是参与运算的数，被操作的数。称运算符为算符，是运算的方式，操作的动作。
+\subsection{Excercise: Operator}
+\inputpython{examples/operator.py}{5}{57}
+\section{字符串}
+字符串(strings)，是不可变字符序列(sequence)，亦称字符串字面量。
+\begin{itemize}
+\item 字符串可用单、双、三引号作为界定符，三引号界定的字符串可以跨行
+\item 字符串可以连接，\pyth{'Hello, ' + 'world!'}或\pyth{'hello, '  'world!'}
+\item \pyth{str()}将值转为字符串string，如，\pyth{str(9)}
+\item \pyth{input()}接受用户输入的字符
+\item  python3中，字符串以Unicode编码
+\end{itemize}
+
+\subsection{字符的转义}
+转义符\textbackslash。有一种字符串称为原生字符串(raw stings)，原生字符
+串前缀r，忽视转义符，原样输出字符串中的字符。原生字符串简化某些繁琐的转
+义。
+\subsection{练习：转义符}
+\inputpython{examples/escape.py}{4}{20}
+  
+
+\subsection{课后阅读:字符编码}
+\begin{itemize}
+\item \href{https://en.wikipedia.org/wiki/ASCII}{ASCII}
+\item \href{https://www.unicode.org/standard/WhatIsUnicode.html}{Unicode}
+\item \href{https://en.wikipedia.org/wiki/UTF-8}{UTF-8}
+\end{itemize}
+
+\section{变量}
+\begin{itemize}
+\item 变量(variables)是一个指代某值(数字、字符串)的名字
+\item 变量最常见操作，称为赋值或绑定，\pyth{x = 3}。变量赋值后，可代替值参与运算: 10 + x
+\item 变量优势在于可以在不关心其值的情况下，参与运算
+\item python不需要事先声明变量名及类型，绑定即声明，python解释器根据绑定或运算推断变量类型
+\item 先绑定后使用
+\item 允许多个变量指向，即被绑定到，同一个值
+  \begin{itemize}
+  \item 变量/值，名/实
+  \item 某人张三，可以两名指此人（张三、老张、那人，或化名李四）
+  \item 不可一名指两人（重名,歧义，二义性），为消歧，须前缀命名空
+    间namespace、域scope。如，1班张三，2班张三
+  \item x人行必有我师， y人成虎, 桃园z结义
+  \end{itemize}
+\item 变量命名规则
+  \begin{itemize}
+  \item 变量以字母或下划线开头，下划线开头变量在python中有特定含义
+  \item 变量中不能有空格及常用标点符号
+  \item 不能使用关键字作为变量名
+  \item 建议不要使用系统内置的模块名、类型名、函数名及已导入的模块名及
+    其成员名，预防重名引起混淆
+  \item 变量区分大小写case sensitive
+  \end{itemize}
+\end{itemize}
+
+\subsection{练习：关键字}
+\inputpython{examples/kw.py}{4}{5}
+
+\section{表达式和语句}
+表达式 = 算子 + 算符。算子可以是值，也可以是变量。表达式可求值。表达
+式2 + 2，值为4。若x = 2,则表达式　x * 3值为6。
+
+
+语句是python解释器可以执行的合法指令，语句做某些事情，改变某些情况。如
+语句x = 2，执行后，变量x被绑定到2这个值上。
+
+目前学习了两个语句：赋值和引入import，此外，注意print在python2中是语句，
+在python3中是函数。
+\subsection{几个python特有语句}
+\paragraph{序列解包赋值}
+\begin{python}
+  x, y, z = 1, 2, 3
+  values = 4, 5, 6
+  x, y, z = values
+  
+  # x, y, z = 1, 2
+  # x, y ,z  = 1, 2, 3, 4
+\end{python}
+\paragraph{链式赋值}
+将值绑定到若干变量的捷径 \pyth{x = y = z = 22}
+\paragraph{增量赋值}
+\pyth{x = 3, x += 1, x *= 3}
+\paragraph{空语句}
+\pyth{pass}什么也不做，作用是占位。
+\subsection{练习：空语句}
+\inputpython{examples/pass.py}{4}{18}
+第一部分代码无法调试，更不会运行，因python中留白语句块非法。因此，常用
+技巧是用空语句pass占留白语句块的位置，让程序运行起来。
+
+\section{函数和模块}
+\subsection{函数}
+\begin{itemize}
+\item 一个函数(functions)就是一小段程序，执行特定功能
+  \begin{itemize}
+  \item Python自带大量函数可完成许多工作，另有数量庞大的第三方工具包提供了
+    更多的函数
+  \item 如果这些还不够用，程序员可以编写自己的函数完成特定的工作
+  \item Python自带的标准函数称为内置(built-in)函数
+  \item 例： 2 ** 3 可用\pyth{pow(2,3)}函数代替
+  \end{itemize}
+\item 使用函数的方法是调用(calling, invoke)函数，调用函数同时提供参数
+  (parameters),得到返回值(return value)
+  \begin{itemize}
+  \item \pyth{pow(2, 3)},2、3是传递给函数的参数，8是返回值。 
+  \item \pyth{print(x)}返回值就是输出内容
+  \end{itemize}
+\item 由于函数返回值，因此函数是一种表达式，可以将函数与运算符组合，创
+  制功能更丰富的表达式。 \pyth{10 + pow(2, 3*5) / 3.0}
+\end{itemize}
+
+\paragraph{Python内置函数}
+\href{https://docs.python.org/3/library/functions.html}{python内置函数表}
+\subsection{模块}
+对于非内置函数，使用import语句引入模块，通过语法格式module.function使用特定函数。
+\subsection{练习：引入模块}
+\inputpython{examples/import.py}{1}{19}
+自定义模块可有绝对引入 (absolute import) 和相对引入 (relative import)。
+\begin{python}
+  import ecommerce.products
+  from .database import Database
+  from ..database import Database
+\end{python}
+
+\section{小结}
+须掌握的概念: 数字、字符串、变量、赋值、绑定、运算符、算子、表达式、语句、引入、函数、模块。
+
+
