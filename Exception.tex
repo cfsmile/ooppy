@@ -1,38 +1,34 @@
 \chapter{异常}
-程序应区分正常情况事件和异常情况事件，异常事件可能是错误(errors)，还可能是发生了预想之外的情况。为处理异常情况，初步想法是用条件表达式判断各种可能的异常情况。这种处理方式效率低，缺乏变通，很难覆盖所有异常情况，导致程序频出意外。Python提供了一套处理异常的方法，创建、弹出、并处理异常。
+程序应区分正常情况事件和异常情况事件，异常事件可能是错误，还可能是发生了预想之外的情况。为处理异常情况，初步想法是用条件表达式判断各种可能的异常情况。这种处理方式效率低，缺乏变通，很难覆盖所有异常情况，易导致程序频出意外。Python提供了一套处理异常的方法，创建、弹出、并处理异常。
+
 \section{异常对象}
-Python用异常对象(exception objects)代表异常情况。出现错误，异常对象爆出异常(raises an exception)。如果该异常对象没有得到处理，程序终止，返回回溯(traceback)或错误提示。回溯就是异常的输出结果，阅读时，须从下向上读。其理念是当出错时，自动弹出异常。
+Python用异常对象（exception objects）代表异常情况。出现错误，异常对象爆出异常（raises an exception），即返回异常对象。如果该异常对象没有得到处理，程序终止，显示回溯(traceback)或错误提示信息。回溯就是异常的输出结果，阅读时，须从下向上读。这种处理异常事件背后的想法是希望当出错时，自动弹出异常。
 
 Python有多少异常类，其互相之间关系如何？请看
 \href{https://docs.python.org/3/library/exceptions.html#exception-hierarchy}{python异常类层次关系}
+
 \section{爆出异常}
 使用raise和一个异常类或异常对象，即可爆出异常。
-
 \begin{python}
   raise Exception
   raise Exception('hyperdrive overload')  # raise exception with message
   raise ArithmeticError
 \end{python}
+
 \section{自定义异常}
 Python自定义了若干异常类，描述了很大一部分异常情况。
 \begin{python}
 import exceptions
-
 dir(exceptions)  # Check built-in Exception
 \end{python}
-尽管有如此丰富的内置异常类，然还有不敷用之时。这就需要程序员自定义异常
-类。定义异常类和其他类定义方法一样，但要求自定义异常类必须是Exception子
-类。
-
-定义异常的语法为
+尽管有如此丰富的内置异常类，然还不敷用。这就需要程序员自定义异常类。定义异常类和其他类定义方法一样，只是要求自定义异常类必须是Exception子类。定义异常的语法如下
 \begin{verbatim}
 class 自定义异常名(Exception):
     类定义语句
 \end{verbatim}
-% \section{Trap Exception}
+
 \section{捕捉异常}
-处理异常称为捕捉异常。Python使用\pyth{try...except...finally}子句结构捕
-捉异常。
+处理异常称为捕捉异常。Python使用\pyth{try...except...finally}子句结构捕捉异常。
 \subsection{基本结构}
 \begin{framed}
 \begin{verbatim}
@@ -61,7 +57,7 @@ try:
 exception ZeroDivisioinError:
     print("The second number can't be zero!")
 \end{python}
-比较一下，用if条件表达式来判断异常，在上例情况是可行的。但如果有十种异常情况，就需要至少十个if条件表达式，程序会很乱。而使用try...except结构会十分清晰。
+比较一下，用if条件表达式来判断异常，在上例情况是可行的。但如果有十种异常情况，就需要至少十个if条件表达式，程序会很乱。而使用try...except程序结构十分清晰。
 \subsection{多个except子句}
 \begin{python}
 try:
@@ -82,9 +78,8 @@ try:  # catch multiple exceptions
 except (ZeroDivisionError, TypeError, NameError):
     print("There is definitly something wrong!")
 \end{python}
-
-\subsection{访问异常对象}
-可以在except子句中访问异常对象。
+\subsection{读取异常对象}
+可以在except子句中读取异常对象，根据异常对象的信息，判断出了什么错，定位出错位置等。
 \begin{python}
 try:
     x = 10
@@ -93,10 +88,7 @@ try:
 except (ZeroDivisionError, TypeError) as e:
     print(e)
 \end{python}
-
-尽管如此多异常类供使用，但有些没考虑到的异常依然能穿透try...except语句，
-突然冒出来。为防止有漏网的异常，人们想捕捉所有异常，那么仅写except子句，
-而不要写异常类名。
+尽管如此多异常类供使用，但有些没预防的异常依然能穿透try……except语句，突然冒出来。为防止有遗漏异常，人们想捕捉所有异常，通过仅写except子句，而不要写其他异常类名，可以做到这点。
 \begin{python}
 try:
     x = 10
@@ -105,9 +97,9 @@ try:
 except:
     print("Something wrong happened...")
 \end{python}
-但是，捕捉所有异常并不是一个好方法，仅是推脱。好办法是预先考虑尽可能多
-异常，安全的处理它们，而不是一股脑推给except。
+但是，捕捉所有异常并不是一个好方法，仅是推脱。好办法是预先考虑尽可能多异常，安全的处理它们，而不是一股脑推给except。
 \subsection{else子句}
+异常结构可以带一个else子句。
 \begin{python}
 try:
     x = 10
@@ -123,7 +115,8 @@ finally:
     print("Cleaning up.")     # The finally clause will be executed any way
 \end{python}
 
-\subsection{例子}
+\subsection{练习：异常处理}
+
 \pyth{auth}
 
 % ** 调试和测试

@@ -1,15 +1,9 @@
 \chapter{面向对象}
-Python它支持面向对象编程。- 以C语言为代表的过程式编程重点在编写函数，处
-理数据面向对象编程，强调创建既包含数据又包含处理功能的对象。每个对象代
-表了真实世界的一个客观事物(object)或概念，其处理功能代表了客体之间的关
-联互动。
+Python支持面向对象编程。以C语言为代表的结构化编程重点在编写函数，处理数据。面向对象编程，强调创建既包含数据又包含处理功能的对象。每个对象代表了真实世界的一个客观事物（object）或概念，其处理功能代表了客观事物之间的关联互动。
 
 \section{一切皆对象}
-对象是Python对数据的进行抽象表达的术语。Python程序中，所有数据均表示为
-对象或对象间的关系。每个对象都唯一的标识、是某种数据类型，有值。
-
-Python中所有事物都是对象。列表是对象，42是对象，模块是对象，函数是对象。
-通过例子能更清楚看出这一点。
+将程序中的数据和数据的操作合二为一抽象为一整体，Python用术语对象来刻画这个整体。每个对象都唯一的标识、属于某种数据类型，有值。
+Python中所有事物都是对象。列表是对象，42是对象，模块是对象，函数是对象。下面例子清楚展示出这一点。
 \begin{python}
 def foo(): pass
 
@@ -19,10 +13,8 @@ type(foo.__code__)
 id(foo.__code__)
 # (<class 'code'>, 38111680)  #  code is an object
 \end{python}
-
 \subsection{数据类型}
-对象的数据类型定义了该对象数据的取值范围，同时规定了该对象可以完成的动
-作。而数据类型本身也是对象，它的数据类型就是自身，type。
+对象的数据类型定义了该对象数据的取值范围，同时规定了该对象可以完成的操作。而数据类型本身也是对象，它的数据类型就是自身，type。
 \begin{python}
 type(42)
 #  <class 'int'>
@@ -31,7 +23,6 @@ type(type(42))
 type(type(type(42)))
 #  <class 'type'>
 \end{python}
-
 \subsection{类}
 Python中，类是用户自定义的数据类型。
 \begin{python}
@@ -43,36 +34,16 @@ type(j)
 type(type(j))
 # <class 'type'>
 \end{python}
+上面例子中，按Python语法，创造了一个自定义数据类型Joe。j是类Joe的实例,意即j是一个对象，它的数据类型是Joe。而类Joe，既是一个对象，又是一个数据类型。术语“类（class）”和“数据类型（type）”是同一个概念的两个名字。为防混淆，一般称内置数据类型为数据类型，自定义数据类型为类。
 
-上面例子中，按Python语法，创造了一个自定义数据类型Joe。j是类Joe的实
-例,意即j是一个对象，它的数据类型是Joe。而类Joe，既是一个对象，又是一个
-数据类型。术语“类（class）”和“数据类型（type）”是同一个概念的两个名
-字。为防混淆，一般称内置数据类型(built-in type)为数据类型，自定义数据类
-型(user-defined type)为类。
-
-类提供了将数据和功能组合在一起，成为新数据类型的方法。创建一个类，就是
-创建了某种的对象的新数据类型。类的实例有自己的属性，描述实例的状态，代
-表了类的数据方面；类和类的实例有自己的方法，能修改状态，代表了类的行为
-方面。
-
+类提供了将数据和功能组合在一起，成为新数据类型的方法。创建一个类，就是创建了某种的对象的新数据类型。类的实例有自己的属性，描述实例的状态，代表了类的数据方面；类和类的实例有自己的方法，能修改状态，代表了类的行为方面。
 \subsection{实例}
-实例(instance)是对象的同义语。 “实例是某数据类型的对象”。，42是int数
-据类型的实例，即42是一个整型对象。同理，j是自定义数据类型Joe的一个实
-例，j是类Joe的一个对象。
+实例（instance）是对象的同义语。 “实例是某数据类型的对象”。，42是int数据类型的实例，即42是一个整型对象。j是自定义数据类型Joe的一个实例，即j是类Joe的一个对象。
 
 \section{类的例子}
-
-定义数学意义上，二维平面上的点Point。二维平面中，视点为一个实体，用横纵
-坐标定义，如(0, 0)、(x, y)。与点有关的操作有，计算该点到原点距离，计算
-该点到某点的两点间距离，计算两点的中点坐标，或该点是否在某个矩形或圆形
-范围内。定义点的两个坐标是数值型数据，问题是如何将这连个数值，组成代表
-点的对象。初步想法是用元组来表示。可以，且在某些情况下是个不错的选择。
-另一个想法，是自定义类Point，两个坐标x,y定义为类的属性(attribute)。
-
+定义数学意义上，二维平面上的点Point。二维平面中，视点为一个实体，用横纵坐标定义，如(0, 0)、(x, y)。与点有关的操作有，计算该点到原点距离，计算该点到某点的两点间距离，计算两点的中点坐标，或该点是否在某个矩形或圆形范围内。定义点的两个坐标是数值型数据，问题是如何将这连个数值，组成代表点的对象。初步想法是用元组来表示。可以，且在某些情况下是个不错的选择。另一个想法，是自定义类Point，两个坐标x,y定义为类的属性（attribute）。
 \subsection{创建类、实例化对象的语法}
-
 构造函数使用\pyth{__init__()}方法创建一个该类的实例。
-
 \begin{python}
 class Point:
     """ Point class represents and manipulates x,y coords. """
@@ -87,24 +58,14 @@ q = Point()
 
 print(p.x, p.y, q,x, q.y)
 \end{python}
-
 \subsection{增加属性和方法}
-类属性用于描述类的性质。类的不同实例初始化为对象后，各自有各自的属性值，
-属性值描述了每个对象的状态。
+类属性用于描述类的性质。类的不同实例初始化为对象后，各自有各自的属性值，属性值描述了每个对象的状态。类属性与变量一样，赋值即定义。对象属性赋值语句：\pyth{object.attribute = value}
 
-类的方法是描述了类的行为，即该类的实例能做哪些事情。类的方法主要行为，
-就是改变实例的属性值，即改变对象的状态,完成状态转移。
+\fbox{\pyth{Point}}
 
-类属性与变量一样，赋值即定义。对象属性赋值语句：
-\pyth{object.attribute = value}
+类的方法是描述了类的行为，即该类的实例能做哪些事情。类的方法主要行为，就是改变实例的属性值，即改变对象的状态,完成状态转移。方法和函数的区别，方法必须至少提供一个参数self，self参数就是指调用该方法的对象，即该方法依附的对象。
 
-\pyth{Point}
-
-方法和函数的区别，方法必须至少提供一个参数self，self参数就是指调用该
-  方法的对象。
-
-\pyth{Pizza}
-
+\fbox{\pyth{Pizza}}
 
 \subsection{对象表示法}
 用UML做面向对象分析与设计。自学
@@ -112,49 +73,38 @@ print(p.x, p.y, q,x, q.y)
 \href{http://www.uml.org/what-is-uml.htm}{统一建模语言}
 \href{https://www.w3cschool.cn/uml_tutorial}{UML tutorial}
 \href{file:./misc/UML_Tutorial.pdf}{UML参考手册}
-
 \subsection{练习: 简易记事本}
-% UML设计图a simple command-line notebook application
-% \subsubsection{Analysis}
-% notes are short memos stored in a notebook.  Each note should record
-% the day it was written and can have tags added for easy querying.  It
-% should be possible to modify notes.  We also need to be able to search
-% for notes.  All these things should be done from the command line.
-% \subsubsection{Design}
+UML设计图a simple command-line notebook application
+\subsubsection{Analysis}
+notes are short memos stored in a notebook.  Each note should record
+the day it was written and can have tags added for easy querying.  It
+should be possible to modify notes.  We also need to be able to search
+for notes.  All these things should be done from the command line.
+\subsubsection{Design}
 
-% Note object.  A notebook container object.  Tags and dates also seemto
-% be objects, but we can use dates from Python's standard library.
+Note object.  A notebook container object.  Tags and dates also seemto
+be objects, but we can use dates from Python's standard library.
 
-% Note objects have attributes for memo, tags, creation\_date, and id.  A
-% match method for searching Notebook has the list of notes as an
-% attribute.  A search method that returns a list of filtered notes.
-% interact with these objects? Implement the command-line menu interface
+Note objects have attributes for memo, tags, creation\_date, and id.  A
+match method for searching Notebook has the list of notes as an
+attribute.  A search method that returns a list of filtered notes.
+interact with these objects? Implement the command-line menu interface
 
-%\section{对象特性}
-\section{object features}
+\section{对象特性}
 面向对象语言提供了对这些特性的支持。结构化语言没有这些特性。
-\subsection{Encapsulation}
-信息封装是一种信息访问保护机制，属性和方法分为
+\subsection{信息封装}
+信息封装是一种信息访问保护机制，属性和方法分为：
 \begin{description}
 \item{私有:} 对象的某些属性和方法只有该对象能访问它们
 \item{保护：} 该类和该类的子类可以访问
 \item{公开:} 所有对象都可以访问该对象的属性和方法
 \end{description}
+Python没有在语言层面提供严格访问保护机制。技术上，所有属性和方法都是公开的。 如果该方法仅内部使用，不希望别人访问，是在文档中注明，这是一个内部方法。或按习惯做法，是给属性或方法名，加一个下划线前缀，\pyth{_attribute}，下划线标记这是一个私有属性。更强烈的标
+记是前缀双下划线。这种技术称为修饰名称（name mangling），访问双下划线属性也是可以的，只不过写法上费点事。如此费事，岂不正是提醒，作者不希望用户使用此属性或方法。另外双下划线dunder，是许多special names的标志，程序员给属性、方法起名，不要使用双下划线。
+\subsection{继承}
+继承是重用代码的一种方法。继承允许在两个乃至多个类之间建立种属、上位类-下位类、继承（is a）关系。通用逻辑代码放到父类中，细节逻辑代码放到子类中。Python中每个类都使用了继承关系，所有类都继承自一个特殊类object。这个类几乎没有实用功能。但它提供了统一的视角，看待所有Python类。大家都是object类的子类。
 
-Python没有在语言层面提供严格访问保护机制。技术上，所有属性和方法都是公
-开的。 如果该方法仅内部使用，不希望别人访问，是在docstring中注明，这是
-一个内部方法。或按习惯做法，是给属性或方法名，加一个下划线前
-缀，\pyth{_attribute}，下划线足够醒目的标记这是一个私有属性。更强烈的标
-记是前缀双下划线。这种方法称为修饰名(name mangling称)，访问双下划线属性
-是可能的，只不过写法上费点事。如此费事，岂不正是提醒，此属性方法不应被
-使用的标记。另外双下划线dunder，是许多special names的标志，我们命名方法，
-不要使用双下划线。
-\subsection{Inheritance}
-继承是一种重用代码的方法。继承允许在两个乃至多个类之间建立种属、上位类-下
-位类、继承(is a)关系。通用逻辑代码放到父类中，细节逻辑代码放到子类
-中。Python中每个类都使用了继承关系，所有类都继承自一个特殊类object。这
-个类几乎没有实用功能。但它提供了统一的视角，看待所有Python类。
-\pyth{inheri}
+\fbox{\pyth{inheri}}
 
 Supplier可以做Contact能做的所有事情，及他自己的事情。这就是继承的优势，子类继承父亲的属性和行为，同时增加自己特有的属性和行为。比如，s的初始化，调用的是Contact的初始方法。Supplier继承了Contact的属性和方法。
 \begin{framed}
@@ -183,6 +133,7 @@ Supplier可以做Contact能做的所有事情，及他自己的事情。这就�
     tall inheritance trees tend to be brittle. 
 \end{verbatim}
 \end{framed}
+
 \fbox{需要一个解释继承的例子}
     
 % **** 通过继承扩展内置数据类型
@@ -258,19 +209,14 @@ Supplier可以做Contact能做的所有事情，及他自己的事情。这就�
 
 % longkeys.longest_key()
 % #+end_src
-
 \subsubsection{覆盖和父类初始化函数}
-覆盖是继承机制中很重要的一项技术，对于构造函数尤其重要。看例子，子类通
-过覆盖，继承了父类方法名字，但改变了父类的行为。
+覆盖是继承机制中很重要的一项技术，对于构造函数尤其重要。下面例子里，子类通过覆盖，继承了父类方法名字，但改变了父类的行为。
 \inputpython{examples/ooeg/override1.py}{1}{14}
 
-再看一例，覆盖父类构造函数
+再看一例，覆盖父类的构造函数。
 \inputpython{examples/ooeg/override1.py}{1}{29}
 
-继承可以让子类在父类基础上增加行为，可否继承并改变父类的行为呢？比
-如Contact，如果想给特殊的联系人，如朋友，增加电话号码怎么办？创建一个继
-承Contact的子类Friend，使其包含phone属性，是一个办法
-
+继承可以让子类在父类基础上增加行为，可否继承并改变父类的行为呢？比如Contact，如果想给特殊的联系人，如朋友，增加电话号码怎么办？创建一个继承Contact的子类Friend，使其包含phone属性，是一个办法。
 \begin{python}
 class Friend(Contact):
     def __init__(self, name, email, phone):
@@ -278,86 +224,56 @@ class Friend(Contact):
         self.email = email
         self.phone = phone
 \end{python}
+子类Friend的\pyth{__init__()}方法，覆盖了父类Contact的\pyth{__init__()}方法。覆盖意指，用一个名字相同、内容不同的新方法调整或替换父类中的方法。Friend继承了Contact的属性和方法，但使用覆盖技术调整了\pyth{__init__()}方法。
 
-子类Friend的\pyth{__init__()}方法，覆盖了父类Contact
-的\pyth{__init__()}方法。覆盖意指，用一个名字相同、内容不同的新方法调整或替换父类中的方法。Friend继承了Contact的属性和方法，但使用覆盖技术调整了\pyth{__init__()}方法。
-
-这个类，有一个问题，Contact和Friend重复了某些代码，比如email要改
-为Email或e\_mail,那么维护程序，需要修改两处代码。另一个更严重的问题
-是，Friend的\pyth{__init__()}方法没有把Friend对象加到联系人列
-表all\_contacts，逻辑上说不通。正确的做法，或说正确的子类初始化函数应该
-先调用父类的初始化函数，再做子类的初始化工作，比如增加属
-性。\pyth{super()}指该类的直接父类。
+这个类，有一个问题，Contact和Friend重复了某些代码，比如email要改为Email或e\_mail,那么维护程序，需要修改两处代码。另一个更严重的问题是，Friend的\pyth{__init__()}方法没有把Friend对象加到联系人列表all\_contacts，逻辑上说不通。正确的做法，或说正确的子类初始化函数应该先调用父类的初始化函数，再做子类的初始化工作，比如增加属性。\pyth{super()}指该类的直接父类。
 \begin{python}
 class Friend(Contact):
     def __init__(self, name, email, phone):
         super().__init__(name, email)  # call super's constructor
         self.phone = phone
 \end{python}
-
 \subsubsection{多重继承}
-单重继承指一个子类只有一个直接父类，多重继承指一个子类有多个直接父
-类。Java是典型的单重继承，C++、Python是典型的多重继承。
+单重继承指一个子类只有一个直接父类，多重继承指一个子类有多个直接父类。Java是典型的单重继承，C++、Python是典型的多重继承。
 \paragraph{混入类}
-最简单和最使用的多重继承形式，是所谓混入 (mixin) 类。混入类，是一个承担父类功能的类，它一般不独立使用，而是指望它被其他类继承，由此，该父类的功能被扩展到其他类。
+最简单和最常用的多重继承形式，是所谓混入 (mixin) 类。混入类，是一个承担父类功能的类，它一般不独立使用，而是指望它被其他类继承，由此，该父类的功能被扩展到其他类。
 
-假如，我们想让Contact类有发送电子邮件的功能。此外，还应考虑到，不
-只Contact，其他类也可能需要发送电子邮件的功能，那么就创建一个能发送电子
-邮件的混入类。其他类，谁想包含发电邮功能，继承此类即可。
+假设，我们想让Contact类有发送电子邮件的功能。此外，还应考虑到，不只Contact，其他类也可能需要发送电子邮件的功能，那么就创建一个能发送电子邮件的混入类。其他类，谁想包含发电邮功能，继承此类即可。
 \inputpython{examples/ooeg/mixin.py}{1}{12}
 \paragraph{菱形难题}
-当使用多重、多层继承时，多重继承会越来越麻烦。会遇到所谓菱形难题
-(diamond problem)。
+当使用多重、多层继承时，多重继承会越来越麻烦。会遇到所谓菱形难题（diamond problem）。
 
 例如，要给Friend增加地址属性。地址是一个字符串，包含街、市、省、国等信息。我们有几个选择。
 \begin{itemize}
 \item 可以把这些信息视为多个字符串参数，送入Friend初始化函数
 \item 也可以把它们组成元组和字典，作为一个参数发给初始化函数
-\item 更可以单独建立一个Address类，这些字符串都是类的属性，把Address的
-  实例作为一个参数发给Friend初始化函数
+\item 更可以单独建立一个Address类，这些字符串都是类的属性，把Address的实例作为一个参数发给Friend初始化函数
 \end{itemize}
-第三种选择是将地址抽象为一个类，其优势，一是可以增加方法，比如给出导航
-路线等。另一个优势，是其他需要地址的类，比如建筑物类、企业类、组织类可
-以重用地址类。通过组合两个类方式得到新类，技术上称为组
-合 (composition)。组合标志两个类之间建立了属于(has a)关系。
+第三种选择是将地址抽象为一个类，其优势，一是可以增加方法，比如给出导航路线等。另一个优势，是其他需要地址的类，比如建筑物类、企业类、组织类可以重用地址类。通过组合两个类方式得到新类，技术上称为组合 (composition)。组合标志两个类之间建立了属于（has a）关系。
 
-为了研究继承，我们使用继承来实现地址，创建一个AddressHolder类
+为了研究继承，我们使用继承来实现地址，创建一个AddressHolder类。
 A Friend can have an Addres. Also, a Friend is an AddressHolder.
 
-菱形难题怎么发生的呢？两个父类的都有\pyth{__init__()}方法。当这两个类都继承自object就出问题了。基类仅应被调用一次，那么，调用顺序是
-Friend->Contact->AddressHolder->Object，还是Friend->Contact->AddressHolder->Object?
-
+菱形难题怎么发生的呢？两个父类的都有\pyth{__init__()}方法。当这两个类都继承自object就出问题了。基类仅应被调用一次，那么，调用顺序是Friend->Contact->AddressHolder->Object，还是Friend->Contact->AddressHolder->Object？
 \paragraph{理解MRO}
 技术上，调用顺序称为方法消解顺序(MRO, method resolution order)。根据MRO，可以找到解决菱形难题的方法。
 例1:
 \inputpython{examples/ooeg/diamond1.py}{1}{36}
 例2:
 \inputpython{examples/ooeg/diamond2.py}{1}{37}
-
-通过输出结果看到，基类被调用了两次。这能引致错误，比如同一个银行账户，
-取或存两次。
-
+通过输出结果看到，基类被调用了两次。这能引致错误，比如同一个银行账户，取或存两次。
 \paragraph{菱形难题解决问题方法之一是使用super}
 \inputpython{examples/ooeg/diamond3.py}{1}{37}
 \begin{itemize}
-\item
-  Subclass的\pyth{super().call_me()}调用\pyth{LeftSubclass.call_me()}，
-  进而调用其\pyth{super().call_me()}
-\item 但在这里super()没有指向LeftSubclass的基类BaseClass，而是指
-  向RightSubclass, 尽管它不是LeftSubclass的父类。RightSubclass再调
-  用BaseClass的\pyth{call_me()}
-\item 因此，多重继承super()找的并不是“父辈”方法，而是“后继(next)”方
-  法
+\item Subclass的\pyth{super().call_me()}调用\pyth{LeftSubclass.call_me()}，进而调用其\pyth{super().call_me()}
+\item 但在这里super()没有指向LeftSubclass的基类BaseClass，而是指向RightSubclass, 尽管它不是LeftSubclass的父类。RightSubclass再调用BaseClass的\pyth{call_me()}
+\item 因此，多重继承super()找的并不是“父辈”方法，而是“后继(next)”方法
 \item 这个顺序是内置的mro机制决定的
-\item 结论：减少，乃至避免使用多重继承，除非有必要。调用父类方法时，不
-  用直接调用语句，使用super()
+\item 结论：减少，乃至避免使用多重继承，除非有必要。调用父类方法时，不用直接调用语句，使用super()
 \item 实践上，duck typing的使用极大的减少了多重继承，乃至继承的使用必要
 \end{itemize}
-
-\subsection{Grouping arguments}
-参数分组，会让多重继承问题进一步复杂。再看到Friend多重继承例子。
-其\pyth{__init__()}方法里，参数被分组，分别传给了它的两个父类。
-
+\subsection{参数分组}
+参数分组，会让多重继承问题进一步复杂。再看到Friend多重继承例子。其\pyth{__init__()}方法里，参数被分组，分别传给了它的两个父类。
 \begin{python}
 class Friend(Contact, AddressHolder):
     def __init__(self,
@@ -372,35 +288,21 @@ class Friend(Contact, AddressHolder):
         AddressHolder.__init__(self, street, city, state,code)  # 2 groups of arguments
         self.phone = phone
 \end{python}
-
-按上节原则，调用父类方法时，不直接调用，而使用super()，那如何将参数分为
-不同组，传给super()呢?比如，super()先将name,
-email传给\pyth{Contact.__init__()}，然
-后\pyth{Contact.__init__()}调用super,这就需要把地址信息传给“后继”方法，
-即\pyth{AddressHolder.__init__()}。当调用同名、不同参数的父类方法时，就
-会出现这个问题。最常出现这种问题处就是\pyth{__init__()}方法。唯一解决办
-法，就是预先计划。设计基类参数列表时，基类用，而不一定每个子类都用的参
-数，定义为关键字参数。同时，定义该方法可以接受可变参数，并将这些参数传
-给它的super()方法
+按上节原则，调用父类方法时，不直接调用，而使用super()，那如何将参数分为不同组，传给super()呢?比如，super()先将name、 email传给\pyth{Contact.__init__()}，然后\pyth{Contact.__init__()}调用super，这就需要把地址信息传给“后继”方法，即\pyth{AddressHolder.__init__()}。当调用同名、不同参数的父类方法时，就会出现这个问题。最常出现这种问题处就是\pyth{__init__()}方法。唯一解决办法，就是预先计划。设计基类参数列表时，基类用，而不一定每个子类都用的参数，定义为关键字参数。同时，定义该方法可以接受可变参数，并将这些参数传给它的super()方法。
   
 看下面较正规的多重继承代码。
 \inputpython{examples/ooeg/multiinheri.py}{1}{22}
-
-在阅读和编程实践中逐步提高，掌握多重继承的使用，理解其代码和涵义。
+希望同学们在阅读和编程实践中逐步提高，掌握多重继承的使用，理解其代码和涵义。
 \subsection{Polymorphism}
-多态(polymorphism)概念指，当不知道调用方法的子类是哪个时，系统会自动根
-据子类所属类别，执行相应的方法，产生不同的行为。
+多态（polymorphism）概念指，当不知道调用方法的子类是哪个时，系统会自动根据子类所属类别，执行相应的方法，产生不同的行为。
 
-假设用程序播放音频。一个播放器对象(media player object)创建AudioFile对象，执行play方法。play()方法负责解码音频文件，并播放，其行为可简单描述为audio-file.play()。但解码音频文件，需要根据不同的文件使用不同的算法，wav,mp3,wma,ogg，显然不能用同一种算法解码。难道要为每种文件定义一个play()方法嘛，那得定义多少个方法，定义多少个方法够用呢？ 随着技术发展，出现新的音频文件格式怎么办？使用继承和多态可以简化设计。每种格式用AudioFile的一个子类表示，如WavFile, MP3File。每个子类都有自己的play()方法。但该方法根据不同子类实现不同的解码算法和播放功能。而播放器对象永远不必知道AudioFile指的是哪个子类，播放器只需调用play()方法，让对象
-的多态机制处理具体的解码播放即可
+假设用程序播放音频。一个播放器对象(media player object)创建AudioFile对象，执行play方法。play()方法负责解码音频文件，并播放，其行为可简单描述为audio-file.play()。但解码音频文件，需要根据不同的文件使用不同的算法，wav,mp3,wma,ogg，显然不能用同一种算法解码。难道要为每种文件定义一个play()方法嘛，那得定义多少个方法，定义多少个方法够用呢？ 随着技术发展，出现新的音频文件格式怎么办？使用继承和多态可以简化设计。每种格式用AudioFile的一个子类表示，如WavFile, MP3File。每个子类都有自己的play()方法。但该方法根据不同子类实现不同的解码算法和播放功能。而播放器对象永远不必知道AudioFile指的是哪个子类，播放器只需调用play()方法，让对象的多态机制处理具体的解码播放即可。
 
 示例如下，该例涵盖继承、覆盖、多态技术
 \inputpython{examples/ooeg/poly.py}{1}{112}
 
 \subsection{Duck Typing}
-
 \href{http://en.wikipedia.org/wiki/Duck_typing}{Duck Typing}是python处理多态的方式，是一种不严格的多态。DT允许非子类的对象也可以调用多态方法。
-
 \href{http://www.voidspace.org.uk/python/articles/duck_typing.shtlm}{duck typing的解释}
 
 % #+begin_example
@@ -416,15 +318,10 @@ email传给\pyth{Contact.__init__()}，然
 % required behavior without forcing it to be a subclass。
 % #+end_example
 
-用“鲸鱼”、“鳄鱼”解释duck typing，fishable-like whale。由于海棠花栽
-培历史悠久，深受人们喜爱，后来人们发现了与它花形相似的植物，往往就以海
-棠来命名，如秋海棠、四季海棠，丽格海棠等等。
+用“鲸鱼”、“鳄鱼”解释duck typing，fishable-like whale。由于海棠花栽培历史悠久，深受人们喜爱，后来人们发现了与它花形相似的植物，往往就以海棠来命名，如秋海棠、四季海棠，丽格海棠等等。明代《群芳谱》所记载的“海棠四品”: 西府海棠，蔷薇科苹果属；垂丝海棠，
+蔷薇科苹果属；贴梗海棠，蔷薇科木瓜属；木瓜海棠，蔷薇科木瓜属。
 
-明代《群芳谱》所记载的“海棠四品”: + 西府海棠，蔷薇科苹果属+ 垂丝海棠，
-蔷薇科苹果属+ 贴梗海棠，蔷薇科木瓜属+ 木瓜海棠，蔷薇科木瓜属。
-
-在oop中广泛使用继承是因为有多态存在。在python中，由于duck typing存在，
-降低了使用多态的必要程度，同时也降低了多重继承的必要程度。
+在oop中广泛使用继承是因为有多态存在。在python中，由于duck typing存在，降低了使用多态的必要程度，同时也降低了多重继承的必要程度。
 
 \begin{python}
 import collections
@@ -495,16 +392,12 @@ deck[12::13]
 % isinstance(oc, Container)
 % issubclass(OddContainer, Container)
 % #+end_src
-
-% - 这正是duck typing比传统多态惊人之处，
 不通过继承（或多重继承），dt创建了一种is a关系。
 
-\subsection{Python property}
-
+\subsection{Python属性}
+Pyhthon通过关键字property，支持一种称为“属性”的技术。
 \subsubsection{Property}
-一般oo语言，如java，把修改属性的方法称为getter和setter方法，统称
-为accessor，而且要求每个属性配备一对方法，保证访问控制。容易引致大
-量getter,setter除了读写，什么也没做，所谓copy-paste programming。
+一般的面向对象语言，把读取和修改属性的方法称为getter和setter方法，统称为访问器，要求每个属性配备一对方法，保证访问控制。这种做法容易引致编写大量访问器方法，而这些方法除了简单读写，什么也没做，显得冗长重复。Python解决访问器的方法，是提供一个关键字property，使得方法看上去和属性一样，通过property将读写属性的方法包装成属性，利用包装后的属性控制读取和修改。
 \begin{python}
 class Rectangle:
     def __init__(self):
@@ -533,9 +426,7 @@ r.size
 r.size = 150, 100
 r.width
 \end{python}
-
-Python没有真正的私有属性。语言机制不保证，仅通过惯例防止访问私有属性和方法。
-Python解决accessor的方式，是提供一个关键字property，使得方法看上去和属性一样。这样通过property读写属性，完成属性访问。例子中size依然使用的是getSize, setSize读写属性。但从用户角度看，size就像一个属性一样，访问细节被程序员隐藏起来了。
+例子中size依然使用的是getSize, setSize读写属性。但从用户角度看，size就像一个属性一样，访问细节被隐藏起来。
 
 \begin{python}
 # class Color:
@@ -575,18 +466,14 @@ c.name = "red"   # setter method is like attribute
 print(c.name)
 c.name = ""
 \end{python}
-
-\paragraph{细究property}
-
-\pyth{property()}是一个内置函数，返回一个property对象。其函数签名为
-
+\subsubsection{细究property}
+\pyth{property()}是一个内置函数，返回一个property对象。其函数签名如下。
 \begin{itemize}
 \item \pyth{property(fget=None, fset=None, fdel=None, doc=None)}
 \item fdel用于记录值被删除时情况
-\item docstring 是一个说明，解释该property
+\item docstring是说明，解释该property
 \end{itemize}
-
-
+通过一个例子看下这几个参数都是什么意思。
 \begin{python}
 class Silly:
     def _get_silly(self):
@@ -610,39 +497,33 @@ s.silly
 help(s)
 del s.silly
 \end{python}
+试着将\pyth{property()}想象成一位代表，代表某个属性。有了property，用户想读取或修改属性值，就不必直接调用访问器方法了，而是去联系它的代表，由代表来解决读取和修改。用户只需从代表那里，得到自己想要的结果。
 
-将property()想象成一位代表，代表某个属性，由它来解决读、写属性。
-当然，读写方法需由程序员完成，property对象通过这两个方法读写属性。property的作用是将这两个方法对用户隐藏起来，户不用关心读写方法了。
+实际上，访问器方法依然需由程序员完成，property对象依然通过这两个方法读写属性。property的作用是将这两个方法对用户隐藏起来，户不用关心读写方法了。同时，对于不需要用户读取或修改的属性，就不再提供访问器方法，用户也无法通过property访问了。这既降低了代码冗余，也适当隐藏了部分信息。
 
-事实上，property不是函数，是类的实例，property对象。该类用“神奇方法(magic methods)”，正式名称为“特别方法（special names）”完成工作。
+技术上，property是类的实例，是property对象。该类用“神奇方法(magic methods)”，正式名称为“特别方法（special names）”的技术完成工作。这些方法是\pyth{__get__(),__set__(), __delete__()}。
 
-这些方法是\pyth{__get__(),__set__(), __delete__()}。
-
-以上三个方法定义了描述器协议(descriptor protocol)。实现了这三个方法任一个方法的对象，称为descriptor，描述器。按python习惯，可以称为descriptable object。
-
-描述器特别处在于，它可以控制对属性的读写访问。
-阅读: \url{https://docs.python.org/3/howto/descriptor.html}
-
+以上三个方法定义了描述器协议(descriptor protocol)。一个对象只要实现了这三个方法中任一个，就可称为描述器（descriptor）。描述器特别处在于，它可以控制对属性的读写访问。而完成读写属性的方法，正是那三个特别方法。更多内容，请阅读: \url{https://docs.python.org/3/howto/descriptor.html}。
 \paragraph{装饰器：另一种创建property方法}
-新的property语法用到装饰器(decorator)，返回property对象。装饰器通过谓语法糖衣(syntax sugar, constuctor like [])，将@property放在方法上头，表明它们是某属性的装饰器方法。免去给私有属性加下划线的麻烦，又将多个方法整合为一个property。property的docstring由getter方法中的注释指定。有一个要求，所有方法必须同名。
+新的property语法用装饰器（decorator）技术，返回property对象。装饰器通过语法糖衣（syntax sugar, constuctor like [])，将@property放在方法定义上一行，表明这个方法某属性的描述器方法。这样做，免去给私有属性加下划线的麻烦，又将多个方法整合为一个property。如此装饰发生，有一个要求，所有方法必须同名。此外，property的docstring由getter方法中的注释指定。
 \begin{python}
 class Silly:
     @property
-    def silly(self):
-        "This is a silly property."
+    def silly(self):  # getter
+        "This is a silly property."  # docstring
         print("You are getting silly")
         return self._silly
 
     @silly.setter
-    def silly(self, value):
+    def silly(self, value): #  setter
         print("You are making silly {}".format(value))
         self._silly = value
 
     @silly.deleter
-    def silly(self):
+    def silly(self):  # deleter
         print("Whoah, you killed silly!")
         del self._silly
-
+# Note all the methods share a common name.
 s = Silly()
 s.silly = "funny"
 s.silly
@@ -650,29 +531,26 @@ s.silly
 help(s)
 del s.silly
 \end{python}
-
-该类的property和前面行为一致，可读性更好了，代码看上去也更优雅。
-
+该类的property采用现代写法，与前面行为一致，可读性更好了，代码看上去也更优雅。
 \paragraph{method, attribute, property辨析}
-如何选择使用属性、方法和property？property模糊了属性和方法的界限。从技术角度看，python中数据、property、方法，都是类的属性。尽管方法是可调用的(callable)，它依然是属性。因此可以这样理解，数据是数据属性，方法是可调用属性，而property是定制属性。这两点，可以帮助程序员决定，设计类时，应该选用哪个。
+如何选择使用属性、方法和property？property模糊了属性和方法的界限。从技术角度看，Python中数据属性、property、方法，都是类的属性。尽管方法是可调用的，它依然是属性。因此可以这样理解，数据是数据属性，方法是可调用属性，而property是定制属性。这两点，可以帮助程序员决定，设计类时，应该选用哪个。
 
 方法代表动作，由对象发出的动作，或施动于对象的动作。方法要做事情，方法名字一般是动词。
 
-如果类的属性不是动作，那就要决定，是选用标准数据属性，还是property。一般都使数据属性。数据属性是名词，若需要对数据属性进行控制访问，用property。数据属性和property区别就是，当存取property时，会调用特定的方法访问。
+如果类的属性不是动作，那就要决定，是选用标准数据属性，还是property。一般都使数据属性，数据属性是名词。若需要对数据属性进行控制访问，用property。数据属性和property区别就是，当存取property时，会调用特定的方法访问。
 
-有用？
+\fbox{manager例子有用？}
 \inputpython{examples/ooeg/manager.py}{1}{120}
 
-\subsection{Class Mehtods}
-
-静态方法(static methods)和类方法(class methods)由装饰器@staticmethod和@classmethod，分别包装(wrapping)对象方法生成。类方法用cls指代该类，有如self指代某对象一样。
+\subsection{类方法}
+类方法（class methods）和静态方法(static methods)由装饰器@staticmethod和@classmethod，包装对象方法生成。类方法用cls指代该类，就像self指代某对象一样。
+\fbox{区别，何时用类方法，何时用静态方法？}
 % - 阅读
 %   + https://julien.danjou.info/blog/2013/guide-python-static-class-abstract-methods 
 %   + https://stackoverflow.com/questions/136097/what-is-the-difference-between-staticmethod-and-classmethod-in-python
 %   + https://stackoverflow.com/questions/12179271/meaning-of-classmethod-and-staticmethod-for-beginner
 %   + https://www.geeksforgeeks.org/class-method-vs-static-method-python/
 % - 例子
-
 \begin{python}
 class MyClass:
     @staticmethod
@@ -688,8 +566,7 @@ MyClass.smeth()
 Myclass.cmeth()
 # This is a class method of <class '__main__.MyClass'>
 \end{python}
-% \subsection{静态方法}
-\subsection{Static Method}
+\subsection{静态方法}
 Python中的静态方法主要是方便将外部函数集成到类体中， 重点在不需要类实例化的情况下调用方法。
 \begin{python}
 # example

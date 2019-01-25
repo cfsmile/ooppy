@@ -1,19 +1,21 @@
 \chapter{高级数据类型}
-% \section{Python内置数据类型}
-\section{Built-in Datatype}
-数据结构,是按特定方式，将数据元素组织成为有结构（数据元素之间有明确关系）的数据集合。程序设计语言中的数据结构的类型一般称为数据类型。\href{https://docs.python.org/3/reference/datamodel.html}{Python数据模型}详尽说明了python各种数据类型。
-python主要内置数据类型有：
+
+\section{内置数据类型}
+数据结构，是将数据元素按特定方式组织成为有结构（数据元素之间有明确关系）的数据集合。程序设计语言中的数据结构的类型一般称为数据类型。\href{https://docs.python.org/3/reference/datamodel.html}{Python数据模型}详尽说明了Python支持的数据类型，这些数据类型称为内置数据类型。
+Python主要内置数据类型有：
 \begin{itemize}
 \item 数字，含整数、浮点数、复数
-\item 序列(sequence)
+\item 序列
 \item 映射
 \item 类
 \item 实例
 \item 异常
-\item 不太常用内置数据类型，如集合等
+\item 其他不常用的类型，如集合
 \end{itemize}
-Python最基本的数据类型是序列。序列中每个数据元素都被赋予一个整数，表示它的位置，称为索引(index)，索引从0开始计数。通过索引可以访问并使用到该数据元素。除序列外，Python还有一种称为映射(mapping)的数据类型。只有一种内置映射类型: 字典(dictionary)。
-Python3有\href{https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range}{几种基本内置序列类型}：
+
+Python最常用的数据类型是序列。序列中的每个数据元素都附着一个整数，标示该数据元素在序列中的位置，称该整数为索引，索引从0开始计数。程序员通过索引可以访问并使用该数据元素。Python还经常使用的一种数据类型叫作映射。映射不使用整数索引访问数据元素，而是给映射中的数据元素附着一个名字，称该名字为键。程序员通过键可以访问并使用映射中的数据元素。序列有多种，典型代表是列表和元组，映射只有一种，字典。
+
+Python3的\href{https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range}{几种基本内置序列类型}：
 \begin{itemize}
 \item 列表 lists
 \item 元组 tuples
@@ -21,10 +23,9 @@ Python3有\href{https://docs.python.org/3/library/stdtypes.html#sequence-types-l
 \item 范围对象 range objects
 \end{itemize}
 列表适用范围广，几乎适用于所有情况，元组适用范围要窄一些。
-% \section{列表及列表函数}
-\
-\section{List and List Functions}
-当使用组合数据时，序列即派上用场。列表是序列之一种。列表的创建、访问、修改、删除，均可通过列表函数完成。其语法为：\pyth{function(list)}。
+
+\section{列表及列表函数}
+当使用组合数据时，序列即派上用场。列表是序列最典型的代表。列表的创建、访问、修改、删除，均可通过列表函数完成。其语法为：\pyth{function(list)}。
 \begin{python}
 zs = ['ZhangSan', 20]
 ls = ['LiSi', 19]
@@ -34,14 +35,14 @@ database
 \subsection{创建列表}
 \begin{itemize}
 \item 列表以[]为界定符，以逗号为分隔符
-\item 使用=将变量赋值给列表即可创建列表对象，事实上，是先创建列表对象，再将变量绑定到列表
-\item 使用\pyth{list()}函数可将其他类型的数据转换为列表
+\item 使用=将变量赋值给列表即可创建列表对象。其执行顺序是先创建列表对象，再将变量绑定到列表
+\item 使用\pyth{list()}函数可将其他数据类型转换为列表类型
 \end{itemize}
 \subsubsection{示例:创建列表}
 \inputpython{examples/createlist.py}{1}{25}
 \subsection{查找列表元素}
 \subsubsection{索引}
-序列中所有元素都索引编号，从0起始。使用元素的索引编号，取得元素值,称为索引。索引可以取负值。
+列表中所有元素的索引，从0起始编号。索引可以取负值。
 \begin{python}
 greeting = 'hello'
 greeting[0]
@@ -54,15 +55,14 @@ a_list[4] # out of range
 索引用以访问单个元素，切片用以访问连续多个元素。
 \begin{itemize}
 \item 一般使用两个索引，中间一个冒号
-\item 序列从0起始计数
 \item 第一个索引所指的元素在，而第二个索引所指的元素不在访问范围内
-\item 第一个索引位置要在第二个索引前，颠倒了，只能得到空序列
+\item 第一个索引位置要在第二个索引前，颠倒了，只能得到空列表
 \item 切片可以使用3个索引数字，第三个称为步长，number[0:10:2]
 \end{itemize}
 \subsubsection{示例：切片访问列表元素}
 \inputpython{examples/lstslicing.py}{1}{67}
-\subsection{Update Element}
-列表具有是可改变(mutable)的性质, 即可修改其内部数据元素。
+\subsection{修改列表元素}
+列表具有可改变（mutable）的性质, 即可修改其内部数据元素。并不是每种序列都具有可改变的性质。后面讲的元组，也是序列之一种，但其具有不可改变（immutable）的性质，其内部元素是固定的，不可修改。
 \subsubsection{增加}
 用+可以拼接序列。
 \subsubsection{示例：增加列表元素}
@@ -71,7 +71,7 @@ a_list[4] # out of range
 用*可以倍增拼接序列。
 \subsubsection{示例：倍增列表元素}
 \inputpython{examples/lstmultiply.py}{1}{20}
-\subsubsection{赋值修改列表元素}
+\subsubsection{赋值修改}
 给某个索引位置赋值，修改列表一个元素。赋值给超范围索引，则报错。
 \begin{python}
 x = [1, 1, 1]
@@ -102,17 +102,17 @@ n
 n[1:4] = [] # del n[1:4]
 n
 \end{python}
-\subsection{Delete Elements}
-删除元素后，该元素消失，列表长度改变。
+\subsection{删除元素}
+删除元素后，该元素消失，列表的长度随之改变。
 \begin{python}
 len(x)
 del x[1]
 x
 len(x)
 \end{python}
-\subsection{Membership}
-使用\pyth{in}检查元素值是否属于序列，结果返回布尔值。
-\subsubsection{示例：判断元素是否属于列表}
+\subsection{归属}
+使用关键字\pyth{in}检查元素值是否属于列表，结果返回布尔值。
+\subsubsection{示例：元素归属}
 \inputpython{examples/lstmember.py}{1}{22}
 \subsection{其他常用列表函数}
 \begin{python}
@@ -126,10 +126,11 @@ reversed(seq)
 sorted(seq)
 tuple(seq)
 \end{python}
+
 \section{列表方法}
-方法是紧密依附(绑定)某对象的函数。列表方法依附于列表对象。调用方法语法为：\pyth{object.method(arguments)}。 列表的方法能访问和修改列表内容。
+方法是一种特殊函数，是紧密依附（绑定）于某个对象的函数。调用方法，语法上有特定的要求。调用方法的语法为：\pyth{object.method(arguments)}，必须指明其依附的对象。列表方法依附于列表对象，使用列表方法必须指明该方法操作的列表。使用列表方法能访问和修改列表内容，完成的任务与列表函数相似。
 \subsection{index}
-\pyth{index()}方法可以获取指定元素首次出现的下标，若不存在则抛出异常（报错），即以值求索引。与以索引求值互为反操作。
+\pyth{index()}方法获取指定元素首次出现的索引，若该元素不存在于列表内，则报错。其功能是以值求索引，与以索引求值互为逆操作。
 \begin{python}
 knights = ['we', 'are', 'the', 'knights', 'who', 'we','say', 'ni']
 knights.index('we')
@@ -139,7 +140,7 @@ knights.index('who')
 knights[4] # see the difference
 \end{python}
 \subsection{count}
-\pyth{count()}计算元素出现的次数。
+\pyth{count()}计算元素在列表中出现的总次数，即元素频次。
 \begin{python}
 ['to', 'be', 'or', 'not', 'to', 'be'].count('to)
 
@@ -148,7 +149,7 @@ x.count(1)
 x.count([1, 2])
 \end{python}
 \subsection{insert}
-\pyth{insert()}将一个元素对象增加到列表中。
+\pyth{insert()}将一个元素增加到列表指定位置。
 \begin{python}
 numbers = [1,2,3,4,5,6,7]
 numbers.insert(3, 'four')
@@ -159,14 +160,14 @@ numbers[3:3] = ['Five']
 numbers
 \end{python}
 \subsection{append}
-\pyth{append()}方法是所谓“就地改变(change the list in place)”。其含义是，该方法没有返回一个新的修改过的列表对象，而是直接修改原列表对象。优点是快、节省空间，缺点是丢失了原对象。
+\pyth{append()}方法也是向列表末尾增加元素，其操作是所谓“就地改变(change the list in place)”。其含义是，直接修改原列表对象。优点是快、节省空间，缺点是丢失了原对象。如果\pyth{append}操作失误，相当于没有备份原列表，没办法撤销误操作。如果原列表保存了很重要的数据，使用本方法一定要慎之又慎。
 \begin{python}
 lst = [1, 2, 3]
 lst.append(4)
 lst
 \end{python}
 \subsection{extend}
-\pyth{extend()}允许一次增加若干新元素。调用该语法后，原列表对象扩展为新列表对象。
+\pyth{extend()}允许一次增加若干新元素。调用该语法后，原列表对象扩展为新列表对象，也就就地改变。
 \begin{python}
 a = [1, 2, 3]
 b = [4, 5, 6]
@@ -183,7 +184,7 @@ b = [4, 5, 6]
 a[len(a):] = b
 \end{python}
 \subsection{pop}
-\pyth{pop()}从列表删除一个元素（默认是最后一个），并返回这个元素的值。pop方法是列表方法中唯一一个既修改列表又返回值（非None值）的方法pop方法可用于实现栈。
+\pyth{pop()}从列表末尾或指定位置（默认是末尾）删除一个元素，并返回这个元素的值。pop方法是列表方法中唯一一个既修改列表又返回值（非None值）的方法。pop方法可用于实现栈。
 \begin{python}
 x = [1, 2, 3]
 x.pop()
@@ -192,7 +193,7 @@ x.pop(0)  # remove specific value
 x
 \end{python}
 \subsection{remove}
-\pyth{remove()}删除某值，当列表中有多个元素值相同时，只删除第一次出现的元素。\pyth{remove()}是所谓“就地改变而不返回值(nonreturning in-placechanging)”的方法，它与pop正相反，它修改了列表，但不返回值。这种静默修改，不会给出提示，很容易让人忽略列表发生的改变。因此，使用该方法时，要留意它这种副作用。
+\pyth{remove()}删除某元素，当列表中有多个元素值相同时，只删除第一次出现的元素。\pyth{remove()}是所谓“就地改变而不返回值(nonreturning in-placechanging)”的方法，它与pop正相反，它修改了列表，但不返回值。这种静默修改，不会给出提示，很容易让人忽略列表发生的改变。因此，要小心使用该方法时，留意它的这种副作用。
 \begin{python}
 x = ['to', 'be', 'or', 'not', 'to', 'be']
 x.remove('be')
@@ -200,14 +201,14 @@ x
 # note the secone 'be'
 \end{python}
 \subsection{reverse}
-\pyth{reverse()}倒转列表，将元列表元素逆序排列。
+\pyth{reverse()}倒转列表，将列表元素逆序排列。
 \begin{python}
 x = [1, 2, 3]
 x.reverse()
 x
 \end{python}
 \subsection{sort}
-\pyth{sort()}方法是就地排序，排序后改变了原列表。与函数sorted对比，sorted是生成新列表对象。
+\pyth{sort()}方法是就地排序，排序后改变了原列表，没有生成新列表对象。与函数sorted对比，sorted是生成新列表对象。
 \begin{python}
   # 1.
   x = [4, 6, 2, 1, 7, 9]
@@ -235,10 +236,8 @@ x
   x
   y
 \end{python}
-\subsubsection{高级排序}
-\pyth{sort()}方法有两个可选参数（optional arguments）: key, reverse。这
-两个是关键字参数(key arguments)。设置这两个参数可以改变sort()方法的行
-为。
+\subsubsection{扩展排序}
+\pyth{sort()}方法有两个可选参数: key, reverse。这两个是关键字参数，设置这两个参数可以改变sort()方法的行为。
 \begin{python}
   # 1. 
 x = ['aardvark', 'abalone', 'acme', 'add', 'aerate']
@@ -261,27 +260,27 @@ x = ['aardvark', 'abalone', 'acme', 'add', 'aerate']
 x.sort(key=len, reverse=True)  # both by length and descent
 print(x)
 \end{python}
-\section{List Comprehension}
+\section{列表推导}
 \begin{itemize}
-\item 列表是Python最有用的数据类型，而在列表技术中，列表推导(list comprehension)是常用的开发应用技术
+\item 列表是Python最常用的数据类型，而在列表技术中，列表推导（list comprehension）是常用的编程技术
 \item 列表推导就一个目的：生成列表
-\item 其技术功能类似循环，又非常简洁，在很多地方替代了循环
+\item 其技术功能类似循环，却十分简洁，在很多地方取代了循环
 \end{itemize}
-\subsection{Exercise: List Comprehension}
+\subsection{练习：列表推导}
 \inputpython{examples/lstcompre.py}{1}{31}
-注意：示例6的算法尽管紧凑，但可读性差。这种情况下，首选使用循环描述算法，清晰简洁。选择循环，还是列表推导实现功能，不能一概而论，须视情况而定。
+示例6的算法尽管紧凑，但可读性很差。这种情况下，首选用循环来描述算法，因为清晰简洁，可读性、可维护性更好。因此，面对具体问题，选择循环还是列表推导完成任务，不能一概而论，须视情况而定。
+
 \section{字典}
 \begin{itemize}
 \item 字典是映射数据类型
-\item 映射中数据元素没有数字索引，而使用名字作为索引来访问元素。对比看，序列中数据元素有数字索引，通过索引访问元素
-\item 字典是无序的“键(key)：值(value)”对组成，“键：值”称为项(items)，字典是由项组成的集合。要求键值唯一，不重复。键只能由不可修改(immutable)数据类型充任，比如字符串、数字、元组
-\item 字典界定符为花括号{}，键值用冒号(：)分隔，项用逗号(，)分隔
-\item 键必须唯一，值不必唯一
-\item 如果元组的元素是可改变(mutable)数据类型的元素，比如，元组的元素是列表，那么这种元组不能充任键
-\item 列表不能充任键。因为，以可改变类型充任键，意味着键值可以修改，一旦修改键值，无法保证与字典中的其他键值不冲突，无法保证键值唯一。
+\item 映射中数据元素值没有整数索引，使用键作为索引访问元素值。
+\item “键（key）：值（value）”组成的对（pair）称为项（items）。字典是由无序的项组成的集合，要求键必须唯一，不重复，值不必唯一。键只能由不可修改的数据类型充任，比如字符串、数字、元组
+\item 字典界定符为花括号{}，键值用冒号（：）分隔，项用逗号（，）分隔
+\item 如果元组的元素是可改变的数据类型，比如，元组的元素是列表，那么这种元组不能充任键
+\item 列表不能充任键。因为，以可改变类型充任键，意味着键值可以修改，一旦修改键，无法保证修改键与字典中的其他键不冲突，有可能破坏键的唯一性。
 \end{itemize}
 \subsection{创建字典}
-使用dict函数可以用其他字典或（键，值）对序列创建字典。
+使用\pyth{dict()}函数可以将其他字典或（键:值）对序列元素创建为字典。
 \begin{python}
   # 1. use {} : , to create a dict
   d = {'Adam' : 24, 'Bob': 19}
@@ -305,8 +304,8 @@ print(x)
   x = dict()
   x = {}
 \end{python}
-\subsection{查找字典元素}
-字典的用法是通过查找键，进而查到值。我们熟悉的变量，即用字典数据类型，实现通过名字访问其值。
+\subsection{查找元素}
+字典查找元素是通过查找键，进而查到值。我们熟悉的变量，即是一种字典，通过变量名字访问变量的绑定值。
 \begin{python}
 a = (1, 2, 3, 4, 5)  #  global
 b = 'Hello, world.'  #  global
@@ -319,7 +318,7 @@ def demo():
 
 demo()
 \end{python}
-再以电话簿为例，比较列表和字典。 例：有一本电话簿如下，以列表方式实现查找电话号。
+通过例子，比较下列表和字典异同。 例：有一本电话簿如下，以列表方式实现查找电话号。
 \begin{python}
   names = ['Alice', 'Beth', 'Cecil', 'Dee-Dee', 'Earl','Frank','Gary',
   'Henrry', 'Ivan', 'Jack', 'Karl', 'Leon', 'Monty', 'Nash', 'Owen', 'Peter']
@@ -331,8 +330,8 @@ numbers[2]  # numbers[names.index('Cecil')]
 
 # What's Leon's number?
 \end{python}
-用列表实现的电话簿，查找电话号方式不符合习惯，人们熟悉的查找方式是用键（名字）找值（电话号），形如：phonebook['Cecil']，也希望用这种方式查电话号。使用字典可以达到这种效果。
-修改例子，以字典方式实现查找电话号。
+用列表实现的电话簿，查找电话号方式不符合习惯，人们熟悉的查找方式是用键（名字）找值（电话号），形如：\pyth{phonebook['Cecil']}，也希望用这种方式查电话号。使用字典可以达到这种效果。
+我们修改例子，以字典方式实现查找电话号。
 \begin{python}
   # create a dictionary
   phonebook = {'Alice': '2341', 'Beth':'9102',
@@ -346,43 +345,42 @@ numbers[2]  # numbers[names.index('Cecil')]
 \begin{itemize}
 \item \pyth{len(dict)} 返回项个数
 \item \pyth{dict[key]} 返回键对应的值
-\item \pyth{dict[key] = value} 将值v与键k对应起来
-\item \pyth{del dict[key]} 根据键k删除项
-\item \pyth{key in dict} 检查以k为键的项是否归属与字典d
+\item \pyth{dict[key] = value} 将值value与键key对应起来，相当于向字典增加一个项
+\item \pyth{del dict[key]} 根据键key删除项
+\item \pyth{key in dict} 检查以key为键的项是否归属字典dict
 \end{itemize}
-通过各自的函数，观察到字典与列表有如下区别：
+通过例子和各自的函数，可归纳出字典与列表的区别：
 \begin{itemize}
-\item 字典的键不必是整数，可以是任何不可修改类型的数据
-\item 自动增长，依据键给项赋值时，只要字典中尚没有该键，python会自动给字典创建一项。列表，如果超出索引范围，无法赋值
+\item 字典的键不必是整数，可以是任意不可修改类型的数据
+\item 字典自动增长，依据键给项赋值时，只要字典中尚没有该键，Python会自动给字典创建一项。列表，如果超出索引范围，无法赋值
 \item 键必须唯一，值不必唯一
-\item 字典归属操作，查找的是键，而非值。列表归属操作v in l查找的是列表
-  的值，而不是列表的索引编号
+\item 字典归属操作，查找的是键，而非值。列表归属操作value in list查找的是值，而不是索引
 \end{itemize}
 \subsection{练习：电话簿}
 \inputpython{examples/dictfunc.py}{1}{38}
-\subsection{字典推导式}
-使用字典推导的目的，是为了创建字典。
+\subsection{字典推导}
+字典也有推导式，注意与列表推导的区别。使用字典推导的目的，是为了创建字典。
 \inputpython{examples/dictcompre.py}{1}{5}
-\subsection{Dict Methods}
-注意函数与方法的异同。
+\subsection{字典方法}
+回想下，函数与方法的异同。
 \subsubsection{clear}
-清除所有字典项。这是个就地(in-place)操作，返回值为None。如果目的是删除字典的所有项，必须使用\pyth{clear()}方法。学习下面的例子。
+清除所有字典项。这是个就地(in-place)操作，返回值为None。如果目的是删除字典的所有项，必须使用\pyth{clear()}方法。
 \inputpython{examples/dictclear.py}{1}{24}
 \subsubsection{copy}
-浅复制(shallow copy)，复制后，原件、复件变量名称不同，却绑定到同一个值。
+浅复制（shallow copy），复制后，原件、复件变量名称不同，却绑定到同一个值。
 \inputpython{examples/dictshallow.py}{1}{8}
 通过例子，可以知道：
 \begin{itemize}
 \item 替换复件中的值，原件不受影响，如username
 \item 修改值（就地修改，而非替换），则原件受影响，如machines。因为他们的指向同一个值存储在同一个位置
-\item 避免出现浅复制问题的办法是进行深复制(deep copy)， 拷贝值，同时拷贝值里面嵌套包含的值
+\item 避免出现浅复制问题的办法是进行深复制（deep copy），拷贝值，同时拷贝值里面嵌套包含的值
 \item copy模块中的deepcopy函数完成深复制任务
 \end{itemize}
 \inputpython{examples/dictdeep.py}{1}{8}
-\paragraph{课后阅读}
+\paragraph{阅读材料}
 \begin{itemize}
-\item \href{https://docs.python.org/2/library/copy.html}{辨析深浅复制1}
-\item \href{https://www.quora.com/What-is-deep-copy-and-shallow-copy-in-Python}{辨析深浅复制2}
+\item \href{https://docs.python.org/2/library/copy.html}{辨析深浅复制文章1}
+\item \href{https://www.quora.com/What-is-deep-copy-and-shallow-copy-in-Python}{辨析深浅复制文章 2}
 \end{itemize}
 \subsubsection{fromkeys}
 \pyth{fromkeys()}根据给定的键，创建新字典，这些键对应的值默认均为None。
@@ -401,10 +399,9 @@ dict.fromkeys(['name', 'age'], '(unknown)')
 \inputpython{examples/dictfunc2.py}{1}{37}
 \subsubsection{has\_key}
 \begin{itemize}
-\item \pyth{has_key()}方法检查字典中是否有某个
-  键。 \pyth{dict.has_key(key)}等价于\pyth{key in dict}
-\item 面对多个方法、函数、编程方式可用时，选用适用即可
-\item 学多种实现方式是为了读懂别人的代码
+\item \pyth{has_key()}方法检查字典中是否有某个键。 \pyth{dict.has_key(key)}等价于\pyth{key in dict}
+\item 面对多个方法、函数、编程技术可用时，选用适用即可
+\item 掌握多种实现方式可以更好地读懂别人的代码
 \item 当其他程序员使用按他们兴趣选出的方法、函数，我们能通过读懂代码，理解他们的意图
 \end{itemize}
 \begin{python}
@@ -414,7 +411,7 @@ d['name'] = 'Eric'
 d.has_key('name')
 \end{python}
 \subsubsection{items and iteritems}
-\pyth{items()}返回一个列表，该列表包含字典所有项，返回值没有特定顺序。\pyth{iteritems()}方法功能基本相同，只不过返回值不是列表，而是循环对象(iterator)。
+\pyth{items()}返回一个列表，该列表包含字典所有项，返回值没有特定顺序。\pyth{iteritems()}方法功能基本相同，只不过返回值不是列表，而是循环对象（iterator）。
 \begin{python}
   d = { 'title':'Python Web Site', 'usl': 'http://www.python.org', 'spam': 0 }
   d.items()
@@ -453,7 +450,7 @@ d.setdefault('name', 'N/A')
 d
 \end{python}
 \subsubsection{update}
-\pyth{update()}根据键更新字典值。
+\pyth{update()}根据键更新值。
 \begin{python}
 d = {
     'title': 'Python Web Site',
@@ -474,12 +471,13 @@ d[3] = 3
 d[4] = 1
 d.values()
 \end{python}
+
 \section{元组}
 \begin{itemize}
-\item 元组和列表一样也是序列数据类型，区别在于，元组的内容不可改变(immutable)
-\item 元组以()为界定符,以逗号(,)为分隔符
-\item 创建单元素元组，必须元素后加“，”,创建元组的符号中，逗号是关键，仅有括号不起作用
-\item 序列解包实际上是对元组元素赋值(x, y, z) = 1, 2, 3
+\item 元组和列表一样是序列数据类型，区别在于，元组的元素不可改变)
+\item 元组以（）为界定符，以逗号（，）为分隔符
+\item 创建单元素元组，必须在这单个元素后加“，”，创建元组的符号中，逗号是关键，仅有括号不起作用
+\item 序列解包实际上是对元组元素赋值（x, y, z） = 1, 2, 3
 \item 元组没有类似列表的方法，因它无须增加、修改、删除。
 \end{itemize}
 \subsection{创建元组}
@@ -506,9 +504,9 @@ del s  #  delete tuple, you cannot delete elements of a tuple
 \end{python}
 \subsection{元组操作}
 \begin{itemize}
-\item 可用索引和切片访问元组元素
+\item 用索引和切片访问元组元素
 \item 元组用途：可用作映射的键；可用作内置函数和方法的返回值
-\item 元组中数据一旦定义就不允许更改。访问和处理元组速度比列表快， 如果定义一系列常量值，主要用于遍历元组元素，而不需要对元素进行修改，那么一般建议使用元组而不用列表
+\item 元组中数据一旦定义就不允许更改。访问和处理元组速度比列表快， 如果定义一系列常量值，主要用于遍历元组元素，而不需要对元素进行修改，那么建议使用元组而不用列表
 \end{itemize}
 \subsubsection{特殊情况}
 虽元组元素不可改变，但若元组元素为可变序列，如列表，情况有所不同。
@@ -531,11 +529,11 @@ for k, v in zip(keys, values):
 vt = (Fasle, 3.5, 'exp')
 (x, y, z) = vt
 \end{python}
-\subsection{生成器推导式}
+\subsection{生成器推导}
+将列表推导、字典推导的语法套用在元组上，写出的推导式，不叫元组推导，而叫作生成器推导。
 \begin{itemize}
-\item generator comprehension生成器推导式与列表推导式非常接近，区别处，生成器使用圆括号，而不是方括号
-\item 列表推导式的结果是列表对象
-\item 生成器推导式的结果却不是列表，不是字典，也不是元组，而是一个生成器对象generator
+\item 生成器推导（generator comprehension）使用圆括号界定推导式
+\item 列表推导式的结果是列表对象，字典推导的结果是字典，生成器推导式的结果却不是列表，不是字典，也不是元组，而是生成器对象（generator）
 \item 生成器是较新的技术
 \end{itemize}
 \begin{python}
@@ -550,8 +548,9 @@ g.__next__()
 for i in g:
     print(i, end='')
 \end{python}
+
 \section{集合}
-集合中元素是无序的，且元素不重复，唯一。集合使用花括号{}做界定符。
+集合是一种不同于序列和映射的数据类型。集合中元素是无序的，元素不重复，唯一。集合使用花括号{}做界定符。
 \subsection{创建、修改、删除}
 \begin{python}
   a = {3, 5}  # create use curly braces
@@ -595,7 +594,8 @@ y < z
 x.issubset(y)
 x.issubset(z)
 \end{python}
-\subsection{练习：取100个介于0-9999之间的随机数}
+\subsection{练习：生成随机数}
+要求：取100个介于0-9999之间的随机数。
 \begin{python}
 from random import randint
 listRandom = [randint(0, 9999) for i range(100)]
@@ -611,16 +611,16 @@ len(noRepeat)
 # By using set, one line of code do the job
 newSet = set(listRandom)
 \end{python}
+
 \section{再学字符串}
-字符串是不可修改序列数据类型。Strings are immutable sequence of
-Unicode points.
+字符串是不可修改序列数据类型（Strings are immutable sequence of Unicode points）。
 \subsection{基本操作}
-所有序列操作索引、切片、倍增、归属、求长度、最大、最小值等均适用于字符串。但所有赋值操作均不适用，因为字符串是不可修改类型。
+所有序列操作索引、切片、倍增、归属、求长度、最大、最小值等均适用于字符串。但所有赋值操作均不适用，因为字符串不可修改。
 \begin{python}
 website = 'http://www.python.org'
 website[-3:] = 'com'  # Type error
 \end{python}
-\subsection{String Format}
+\subsection{格式化字符串}
 \subsubsection{传统方式}
 字符串格式化适用格式化操作符， 百分号(\%)。
 \begin{itemize}
@@ -628,7 +628,7 @@ website[-3:] = 'com'  # Type error
 \item 常见格式字符，有\%s，\%d, \%e, \%f, \%\%等。
 \item 值可以是单个值，如字符串、数字，也可以是元组和字典，元组常用
 \end{itemize}
-  \begin{python}
+\begin{python}
 format = "Hello, %s. %s enough for ya?"
 values = ('world', 'Hot')
 print(format % values)
@@ -637,10 +637,10 @@ s = "Pi with three decimals: %.3f"
 from math import pi
 print(s % pi)
 \end{python}
-例子中，\%s部分称为转换部分(conversion specifiers)。完整的转换部分包括5个成分，其成分顺序对输出字符串有决定影响:
+上例中，\%s部分称为转换部分（conversion specifiers）。完整的转换部分包括5个成分，其值和顺序决定了以何种格式输出。
 \begin{itemize}
 \item \%标识转换部分开始
-\item 转换标志flag,绝得是否左对齐，数值是否带符号
+\item 转换标志flag，决定是否左对齐，数值是否带正负号
 \item 最小宽度
 \item 精度
 \item 转换类型
@@ -650,46 +650,45 @@ print(s % pi)
 \subsubsection{主流方式}
 \begin{itemize}
 \item 使用\pyth{str.format(argument list)}方法格式化字符串
-\item 该方法使用{}和:，代替传统的\%，格式化字符串
-\item 该方法可以使用位置、参数名字格式化，并支持序列解包等
+\item 该方法使用{}和:代替传统的\%对字符串进行格式化
+\item 该方法可以使用位置、参数名字对字符串进行格式化，且支持序列解包
 \end{itemize}
 \inputpython{examples/strfmt.py}{1}{65}
 \subsubsection{新出现方式f-string}
+这部分内容留给同学们自学。
 \href{https://docs.python.org/3/reference/lexical_analysis.html#f-strings}{f-string}
 \subsubsection{字典的格式化}
+这里顺道讲下字典这种数据类型的格式化输出。
 \begin{python}
 - phonebook = {'Alice': '2341', 'Beth':'9102', 'Cecil': '3258',
   'Dee-Dee': '0142', 'Earl': '5551'}
 # find the number of Cecil's
 - print("Cecil's phone number is %(Cecil)s." % phonebook)
 \end{python}
-\subsection{String Methods}
+\subsection{字符串方法}
 字符串的方法比列表方法更丰富，语法为\pyth{object.method(arguments)}。
 \subsubsection{find}
-在字符串中查找子字符串，找到返回子串的第一个字符索引，没找到返回-1。
+在字符串中查找子串，若找到返回子串的第一个字符索引，若没找到则返回-1。
 \inputpython{examples/strfind.py}{1}{6}
-自学:
+本节给出一些与所讲字符串方法功能相近，又有一些细微差别的方法。留给同学们自学。
 \pyth{rfind(), index(), rindex(), count(), startswith(), endswith()}
 \subsubsection{replace}
 替换字符串。
 \pyth{'This is a test'.replace('is', 'eez')} \\
-自学:
-\pyth{translate(), expandtabs()}
+自学: \pyth{translate(), expandtabs()}
 \subsubsection{join}
-非常重要的方法，与\pyth{split()}互为反操作,将序列元素拼接为字符串。
+非常重要的方法，与\pyth{split()}互为反操作，将序列元素拼接为字符串。
 \inputpython{examples/strjoin.py}{1}{13}
 \subsubsection{split}
 非常重要方法，与\pyth{join()}互为反操作，将字符串分割为序列。
 \inputpython{examples/strsplit.py}{1}{3}
-自学:
-\pyth{rsplit(), splitlines()}
+自学: \pyth{rsplit(), splitlines()}
 \subsubsection{lower}
 返回字符串小写形式。
 \inputpython{examples/strlower.py}{1}{9}
 自学:\pyth{islower(), capitalize(), swapcase(), title(), istitle(), upper(), isupper()}
 \subsubsection{strip}
-清除字符串左端和右端空白，或指定字符。仅清除两端，字符串中间的空白或字
-符不受影响。
+清除字符串左端和右端空白，或指定字符。仅清除两端，字符串中间的空白或字符不受影响。
 \begin{python}
 'internal whitespace is kept '.strip()
 '*** SPAM * for * every one!!!***'.strip('*!') #  delete *!
@@ -697,6 +696,7 @@ print(s % pi)
 自学:
 \pyth{lstrip(), rstrip()}
 \section{其他高级数据结构}
+Python支持许多高级数据结构，只是这些数据结构不再是内置的，而由工具包支持。使用这些数据结构，需要引入相应的包。较常使用的有如下几种。
 \begin{itemize}
 \item 堆 \pyth{import heapq}
 \item 队列 \pyth{import Queue}
