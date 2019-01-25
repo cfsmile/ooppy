@@ -1,0 +1,251 @@
+\chapter{控制流：选择与循环}
+
+\section{代码风格}
+Python有几个突出特点：
+\begin{itemize}
+  \item 不使用分号（;）做语句结束符
+  \item 不使用成对花括号（{}）作为边界符， 而是使用缩进，一般是4个空格，来界定语句块
+  \item 不要忽略冒号(:)
+  \item \#是注释符
+\end{itemize}
+\inputpython{examples/style.py}{1}{11}
+写程序就是填空，见下例。
+\begin{verbatim}
+def 函数名(参数列表):
+    """
+    docstring： 函数说明，说明函数功能，使用何种算法，参数个数、类型，
+                返回值等。
+    """
+    #  注释
+    代码块（函数体）
+    1. 输入
+    2. 处理
+    3. 输出
+    return 返回值
+\end{verbatim}
+\subsection{阅读材料}
+\href{https://www.python.org/dev/peps/pep-0008/}{Python推荐编码风格}
+
+\section{语句块}
+块（block）是一组语句，是一个整体。冒号表明语句块起点，缩进界定语句块。所有连续、同缩进格式的语句属于同一个语句块。当条件表达式值为“真”时，可在循环中执行语句块若干次。
+
+\section{条件表达式}
+Python中，单个常量、变量、任意合法表达式、或由简单条件表达式与运算符组合而成的复杂条件表达式都可视为条件表达式。这些表达式的值就是条件表达式的值。
+
+条件表达式有且仅有两个值，任意条件表达式值必居其一:
+\begin{itemize}
+\item ``假''： Fasle, 0, 0.0, 0j, None, 空列表[],空元组(),空集合，空字典{}，空字符串''，空range或其他空iterable对象
+\item ``真'': 其他情形
+\end{itemize}
+程序可以根据条件表达式的值，决定是否执行某个语句块。
+\subsection{条件表达式的组合}
+例如，\pyth{((a > 10) and < (a < 20))}。 组合后，其值依然“真”、“假”必居其一。
+\subsection{相等运算符和同一运算符}
+\begin{description}
+\item{==：}相等运算符
+\item{is：}同一运算符， 似乎与==相类，实在是有本质区别
+\end{description}
+\subsection{练习：相等和同一}
+\inputpython{examples/identity.py}{5}{13}
+两个运算符的区别在于：
+\begin{itemize}
+\item is 判断的是同一性（identity），而不是（值）相等（equality）。 x和y被绑定到同一列表，z被绑定到另一个列表，该列表恰与xy列表值相等。 尽管值等，但z与xy不是同一对象
+\item xy与z代表的列表值相等， 但不是同一个实体
+\item 用法： 用==判断两个对象值是否相等，用is判断两个对象是否同一
+\item 在CPython实现中，python的同一指x、y存储了同一个对象的内存地址
+\end{itemize}
+
+\section{分支结构}
+\subsection{单分支}
+\begin{framed}
+\begin{verbatim}
+  if 表达式：
+      语句块
+\end{verbatim}
+\end{framed}
+\subsection{练习：单分支}
+\inputpython{examples/if.py}{1}{13}
+\subsection{双分支}
+\begin{framed}
+\begin{verbatim}
+if 表达式：
+    语句块1
+else:  #   else clauses
+    语句块2
+\end{verbatim}
+\end{framed}
+\subsection{练习：双分支}
+\inputpython{examples/ifelse.py}{1}{17}
+\subsection{多分支}
+Python 不支持switch case关键字，多分支结构的功能用\pyth{if...elif...else}完成。
+\begin{framed}
+\begin{verbatim}
+if 表达式1：
+    语句块1
+elif 表达式2:  #   elif clauses
+    语句块2
+elif 表达式3:
+    :
+    :
+    :
+else:
+    语句块n
+\end{verbatim}
+\end{framed}
+\subsection{练习：多分支}
+\inputpython{examples/elif.py}{1}{7}
+\subsection{嵌套分支}
+使用嵌套结构一定严格控制不同级别语句块的缩进量，因缩进量决定着语句块的从属关系，影响着程序的执行路径和逻辑功能。
+\begin{framed}
+\begin{verbatim}
+if 表达式1：
+    语句块1
+    if 表达式2:
+        语句块2
+    else:
+        语句块3
+else:
+    if 表达式4:
+        语句块4
+\end{verbatim}
+\end{framed}
+\subsection{练习：嵌套分支}
+\inputpython{examples/nestedswitch.py}{1}{11}
+
+\section{断言}
+\pyth{assert}逻辑上等价于“如果不”（if not），常用于测试程序。\pyth{assert}语句用法为，声明断言某表达式（通常是布尔表达式）为真，并附言解释为何如此。程序执行到该断言语句时，进行判断，若该断言表达式为真，则什么都不发生，表明该断言测试的值在合理范围内，没出错。若该表达式为假时，\pyth{assert}爆出异常，显示附言，终止程序，表明测试的值超出范围，出错了。
+\subsection{练习：断言}
+\inputpython{examples/assert.py}{1}{5}
+\subsection{阅读材料}
+\begin{itemize}
+\item \href{https://docs.pytest.org/en/latest/assert.html}{The writing and reporting of assertions in tests}
+\item \href{https://cacm.acm.org/magazines/2014/2/171689-mars-code/abstract}{mars code}
+\item \href{https://github.com/pyclectic/pyassert}{pyassert}
+\end{itemize}
+
+\section{循环}
+\subsection{while循环}
+\subsubsection{练习：while}
+\inputpython{examples/while.py}{1}{11}
+\subsection{for循环}
+\subsubsection{练习：for}
+Python风格for循环： \pyth{for var in iterable/range:}
+\inputpython{examples/for.py}{1}{12}
+\subsection{终止循环}
+\begin{itemize}
+\item break语句，退出当前循环，提前结束整个循环
+\item continue语句，终止本次循环，忽略continue之后的所有语句，直接回到循环顶端，提前结束本次循环，进入下一次循环
+\end{itemize}
+\subsubsection{练习：终止循环}
+\inputpython{examples/break.py}{1}{29}
+\subsection{带else子句的循环}
+语句可独立存在，子句（clause）不能独立存在，必须依附于某些语句，才起作用。
+\subsubsection{练习：循环子句}
+\inputpython{examples/loopelse.py}{1}{20}
+
+\section{课堂练习}
+阅读并理解程序。
+\begin{framed}
+\begin{verbatim}
+  # 1. 计算1 + 2 + 3 + ... + 100的值
+  s = 0
+  for i in range(1, 101):
+      s = s + i
+  print(s)
+  print(sum(range(1, 101)))
+
+  # 2. 求1-100间能同时被7整除，不能被5整除的所有整数。
+  # 那同时能被7和5整除的整数呢？
+  for i in range(1, 101):
+      if ((i % 7) == 0) and ((i % 5) != 0):
+          print(i)
+
+  # 3. 水仙花数输出“水仙花数”，所谓水仙花数，指3位十进制数，其各位数字立方
+  # 之和等于该数，例如 153 = 1^3 + 5^3 + 3^3
+  for i in range(100, 1000):
+      ge = i % 10
+      shi  = i // 10 % 10
+      bai = i // 100
+      if (ge**3 + shi**3 + bai**3)  == i:
+          print(i)
+
+  # 4. 求平均
+  score = [70, 90, 78, 85, 97, 94, 65, 80]
+  s = 0
+  for i in score:
+      s += i
+  print(s / len(score))
+
+  print(sum(score) / len(score))
+
+  # 5. 输出99乘法表
+  for i in range(1, 10):
+      for j in range(1,10):
+          if (j<=i):  # 调整格式
+              print(j, '*', i, '=', i*j, ' ', end='')
+      print()  # 输出空行
+
+  # 6. 求200以内能被17除的最大正整数
+  for i in range(200, 0, -1):
+      if (i % 17) == 0:
+          print(i)
+          break
+
+  # 7. 判断一个数是否为素数
+  # 遍历N能否能被从2到sqrt(N)之间的素数整除。若不能则为素数。
+  import math
+  
+  n = int(input('Input an integer:'))
+  m = math.ceil(math.sqrt(n) + 1)
+
+  for i in range(2, m):
+      if ((n % i) == 0) and (i < n):
+          print('No')
+          break
+  # NOTE THE POSITION OF THe ELSE
+  else:  
+      print('Yes')
+
+  # 8. 鸡兔同笼问题， 设共有鸡兔30只，查有90只脚，问鸡兔各多少只？
+  for chick in range(0, 31):
+      if ((2 * chick) + ((30 - chick) * 4)) == 90:
+          print('Chicks:', chick, 'Rabits:', (30 - chick))
+\end{verbatim}
+\end{framed}
+
+\section{课后作业}
+\begin{itemize}
+\item 编写程序，运行后用户输入4为整数年份，判断是否为闰年。 判断闰年算法如下：如果年份能被400整除，是闰年; 如果年份能被4整除，但不能被100整除，也是闰年
+\item 编写程序，用户从键盘输入小于1000的整数，程序对其进行因式分解。
+  例： 10 = 2 * 5， 60 = 2 * 2 * 3 * 5
+\item 编写程序，实现分段函数计算，见表\Cref{segfunc}。
+\end{itemize}
+
+\begin{table}
+  \centering
+  \begin{tabular}{cc}
+    \toprule
+    x           & y     \\
+    \midrule
+    x < 0       & 0     \\
+    0 $\leq$ x < 5  & x     \\
+    5 $\leq$ x < 10 & 3x-5  \\
+    10$\leq$ x < 20 & 0.5x-2\\
+    20$\leq$ x      & 0     \\
+    \bottomrule
+  \end{tabular}
+  \caption{分段函数}%Segment function}
+  \label{segfunc}
+\end{table}
+\section{阅读:代码可读性}
+\begin{itemize} 
+\item \href{https://zhuanlan.zhihu.com/p/22334966}{代码可读性提升指南}
+\item \href{http://blog.jobbole.com/73791/}{请优先提高代码的可读性}
+\item \url{https://stackoverflow.com/questions/550861/improving-code-readability}
+\item \url{https://blog.codinghorror.com/code-smells/}
+\item \url{https://en.wikipedia.org/wiki/Readability#Popular_readability_formulas}
+\item 《代码大全（第二版）》
+\item 《代码整洁之道》
+\item 《重构: 改善既有代码的设计》
+\item 《编写可读代码的艺术》
+\end{itemize}

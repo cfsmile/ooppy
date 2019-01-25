@@ -1,0 +1,224 @@
+\chapter{文件}
+为长期保存数据，须将数据以文件形式存储到磁盘中。文件分为文本文件、二进制文件。文件操作流程如下。
+\begin{enumerate}
+\item 打开文件并创建文件对象
+\item 通过文件对象对文件内容进行读取、写入、修改、删除
+\item 保存文件，关闭文件对象
+\end{enumerate}
+
+\section{打开文件}
+\pyth{open(name[, mode[, buffering]])}函数打开文件。扩展巴克斯范式（Extended Backus-Naur form）用于描述函数。其中，name是必要（madatory）参数，mode和buffering是可选（optional）参数，该函数返回一个文件对象。
+\begin{python}
+f = open(r'c:\text\somefile.txt')
+\end{python}
+打开后，f文件对象代表该文件。
+\subsection{打开模式}
+\begin{table}
+\centering
+\begin{tabular}{cc}
+  \toprule
+  值  & 说明 \\
+  \midrule
+  'r' & 只读 \\
+  'w' & 写入 \\
+  'a' & 追加 \\
+  'b' & 二进制模式(可组合) \\
+  '+' & 读写模式(可组合) \\
+  \bottomrule
+\end{tabular}
+\caption{文件打开模式}
+\end{table}
+一般，Python默认处理文本文件，如处理二进制文件需要明确指定二进制模式。缓存标志位，0表示不缓存,1表示使用缓存。
+\section{文件操作}
+\subsection{读写文件内容}
+上下文（context）管理关键字with自动完成管理资源，不论何种原因跳出with块，总能保证文件正确关闭。操作文件时，应用这种方式打开文件。
+\begin{python}
+f = open('somefile.txt', 'w')
+f.write('1')
+f.write('2')
+f.close()
+
+f. = open('somefile.txt', 'r')
+f.read(4)
+f.read()
+
+# recommend syntax, using context
+with open('somefile.txt', 'w') as f:
+    f.write('Hello,')
+    f.write('World!')
+    
+\end{python}
+\subsection{按行读写文件}
+\begin{python}
+with open('sample.txt','r') as f:
+    while True:
+        line = f.readline()
+        if line == '':
+            breal
+            print(line, end='')
+# sample.txt
+# Welcome to this file
+# There is nothing here except
+# this strange line
+f = open(r'c:\text\sample.txt')
+f.read(7)
+f.read(4)
+f.close()
+
+f = open(r'c:\text\sample.txt')
+print(f.read())
+f.close()
+
+f = open(r'c:\text\sample.txt')
+for i range(3):
+    print(str(i) + ":" + f.readline())
+f.close()
+
+import pprint
+pprint.pprint(open(r'c:\text\sample.txt').readlines()) # file object is being closed automatically.
+
+# this
+# is no
+# haiku
+lines[1] = "isn't a\n"
+f = oepn(r'c:\text\sample.txt', 'w')
+f.writelines(lines)
+f.close()
+
+# one char a time
+def process(string):
+    print('Processing: ', string)
+
+f = open(filename)
+while True:
+   char = f.read(1)
+   if not char: 
+        break
+   process(char)
+f.close()
+
+# one line a time
+f = open(filename)
+while True:
+   line = f.readline()
+   if not line: 
+        break
+   process(line)
+f.close()
+
+f = open(filename)
+for char in f.read():
+    process(char)
+f.close()
+
+f = open(filename)
+for line in f.readlines():
+    process(line)
+f.close()
+
+# Lazy Line Iteration with fileinput
+# lazy line iteration
+import fileinput
+for line in fileinput.input(filename):
+    process(line)
+
+# file objects are iterable
+f = open(filename)
+for line in f:
+    process(line)
+f.close
+
+# Iterating over a file without storing the file object in a variable
+for line in open(filename):
+    process(line)
+
+\end{python}
+\section{操作二进制文件和目录}
+\subsection{二进制文件}
+Python使用pickle模块，操作二进制文件。pickle是常用且速度快的二进制文件序列化模块。使用pickle进行对象序列化和二进制文件读写。
+\begin{verbatim}
+import pickle
+
+dir(pickle)  #  查看pickle模块属性
+#  定义数据
+f = open('sample_pickle.dat', 'wb')
+n = 7
+i = 13000000
+a = 99.056
+s = '中华人民共和国 abc 123'
+lst = [[1, 2, 3], [40, 50, 60], [7, 8, 9]]
+tpl = (-5, 10, 8)
+clctn = {4, 5, 6}
+dct = {'a': 'apple', 'b': 'banana', 'g': 'grape', 'o': 'orange'}
+
+#  将数据写入二进制文件
+try:
+    pickle.dump(n, f)  #  转储
+    pickle.dump(i, f)
+    pickle.dump(a, f)
+    pickle.dump(s, f)
+    pickle.dump(lst, f)
+    pickle.dump(tpl, f)
+    pickle.dump(clctn, f)
+    pickle.dump(dct, f)
+except:
+    print('Writing file exception')
+finally:
+    f.close()
+
+#  从二进制文件读入数据，并输出到屏幕
+try:
+    f2 = open('sample_pickle.dat', 'rb')
+    n = pickle.load(f2)
+    i = 0
+    while i<n:
+        x = pickle.load(f2)
+        print(x)
+        i += 1
+except Exception as e:
+    print(e)
+finally:
+    f2.close()
+\end{verbatim}
+\subsection{操作目录}
+处理文件路径，要使用\pyth{os.path}模块中的对象和方法。该模块提供大量用于路径判断、切分、连接及文件夹遍历方法
+
+例： 查找特定后缀文件
+\begin{python}
+import os
+# dir(os.path)
+print([fname for fname in os.listdir(os.getcwd()) if os.path.isfile(fname) and fname.endswith('.org')])
+\end{python}
+例： 遍历文件夹
+\begin{python}
+import os
+
+for root, dirs, files in os.walk(".", topdown=False):
+    for name in files:
+        #  print(os.path.join(root, name))
+        pass
+    for name in dirs:
+        #  print(os.path.join(root, name))
+        pass
+\end{python}
+
+\subsection{练习}
+简单爬取网页、解析文本程序。
+\begin{python}
+from urllib.request import urlopen
+from BeautifulSoup import BeautifulSoup  # install BeautifulSoup
+
+html = urlopen('http://python.org/community/jobs').read()
+# print(html)
+soup = BeautifulSoup(text)
+
+jobs = set()
+for header in soup('h3'):
+    links = header('a', 'reference')
+    if not links: 
+        continue
+    link = links[0]
+    jobs.add('%s (%s)' % (link.string, link['href']))
+
+print('\n'.join(sorted(jobs, key=lambda s: s.lower())))
+\end{python}

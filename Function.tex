@@ -1,0 +1,569 @@
+\chapter{函数}
+我们已经学习了以基本和高级数据类型为代表的算子、各种运算符、由算子运算符组合而成的表达式、语句、以及控制语句流向的控制结构。本章学习如何将所有这些内容组织成函数，构成相对完整的程序，用以完成任务。函数可以一次编写，反复使用，避免重复写代码。重复的代码，意味着，重复劳动。维护重复的代码，修改一处，必得处处修改，才能保持一致。重复的代码非常不利于维护。对程序员而言，其职业特质之一就是：懒，意指站在巨人肩膀上，不做无谓的重复工作。而既不重复工作，又保证工作进度的主要手段，就是代码重用(reusable)。
+
+\section{从问题抽象出函数}
+实现代码重用的方式，与解决问题一样，是抽象。抽象是使人能理解计算机程序的关键步骤。对计算机而言， 再多的代码都无所谓，越详细越好。人却不行，人的思维方式必须用抽象、分治的方式降低事物复杂度，才能理解，然后予以解决。设计程序也应该遵循人的思维方式，抽象一点。
+
+比如，设计程序完成“统计网页上出现的词的词频”这个任务。我们考虑下，大致要做这样几件事：下载网页，统计网页中的词频，输出词与对应的频率。这样描述，理解起来很容易，转成Python也很容易。
+\begin{python}
+  # psuedo code
+  page = download_page()
+  freqs = compute_frequencies(page)
+  for word, freq in freqs:
+      print(word, freq)
+\end{python}
+等等！有同学会问，那如何下载网页，如何统计等等。似乎很多细节问题都没有解决。是的！但请注意，您的注意力现在应放在完成整体任务上，也就是“统计网页上出现的词的词频”这个任务上。为完成这个任务 ，您需要下载网页及其他子任务。而如何下载网页与整体任务没有那么直接的联系，可以，留到整体任务变为“下载网页”时，再予考虑。在考虑高层整体任务时，如果陷到类似如何下载网页的细节问题中去，很可能不会有一个整体的解决框架。设计程序时，首先告诉计算机做什么，而暂不考虑如何做。如何做要放到函数定义中。这就是抽象，抽象的意义在于，向使用者隐藏所有实现细节，仅提供函数签名作为接口（或称协议）。Python中的协议，指控制行为的规则。
+
+另一方面，通过这个例子，能观察到，伪码与Python语言的转换十分自然流畅。
+\section{定义和调用}
+使用函数的方法是调用，调用后，函数执行某些语句，返回值。在Python中可以调用的事物称为可被调用（callable）。函数是典型的可被调用。Python共有七个可被调用实体。
+\begin{itemize}
+\item 用户定义的函数 user-defined functions
+\item 内置函数 built-in functions
+\item 内置方法 built-in methods
+\item 类方法 methods
+\item 类 classes
+\item 类实例 Class instances 
+\item 生成器 Generator
+\end{itemize}
+下面例子演示如何判断一个对象是否是可被调用。
+\begin{python}
+import math
+x  = 1
+y = math.sqrt  # note no
+x.__call__ # error
+y.__call__
+\end{python}
+结构化程序设计，最核心的事情就是创建函数和使用函数。 一般，先写代码结构，再填空。以至于有人说，写程序不难，就是填空。看下面这个例子。
+\begin{framed}
+\begin{verbatim}
+def 函数名(参数列表):
+    """
+    docstring： 函数说明，说明功能，算法，参数个数、类型，返回值等。
+    """
+    #  注释
+
+    代码块（函数体）
+    1. 输入 input
+    2. 处理
+    3. 输出
+
+    return 返回值
+\end{verbatim}
+\end{framed}
+我们以编程实现计算斐波那契函数为例，尝试填下空。
+\begin{framed}
+\begin{verbatim}
+# 函数的定义
+def fibs(num):
+    """Calculate fibonacci nubmers
+
+　　num: length of the output
+    """
+
+    # １．初始化及输入
+    result = [0, 1]
+
+    # 2.处理
+    for i in range(num - 2):
+        result.append(result[-2] + result[-1])  # 3.输出
+
+　　# 返回值/输出
+    return result
+
+# 函数的调用
+fibs(10)
+fibs(15)
+\end{verbatim}
+\end{framed}
+docstring与功能无关，没有它程序依然可以执行。但程序员都十分重视它，普遍认为其重要程度不啻于代码。在撰写文档背后的想法叫作：程序文档化，即程序是自解释的。试下面两个命令。
+\begin{python}
+fibs.__doc__
+help(fibs)
+\end{python}
+\subsection{返回值}
+从表面看，函数可以返回值，也可以不返回值，可写return某值，也可以不写return语句。
+\begin{python}
+def test():
+    print('This is printed')
+    return
+    print('This is not')
+
+x = test()
+print(x)  # None
+\end{python}
+可实际上所有函数都返回值，当表面什么都不返回时，实际返回的是None值。
+\subsection{Python程序文件名}
+函数保存到以py为扩展名的文件中。与Python有关的程序文件扩展名如下。
+\begin{itemize}
+\item py: python源文件，文本文件，由解释器解释执行
+\item pyc: python字节码文件，二进制文件，用于隐藏python源代码和提高运行速度。python模块第一次被引入时将被编译成字节码文件，以后再次导入时，优先使用.pyc文件，提高加载和运行模块速度
+\item pyw: python源文件，常用于图形界面程序
+\end{itemize}
+\section{参数}
+定义函数时圆括号内用逗号界定形式参数（formal parameters）列表。调用函数时，调用者向函数传递实际参数（arguments）。函数通过参数得到外界值，参数可视为函数的输入。
+\begin{python}
+def try_to_change(n):
+    n = 'Mr.Gumby'
+
+name = 'Mrs. Entity'
+try_to_change(name)
+name
+\end{python}
+当参数、全局变量与函数内局部变量重名时，函数内的局部变量遮蔽（shadowing）外部的参数、局部变量或全局变量。上例的实际参数是字符串，它是不可改变类型的，如果以可改变类型数据做参数会怎样呢？看下面例子，试解释程序执行结果。
+\begin{python}
+def change(m):
+    m[0] = 'Mr.Gumby'
+
+mlist = ['Mrs. Entity', 'Mrs. Thing']
+
+change(mlist)
+
+mlist
+\end{python}
+前例是将值赋予局部变量，所谓“传值调用(call by value)”。本例是将列表名字（name），传给变量m，因此m和mlist两个名字，指向的是同一个列表，修改m指向的列表时，mlist所指的列表自然改变，即所谓“传引用调用(call by reference)”。
+\paragraph{思考: }  如何将列表传递改为传值调用？
+
+\section{参数类型}
+\subsection{位置参数}
+位置参数（positional parameters），位置起重要作用，比参数名字更重要。
+\begin{python}
+def hello1(greeting, name):
+    print('%s, %s!' % (greeting, name))
+
+def hello2(name, greeting):
+    print('%s, %s!' % (name, greeting))
+
+hello1('hello', 'world!')
+hello2('HELLO', 'WORLD!')
+\end{python}
+可看出参数名字不甚重要，尽管参数名字不同，这两个函数做的是同一件事。
+\subsection{关键字参数}
+当参数过多时，不容易记住参数的顺序。为了简化记忆，可以给参数起名字。关键字参数，用名字明确指示参数含义和功能。用关键字参数时，参数的位置不重要了，名字重要。
+\begin{python}
+  hello1(greeting='hEllo', name='world')
+  hello1(name='world',greeting='hEllo')
+  hello2(greeting='heLLo', name='world')
+\end{python}
+使用关键字参数的函数，优势在于该函数清楚表明需要什么样的参数，有助于理解函数要表达的意思的，也防止记错参数位置。比如调用函数\pyth{store('Mr.Brainsample', 10, 20, 13, 5)}，很难一眼看出函数要做什么。如果改成\pyth{store(patient='Mr.Brainsample',hour=10,minute=20, day=13, month=5)}，几乎可以猜到该函数完成什么功能了。关键字参数另一个亮点，是在函数定义时，可定义参数默认值。如此，再也不用为少传递一个参数引起报错担心了。
+
+位置参数和关键字参数可以组合使用，用法要求位置参数在前，关键字参数在后。
+\begin{python}
+def hello4(name='world', greeting='Hello'):
+    print('%s, %s!' % (name, greeting))
+
+hello4()
+hello4('Greetings')
+hello4('Greetings', 'universe')
+
+def hello5(name, greeting='Hello', punctuation='!'):
+    print('%s, %s%s' % (greeting, name, punctuation))
+
+hello5('Mars')
+hello5('Mars', 'Howdy')
+hello5('Mars', 'Howdy', '...')
+hello5('Mars', punctuation='.')
+hello5('Mars', greeting='Top of the morning to ya')
+hello5()
+\end{python}
+注意位置参数和关键字参数先后次序。
+\subsection{可变长参数}
+可变长参数，指有时程序员无法在定义函数时确定参数个数，因此函数必须允许用户提供任意多的参数。比如，\pyth{store(data, name1, name2, name3)}，此种情况应该允许提供任意多的名字。为此，要在函数定义中使用可变长参数，语法是\pyth{function(*args), function(**kwargs)}
+\begin{python}
+def print_params(*params):
+    print(params)
+    print_params('Testing')
+    print_params(1, 2, 3) # the argument is a tuple
+
+def print_params_2(title, *params):
+    print(title)
+    print(params)
+
+print_params_2('Params:', 1, 2, 3)
+print_params_2('Nothing:')  # get an empty tuple
+\end{python}
+一个星号表示把余下所有的位置参数收集到一个元组里，该符号只能收集位置参数，无法收集关键字参数。
+\begin{python}
+print_params_2('Hmm...', something=42)  # TypeError
+\end{python}
+需要使用另外一个操作符，收集所有关键字参数。两个星号将关键字参数收集到字典里。
+\begin{python}
+def print_params_3(**params):
+    print(params)
+
+print_params_3(x=1, y=2, z=3)
+
+def print_params_4(x, y, z=3, *pospar, **keypar):
+    print(x, y, z)
+    print(pospar)
+    print(keypar)
+
+print_params_4(1, 2, 3, 4, 5, 6, 7, foo=1, bar=2)  # can you explain the result?
+\end{python}
+\subsection{反向过程}
+可变长参数的作用是收集参数，其反过程是将收集的参数打散分配给变量。在调用时，给参数前加星号，即可将参数分配给变量。一个星号适用于元组、列表，两个星号，适用于字典。定义函数和调用函数，仅一方使用时，才能体现可变参数优势。都使用或都不使用，体现不出优势。
+\begin{python}
+def add(x, y):
+    return x + y
+
+params = (1, 2)
+add(*params)  #  for tuple, list
+
+params = {'name': 'Sir Robin', 'greeting': 'Well met'}
+hello2(**params)  # for dictionary
+
+# onle used in one side is good
+def with_stars(**kwds):
+    print(kwds['name'], 'is', kwd['age'], 'years old')
+
+def without_stars(kwds):
+    print(kwds['name'], 'is', kwds['age'], 'years old')
+
+args = {'name': 'Mr. Adam', 'age': 23}
+with_stars(**args)
+without_starts(args)
+\end{python}
+\subsection{练习：函数参数}
+\begin{python}
+def story(**kwds):
+    return 'Once upon a time, there was a ' \
+    '%(job)s called %(name)s.' % kwds
+
+def power(x, y, *others):
+    if others:
+        print('Received redundant parameters:', others)
+    return pow(x,y)
+
+def interval(start, stop=None, step=1):
+    'Imitates range() for step > 0'
+    if stop is None:
+        start, stop = 0, start
+    result = []
+    i = start
+    while i < stop:
+        result.append(i)
+        i += step
+    return result
+
+print(story(job='king', name='Gumby'))
+print(story(name='Sir Robin', job='brave knight'))
+params = {'job': 'language', 'name':'Python'}
+print(story(**params))
+
+del params['job']
+params
+print(story(job='stroke of genius', **params))
+
+power(2, 3), power(3, 2)
+params = (5,) * 2
+print(params)
+power(*params)
+
+power(3,3, 'Hello, World')
+
+interval(10), interval(1,5), interval(3, 12, 4)
+
+power(*interval(3,7))
+\end{python}
+
+\section{作用域、命名空间}
+变量是什么？可以把变量理解为指向值的名字、标签。\pyth{x = 1}就像字典项一样，只不过变量归属于一个“无形”的字典。内置函数\pyth{vars}的返回值，就是这个“无形”字典。
+\begin{python}
+x = 1
+scope = vars()
+scope['x']
+scope['x'] += 1
+x
+\end{python}
+这种无形的字典称为作用域（scope）或命名空间（namespace），标识了一个变量起作用的范围。全局空间是一个命名空间，每调用一个函数都会创建一个新的命名空间，该空间内是被调用函数能使用的全部变量。所以，函数的局部变量仅在其局部命名空间中起作用。传值参数是典型的局部变量，其起作用的作用域，就是它传进的那个函数的命名空间。
+\begin{python}
+def output(x):
+    x = 42
+    print(x)
+
+x = 1
+y = 2
+output(y)
+\end{python}
+如果要在函数内访问全局变量怎么办？
+\begin{python}
+  def combine(param):
+      print(param + external)
+
+  external = 'berry'
+  combine('Shrub')
+\end{python}
+可以在函数内重新绑定（rebinding）变量。默认函数内变量都是局部变量，通过重新绑定，改为全局变量。
+\begin{python}
+x = 1
+def change_g():
+    global x  
+    x = x + 1
+
+change_g()
+x
+\end{python}
+写程序，应尽量减少使用全局变量，尽量不要在函数内绑定全局变量。 频繁使用全局变量是不良编程风格。
+\subsection{递归}
+这部分，留给同学们自学。
+
+函数可以调用其他函数。而且，函数还可以调用自身（函数），调用自身称为递归。
+递归关键是识别出两种情况：
+\begin{description}
+\item{基础情况}　最简单情况，函数直接返回值
+\item{递归情况}　调用自身，但问题规模减小了
+\end{description}
+写递归程序步骤：
+\begin{enumerate}
+\item 写出基础情况和递归情况
+\item 阅读代码
+\item 解释代码
+\item 修改代码
+\end{enumerate}
+\subsubsection{练习：阶乘和乘方}
+\begin{python}
+def frac(n):
+    result = n
+    for i in range(1, n):
+        result *= i
+    return result
+# + base case: the fractorial of 1 is 1
+# + recursive case: the fractorial of n greater than 1 is the product of
+#  n and the fractorial of n-1
+def frac(n):
+    if n == 1:
+        return 1
+    else:
+        return n * frac(n-1)
+    print('n in this level is %d' % n)
+
+def power(x, n):
+    result = 1
+    for i in range(n):
+        result *= x
+    return result
+
+# + power(x, 0) is 1 for all number x.
+# + power(x, n) for n > 0 is the product of x and the power(x, n-1)
+def power(x, n):
+    if n == 0:
+        return 1
+    else:
+        return x * power(x, n-1)
+\end{python}
+
+\subsubsection{练习: 二分法}
+\begin{python}
+def search(sequence, number, lower=0, upper=None):
+    if upper is None:
+        upper = len(sequence) - 1
+    if lower == upper:
+        assert number == sequence[upper]
+        return upper
+    else:
+        middle = (lower + upper) // 2
+        if number > sequence[middle]:
+            return search(sequence, number, middle+1, upper)
+        else:
+            return search(sequence, number, lower, middle)
+
+seq = [34, 67, 8, 123, 4, 100, 95]
+seq.sort()
+seq
+search(seq, 34)
+\end{python}
+
+\section{Batteries Included}
+Python号称Batteries Include，意指是万能的。Python真正强大、吸引人之处在于其丰富的内置工具包及海量的第三方工具包，\href{https://pypi.python.org/pypi}{PYthon Package Index}。安装Python时自带的内置工具包称为标准库。第三发开发的称为第三方库或扩展库。这些工具包几乎让Python能完成任何工作。Python使用工具包的方式是引入工具包的模块。
+\begin{python}
+# hello2.py
+def hello():
+    print("Hello world!")
+
+import hello2
+hello2.hello()  
+\end{python}
+模块被引入时，主要工作是声明变量、函数、类等。声明一次就够了，多次引用同一个模块，与引用一次效果相当。引入模块后，该模块会保持其作用域，该模块中定义的变量、函数、类自动成为该模块属性。
+\begin{python}
+import constants
+print(constants.PI)
+\end{python}
+模块可以被引入，也可以独立运行。独立运行时，需要告诉Python解释器，此模块是主文件。
+\begin{python}
+# hello3.py
+def hello():
+    print("hello, world!")
+
+# a test:
+hello()
+
+# The key to avoiding it is "telling" the module whether it's being run
+# as a program on its own or being imported into another program.  To do
+# that,  you need the variable __name__:
+# hello4.py
+def hello():
+    print("hello world!")
+
+def test():
+    hello()
+
+if __name__ == '__main__':
+    test()
+\end{python}
+\subsection{工具包的安装目录}
+第三方工具包一般安装在名为site-packages的目录中。
+\begin{python}
+import sys, pprint
+pprint.pprint(sys.path)
+\end{python}
+\subsection{包}
+当模块多起来时，需要组织成包（package）。包也是一种模块，区别于普通模块，包可以包含普通模块。可以将包视为文件夹。一个包能从文件夹变身为Python能识别的包，它内部必须包含一个名为\pyth{__init__.py}的文件，该文件描述了包的内容。
+
+\section{程序打包}
+假设我们写好了若干模块。我们如何将自己的程序打包成二进制工具包，供他人使用呢？这涉及Python打包技术。让我们循例，给一个模块打包，并发给他人使用。
+\subsection{创建程序包}
+创建目录结构如下
+\footnote{\url{https://packaging.python.org/tutorials/packaging-projects/}}
+\begin{framed}
+\begin{verbatim}
+/packaging_tutorial
+  /example_pkg
+    __init__.py
+\end{verbatim}
+\end{framed}
+\pyth{__init__.py}告诉Python，\pyth{example_pkg}不仅是个文件夹，而且是一个Python包。编辑\pyth{__init__.py}，写入\pyth{name = "example_pkg"}，这就是此工具包的名字。
+
+一个包常包含几个特定文件。
+\begin{framed}
+\begin{verbatim}
+/packaging_tutorial
+  /example_pkg
+    __init__.py
+  setup.py
+  LICENSE
+  README.md
+\end{verbatim}
+\end{framed}
+\pyth{setup.py}提供了包的信息，如名字、版本、源文件等。打包工具\pyth{setuptools}根据该文件内的信息进行打包。练习打包时，须用自己包的信息替换模板中的信息。
+\begin{python}
+import setuptools
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+setuptools.setup(
+    name="example-pkg-your-username", # ffrreedd
+    version="0.0.1",
+    author="Example Author", # Fred
+    author_email="author@example.com",
+    description="A small example package",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/pypa/sampleproject",
+    packages=setuptools.find_packages(),
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+)
+\end{python}
+\pyth{README.md}是用Markdown格式写的使用说明。
+\begin{framed}
+\begin{verbatim}
+# Example Package
+
+This is a simple example package. You can use
+Github-flavored Markdown:
+https://guides.github.com/features/mastering-markdown/
+to write your content.
+\end{verbatim}
+\end{framed}
+\pyth{LICENSE}是版权文件。现在很多工具都是开源版权，开源版权之间有或多或少的差异，想确定自己的程序应该用哪种版权，请参看：\href{https://choosealicense.com/}{如何选择版权}。
+\subsubsection{创建Python包}
+打包需要使用\pyth{setuptools, wheel}两个工具，确保已安装这两个工具包。没安装，用如下命令安装。
+\begin{framed}
+  python3 -m pip install --user --upgrade setuptools wheel
+\end{framed}
+在\pyth{setup.py}所在目录下，执行下面命令。
+\begin{framed}
+\begin{verbatim}
+  python3 setup.py sdist bdist_wheel
+\end{verbatim}
+\end{framed}
+该命令生成一个名为dist的文件夹，内有两个文件。
+\begin{framed}
+\begin{verbatim}
+dist/
+  example_pkg_your_username-0.0.1-py3-none-any.whl
+  example_pkg_your_username-0.0.1.tar.gz
+\end{verbatim}
+\end{framed}
+\pyth{*.tar.gz}是工具包压缩的源代码，因公开源代码，所以此工具包才是自由软件、开源软件。当然，严格说，是不是开源软件，是由软件的版权决定的。\pyth{whl}是打包后的二进制文件，即常说的“发行版”。可以将该发行版拷给同学使用，也可以将该发行版上传到Pypi供更多人使用。wheel是Python文件的二进制格式。安装wheel文件命令：
+\begin{framed}
+\begin{verbatim}
+  python install example_pkg_your_username-0.0.1-py3-none-any.whl
+\end{verbatim}
+\end{framed}
+使用下面命令，看该包安装到哪里去了。
+\begin{framed}
+\begin{verbatim}
+    pip list
+\end{verbatim}
+\end{framed}
+如果安装好了，则可以使用该包了。使用下面命令，看看结果是什么。
+\begin{framed}
+\begin{verbatim}
+import example_pkg
+example_pkg.name  # 'example_pkg'
+\end{verbatim}
+\end{framed}
+\subsubsection{练习：打包}
+写一个程序，打包，将程序的whl文件，发布给同学使用。看看你写的程序能否为同学们使用。然后，听听同学们的意见，根据反馈，修改程序，发布第二个版本。
+
+使用github练习多人协作编写较大的程序。
+
+\section{如何自学}
+Python的工具包实在是太多了，不可能都学，也没必要。同学们应当在需用时，找到相应模块，尽力了解、探索，对模块有个大致掌握。为后续深入钻研打个基础。学会自学是学习中最重要的事情。
+
+以copy为例，我们看看如何自学Python模块。为了了解copy梗概，我们在解释器提示符下，探索该模块。
+\subsection{dir}
+\begin{python}
+import copy
+dir(copy)  
+\end{python}
+\pyth{dir()}列出模块中的属性、函数、类、变量等。有些名字带下划线，下划线是作者按Python编程惯例明示，这些名字不应该在模块外使用，下划线表明这些名字代表的函数或类是作者自用的，而不是给用户用的，原则上用户无需关注它们。
+\begin{python}
+  [ n for n in dir(copy) if not n.startswith('_')]
+\end{python}
+看看上面这个程序做了什么，能否解释下。
+\subsection{\pyth{__all__}}
+\pyth{copy.__all__}会输出一个列表，列出可用名字。与上一个列表推导式基本一致。区别在于，\pyth{__all__}的内容是由工具包作者拟定的，也就是说作者认为，用户应当重点关注这些函数和类。
+
+看copy.py里面的\pyth{__all__}变量声明，就知道作者在哪里可以告诉用户，哪些类和函数是他希望用户关注的。
+
+使用\pyth{from copy import *}得到的正是\pyth{__all__}中列出的函数。当程序员自己写模块时，也应在模块中声明\pyth{__all__}变量，明确告诉读者，哪些函数是可用的，这是个好习惯。
+\subsection{help}
+\pyth{help(copy.copy)}给出的信息，基本够一个程序员正常所需。
+\subsection{\pyth{__doc__}}
+\pyth{print(copy.copy.__doc__)}显示copy模块中copy函数的\pyth{__doc__}属性\pyth{help}一般比doc给出更多关于模块的信息。
+\subsection{参考手册}
+\href{https://docs.python.org/3.7/library/index.html}{Python Library Reference(for Python 3.7)}描述了所有内置库的模块。遇到问题，尤其是想了解关于Python的具体情况时，一定要去这里找到答案。
+\subsection{\pyth{__file__}}
+真想理解Python，真想透彻搞清一个模块，哪个办法能比直接阅读模块的源代码更好呢？阅读Python源码是第二有效的学习Python的方法。第一有效呢？动手写Python代码。那么，如何找到源码文件？先要找到该源文件的位置，\pyth{print(copy.__file__)}。到这个文件夹下，打开文件，开始阅读理解这个模块的工作原理和技术细节吧。
+
+\section{练习：自学以下内置模块}
+\begin{python}
+  sys, os, file, input, sets, heapq, collections, time, random,
+  shelve, re, functools, difflib, hashlib, csv, timeit, profile,
+  trace, datetime, itertools, logging, getopt, optparse, cmd, re
+\end{python}
+\pyth{re}实现“正则表达式(regular expression)”，用于匹配字符串。关于正
+则表达式，参考\footnote{余晟.正则指引.电子工业出版社，2012},
+\footnote{Jeffrey E.F.Friedl著，余晟译.精通正则表达式.电子工业出版社,2012}。
+
+\section{练习：结构化程序}
+\pyth{reExample.py} \\
+\pyth{Mudball.py} \\
+\pyth{howdoi}
+
