@@ -1,0 +1,154 @@
+\chapter{基本面向对象技术}
+结构化编程，重点在编写函数，处理数据，数据和函数分开定义，松散关联。面向对象编程，重点在创建对象。对象既包含数据又包含处理数据函数，二者定义放入同一个数据结构中，密不可分。这个数据结构称为\emph{类}。程序运行时，依据类中的定义，创建对象。
+
+面向对象程序设计技术源于对隐藏信息的需要。结构化编程与面向对象编程，如海大和吉大图书馆，分别采用开放数据与控制访问制度。书就像数据，控制访问情况下，只能通过馆员借还书，绝对不允许自己动手。面向对象程序中，对象的数据称为\emph{属性}，对象的函数称为\emph{方法}。这样的程序中，数据仿佛被隐藏和保护起来，访问受到严格控制，只能通过特定函数读取、修改数据。这种隐藏和保护数据术语称为\emph{信息封装}。
+
+\section{一切皆对象}
+Python支持面向对象编程，将数据和操作数据的函数抽象为一整体，用术语\emph{对象}来刻画这个整体。每个对象有唯一的标识、属于某种数据类型，有值。Python中所有事物都是对象。列表是对象，42是对象，模块是对象，函数是对象。
+\begin{quotation}
+  One of my goals for Python was to make it so that all objects were ``first class."  By this, I meant that I wanted all objects that could be named in the language(e.g., integers, strings, functions, classes, modules, methods, and so on) to have equal status. That is, they can be assigned to variables, placed in lists, stored in dictionaryes, passed as argumetns, and so forth.''
+  --Guido van Rossum(Blog, The History of Python, February 27, 2009)
+\end{quotation}
+\subsection{对象标识}
+\pyth{id(object)}显示一个对象的标识。
+\begin{python}
+def foo(): pass
+
+type(foo), id(foo)
+# (<class 'function'>, 38110760)   #  function is an object
+type(foo.__code__)
+id(foo.__code__)
+# (<class 'code'>, 38111680)  #  code is an object
+\end{python}
+\subsection{对象的数据类型}
+对象的数据类型定义了对象数据的取值范围，同时定义了对象可以完成的操作。数据类型本身也是对象，它的数据类型就是自身。
+\begin{python}
+type(42)
+#  <class 'int'>
+type(type(42))
+#  <class 'type'>
+type(type(type(42)))
+#  <class 'type'>
+def f(x):
+    return x+1
+type(f)
+import math
+type(math)
+\end{python}
+
+\section{类}
+类是用户自定义对象的数据类型，是创建对象的模板。定义类语法如下。
+\begin{framed}
+\begin{verbatim}
+  class 类名(父类1, 父类2...):
+      """类说明"""
+      def __init__(self, arg1, arg2...):
+          """方法说明"""
+          构造器方法体
+
+      def method1(self, arg1, arg2...):
+          """方法说明"""
+          方法1语句
+
+      ……
+\end{verbatim}
+\end{framed}
+下面例子用类的语法，创建一个学生类。
+\begin{python}
+class Student(Human): 
+    def __init__(self, name='Adam', sex='Male', age=18):
+        self.name = name
+        self.sex = sex
+        self.age = age
+
+    def ChangeName(self, new_name):
+        self.name = name
+         
+s = Student('Mary', 'Female, 19)
+type(s)
+type(type(s))
+\end{python}
+上面例子中，按Python语法，创造了自定义数据类型学生类。术语“类”和“数据类型”是同一个概念的两个名字。为防混淆，一般称内置数据类型为数据类型，称自定义数据类型为类。类合数据和操作为一，提供创造新数据类型的机制。创建一个类，就是创建了某种对象的新数据类型。类有属性，描述状态，代表类的数据，表示类的静态方面；类有方法，修改状态，代表了类的行为，表示类的动态方面。
+\subsection{实例}
+实例（instance）是对象的同义语。 “实例是某数据类型的对象”。例如，42是int数据类型的实例，即42是一个整型对象。上例中，s是学生类的实例，是学生对象，用来表示一个具体的学生Mary，其数据类型是学生类。
+
+回想下，我们已在前面学习中，接触到类和对象了。比如，列表是类，具体的列表是列表实例，而列表方法，正是该类的方法。
+\subsection{构造器和析构器}
+\pyth{__init__()}称为\emph{构造器}，该方法用于创造一个实例化的类——对象。该方法是创建对象后，第一个调用的方法。
+
+\pyth{__del__()}称为\emph{析构器}，该方法用于摧毁对象。由于Python有支持垃圾收集技术（garbage collection），析构器几乎很少使用。
+\subsection{增加属性和方法}
+属性描述类的性质。类的不同实例初始化为对象后，有各自的属性值，对象属性值描述每个对象的状态。属性与变量一样，赋值即定义。属性赋值语句：\pyth{object.attribute = value}。习惯上，在构造函数内，声明对象属性并赋值。
+
+方法描述类的行为，指明类的对象能做哪些事情。对象方法做的主要事情，就是改变对象的属性值，即改变对象的状态，完成从一个状态到另一个状态的转移。方法和函数的区别在于，方法必须依附于某个对象。因此，方法的所有参数中，第一个参数必须是调用该方法的对象，即该方法依附的对象。习惯上，这个参数命名为self。
+
+一般，属性指对象的属性，方法指对象的方法。后面还要学习类属性、类方法，它们与对象的属性和方法不同。
+\subsection{读取属性和调用方法}
+读取属性语法为\pyth{object.attribute}，调用方法语法为\pyth{object.method(arg1,arg2...)}。有同学可能会注意到，调用方法时，参数列表中第一个参数并没有提供self对象。这如何解释？可以这样理解\pyth{mehtod(object, arg1, arg2)}。这也再次说明了方法与函数的差别。
+
+下面这个例子，展示了构造器、析构器、属性、方法的用法。读懂这个例子后，做后面的练习。
+\inputpython{\ooeg/init.py}{1}{30}
+\subsection{练习：创造类}  
+二维平面中，视点为一个实体，其属性为直角坐标系下横纵坐标，如(0, 0)、(x, y)。与点有关的操作有，计算该点到原点距离，计算该点到某点的两点间距离，计算两点的中点坐标，或该点是否在某个矩形或圆形范围内等等。
+
+尝试自定义类Point，代表二维平面上的点Point，该类有两个属性，分别代表横纵坐标。方法有：构造器；移动，修改点的坐标；重置，将点坐标设置为原点；计算距离，如果已知另一个点，则可计算其与本点的欧式距离。
+\inputpython{\ooeg/Point.py}{1}{45}  
+
+\section{对象特征}
+面向对象语言提供了对一些强大特征的支持。结构化语言不支持这些特征。
+\subsection{信息封装}
+信息封装是一种信息访问保护机制，属性和方法的封装类型一般分三个层次。
+\begin{table}
+  \centering
+  \begin{tabular}{rcl}
+    \toprule
+    属性和方法名 & 类型 & 类型含义 \\
+    \midrule
+    name        & 公开  & 常规命名，供所有类自由访问、调用，没有限制 \\
+    \_name      & 保护  & 前缀下划线，供该类及其子类使用，其他类不应该访问 \\
+    \_\_name    & 私有  & 前缀双下划线，仅供该类使用，其他类绝不应该访问 \\
+    \bottomrule
+  \end{tabular}
+  \caption{属性封装类型}
+\end{table}
+从技术角度看，Python在语言层面没有提供严格访问保护机制，所有属性和方法本质上都是公开的。 程序中，如果该属性供内部使用，不希望其他类访问，应在文档中注明，这是一个内部方法。或者，按大多数Python程序员的习惯做法，修饰名称（name mangling）。这个术语指这样一种技术，通过给属性或方法名，加一个下划线前缀，来标记这是一个应该隐藏的属性。更强烈的标记是前缀双下划线。事实上，访问双下划线属性也是可以的，只不过写法上费点事。如此费事，岂不正是程序员强烈提醒用户不要使用此属性或方法。另外，双下划线，是许多特名（special names）的标志，比如构造器。因此，程序员给属性、方法起名，为了标识信息隐藏，一个下划线足够，尽量不要使用双下划线。
+\inputpython{\ooeg/dunder.py}{1}{18}
+
+\subsection{继承}
+继承是重用代码的一种方法。继承允许在两个乃至多个类之间建立种属、上位类-下位类、继承（is a）关系。通用逻辑代码放到父类中，细节逻辑代码放到子类中。Python中每个类都使用了继承关系，所有类都继承自一个特殊类object。这个类几乎没有实用功能。但它提供了统一的视角，看待所有Python类。大家都是object类的子类。
+
+\fbox{\pyth{inheri}}
+
+Supplier可以做Contact能做的所有事情，及他自己的事情。这就是继承的优势，子类继承父亲的属性和行为，同时增加自己特有的属性和行为。比如，s的初始化，调用的是Contact的初始方法。Supplier继承了Contact的属性和方法。
+\begin{framed}
+  \begin{verbatim}
+- 继承原则
+  + Distinguish Interface Inheritance from Implementation Inheritance
+    * /Inheritance of interface/ creates a subtype, implying an "is-a"
+      relationship
+    * /Inheritance of implementation/ avoids code duplication by reuse
+  + Make Interfaces explicit with ABCs
+  + Use Mixins for code Reuse
+    *  Conceptually, a mixin does not define a new type; it merely
+       bundles methods for reuse.  A mixin should never be
+       instantiated, and concrete classes should not inherit only from
+       a mixin.  Each mixin should provide a single specific behavior,
+       implementing few and very closely related methods.
+  + Make Mixins Explicit by Naming
+  + An ABC may also be a mixin; the reverse is not true
+  + Dont't subclass from more than one concrete class
+  + Provide aggregate classes to users
+    * If some combination of ABCs or mixins is particularly useful to
+      client code, provide a class that brings them together in a
+      sensible way
+  + Favor object composition over class inheritance, don't overuse
+    inheritance.  Because subclassing is a form of tight coupling, and
+    tall inheritance trees tend to be brittle. 
+\end{verbatim}
+\end{framed}
+
+\fbox{需要一个解释继承的例子}
+
+\subsection{多态}
+
+
