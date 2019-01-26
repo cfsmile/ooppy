@@ -1,42 +1,48 @@
 # coding: utf-8
 #!/usr/bin/env python
 
-"""A example override."""
+"""A example of single inheritance."""
 
 class Person():
     """Super class Person"""
     def __init__(self, first, last):
         self.firstname = first
         self.lastname = last
-    
-    def __str__(self):
+
+    def Name(self):
+        """Return full name"""
         return self.firstname + " " + self.lastname
-    
+
 class Teacher(Person):
     """Subclass Teacher"""
     def __init__(self,first, last, major):
-        super().__init__(first, last)
+        Person.__init__(self, first, last)
         self.major = major
 
-    def __str__(self):
+    def get_tchr(self):
         """Retrun name and major."""
-        return super().__str__() + ", " + self.major
+        return self.Name() + ", who is major in " + self.major 
     
 class Student(Person):
     """Subclass Student"""
     def __init__(self, first, last, stu_num):
-        super().__init__(first, last)
+        Person.__init__(self, first, last)
         self.stu_num = stu_num
 
-    def __str__(self):
+    def get_stu(self):
         """Return name and student number."""
-        return super().__str__() + ", " + self.stu_num
+        return self.Name() + "," + self.stu_num
 
 
 a = Person("Michael", "Jordan")
 b = Student('Kobe', 'Bryant', "1001")
 c = Teacher('LeBron', 'James', 'Computer Science')
 
-print(a)
-print(b)
-print(c)
+print(a.Name())
+print(b.Name())
+print(c.Name())
+
+# print(a.get_stu())  # error
+print(b.get_stu())
+# print(c.get_stu())  # error
+print(c.get_tchr())

@@ -95,9 +95,9 @@ type(type(s))
 \inputpython{\ooeg/Point.py}{1}{45}  
 
 \section{对象特征}
-面向对象语言提供了对一些强大特征的支持。结构化语言不支持这些特征。
+面向对象语言支持一些强大的技术。这些技术也成为面向对象程序最显著的特征。结构化语言不支持这些特征。
 \subsection{信息封装}
-信息封装是一种信息访问保护机制，属性和方法的封装类型一般分三个层次。
+信息封装是一种信息访问保护机制，用于控制对属性和方法的读取和修改。属性和方法的封装类型一般分三个层次。
 \begin{table}
   \centering
   \begin{tabular}{rcl}
@@ -115,40 +115,29 @@ type(type(s))
 \inputpython{\ooeg/dunder.py}{1}{18}
 
 \subsection{继承}
-继承是重用代码的一种方法。继承允许在两个乃至多个类之间建立种属、上位类-下位类、继承（is a）关系。通用逻辑代码放到父类中，细节逻辑代码放到子类中。Python中每个类都使用了继承关系，所有类都继承自一个特殊类object。这个类几乎没有实用功能。但它提供了统一的视角，看待所有Python类。大家都是object类的子类。
+继承是面向对象程序设计最显著的特征，是重用代码的一种方法。甚至有人说：“如果没有继承，面向对象程序设计几乎不值一提。”继承允许在两个乃至多个类之间建立表示上位类和下位类的继承（is a）关系。上位类称为父类、超类，下位类称为子类。由此，在类之间建立了层次关系。这与自然界中生物间继承关系很像。采用继承技术的主要动力是重用代码，即希望不要在两个相似的类中，重复撰写相同的代码，而是让子类继承父类的属性和方法，达到复用目的。一般将共性的属性、方法放到父类中，将个性的属性、方法放到子类中，则子类通过继承同时拥有共性和个性的属性和方法。
 
-\fbox{\pyth{inheri}}
+Python中每个类都使用了继承关系，所有类都继承自一个特殊类object。这个类几乎没有实用功能。但它提供了统一的视角，看待所有Python类。大家都是object类的子类。继承分单继承和多继承，Python支持多继承。本节只讲单继承，多继承留到下一章讲。
+\inputpython{\ooeg/sglinheri.py}{1}{49}
+可以看出，人可以做自己的事情，即调用自己的方法，教师、学生可以做各自事情。此外，人和学生、人和教师通过继承建立种属（is a）关系。学生是人，当然可以做人可以做的事情。教师是人，可以做人做的事情。而人未必是学生，人不能做学生做的事情，人未必是教师，人不能做教师做的事情。学生不是教师，教师也不是学生，互相不能做对方的事情。这就是继承的优势，子类继承父亲的属性和行为，同时增加自己特有的属性和行为。教师、学生都复用了人的属性和方法，而不必在自己类内将这些方法重写一遍。。
+\subsubsection{覆盖}
+覆盖（override）技术，指子类用同名，内容不同的新方法替换父类中的方法。子类方法覆盖、遮蔽同名的父类方法。
 
-Supplier可以做Contact能做的所有事情，及他自己的事情。这就是继承的优势，子类继承父亲的属性和行为，同时增加自己特有的属性和行为。比如，s的初始化，调用的是Contact的初始方法。Supplier继承了Contact的属性和方法。
-\begin{framed}
-  \begin{verbatim}
-- 继承原则
-  + Distinguish Interface Inheritance from Implementation Inheritance
-    * /Inheritance of interface/ creates a subtype, implying an "is-a"
-      relationship
-    * /Inheritance of implementation/ avoids code duplication by reuse
-  + Make Interfaces explicit with ABCs
-  + Use Mixins for code Reuse
-    *  Conceptually, a mixin does not define a new type; it merely
-       bundles methods for reuse.  A mixin should never be
-       instantiated, and concrete classes should not inherit only from
-       a mixin.  Each mixin should provide a single specific behavior,
-       implementing few and very closely related methods.
-  + Make Mixins Explicit by Naming
-  + An ABC may also be a mixin; the reverse is not true
-  + Dont't subclass from more than one concrete class
-  + Provide aggregate classes to users
-    * If some combination of ABCs or mixins is particularly useful to
-      client code, provide a class that brings them together in a
-      sensible way
-  + Favor object composition over class inheritance, don't overuse
-    inheritance.  Because subclassing is a form of tight coupling, and
-    tall inheritance trees tend to be brittle. 
-\end{verbatim}
-\end{framed}
+例子，覆盖父类方法。
+\inputpython{examples/ooeg/override1.py}{1}{14}
+覆盖是继承机制中很重要的一项技术，对于构造函数尤其重要。子类通过覆盖，继承了父类方法名字，但改变了父类的行为。上例是完全改变父类行为。学生例子中，扩展了父类行为。学生继承人的属性和方法，但使用覆盖技术，子类的\pyth{__init__()}方法，覆盖了父类的\pyth{__init__()}方法，表示除父类的行为外，子类还要增加行为，形成自己的行为。调用\pyth{Person.__init__()}，表示学生全盘继承人的构造器的全部行为，即设置名、姓，同时，学生还在此行为基础上增加自己的行为，即设置学号。
 
-\fbox{需要一个解释继承的例子}
+覆盖技术，避免代码冗余，不必在子类内重复写父类的代码。覆盖技术，还有助于维护代码。如果想修改代码，为人增加一个属性\pyth{self.middle_name}，我们只须在\pyth{Person}类的构造器增加即可，学生、教师会自动继承新增加的属性。
 
+这里我们直接用了父类的名字\pyth{Person}，更好的办法是用\pyth{super().__init__(arg1, arg2)}指代父类。注意super用法的参数列表中，不再包含self。实际上这个方法可看成是\pyth{__init__(super(), arg1, arg2)}，因为要调用父类的构造器，第一参数位置应放父类，如果放self，self此时指代子类，会报错。
+\inputpython{\ooeg/override2.py}{1}{42}
 \subsection{多态}
+多态（polymorphism）技术，指当不知道调用方法的子类是哪个时，系统会自动根据子类所属类别，执行相应的方法，产生不同的行为。
+例子，多态
+\inputpython{\ooeg/simplepoly.py}{1}{65}
 
+\section{练习：模拟音频播放器}
+假设用程序播放音频。一个播放器对象(media player object)创建AudioFile对象，执行play方法。play()方法负责解码音频文件，并播放，其行为可简单描述为audio-file.play()。但解码音频文件，需要根据不同的文件使用不同的算法，wav,mp3,wma,ogg，显然不能用同一种算法解码。如果，要为每种文件定义一个play()方法，那得定义很多少个方法，而且 随着技术发展，出现新的音频文件格式怎么办，定义多少个方法够用呢？使用继承和多态可以简化设计。每种格式用AudioFile的一个子类表示，如WavFile, MP3File。每个子类都有自己的play()方法。但该方法根据不同子类实现不同的解码算法和播放功能。而播放器对象永远不必知道AudioFile指的是哪个子类，播放器只需调用play()方法，让对象的多态机制处理具体的解码播放即可。
 
+本练习涵盖继承、覆盖、多态技术。
+\inputpython{\ooeg/poly.py}{1}{73}
