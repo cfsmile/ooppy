@@ -9,7 +9,7 @@ people = {
         'phone': '9102',
         'addr': 'Bar street 42'
     },
-   
+
     'Cecil': {
         'phone': '3158',
         'addr': 'Baz avenue 90'

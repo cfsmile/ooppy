@@ -3,6 +3,7 @@
 
 """A example of single inheritance."""
 
+
 class Person():
     """Super class Person"""
     def __init__(self, first, last):
@@ -13,16 +14,18 @@ class Person():
         """Return full name"""
         return self.firstname + " " + self.lastname
 
+
 class Teacher(Person):
     """Subclass Teacher"""
-    def __init__(self,first, last, major):
+    def __init__(self, first, last, major):
         Person.__init__(self, first, last)
         self.major = major
 
     def get_tchr(self):
         """Retrun name and major."""
-        return self.Name() + ", who is major in " + self.major 
-    
+        return self.Name() + ", who is major in " + self.major
+
+
 class Student(Person):
     """Subclass Student"""
     def __init__(self, first, last, stu_num):

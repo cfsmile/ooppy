@@ -1,5 +1,6 @@
 class AddressHolder:
     def __int__(self, street, city, state, code):
+
         self.street = street
         self.city = city
         self.state = state
@@ -8,14 +9,14 @@ class AddressHolder:
 
 class Friend(Contact, AddressHolder):
     def __init__(self,
-                name,
-                email,
-                phone,
-                street,
-                city,
-                state,
-                code):
-        Contact.__init__(self, name, email)
-        AddressHolder.__init__(self, street, city, state,code)
-        self.phone = phone
+                 name,
+                 email,
+                 phone,
+                 street,
+                 city,
+                 state,
+                 code):
 
+        Contact.__init__(self, name, email)
+        AddressHolder.__init__(self, street, city, state, code)
+        self.phone = phone

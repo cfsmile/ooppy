@@ -7,14 +7,15 @@ class AudioFile:
         self.ext = filename[-3:]
 
     def play(self):
-        print("Now an audio file is going to play...{} as {}".format(self.filename, self.ext))
+        print("Now an audio file is going to play...{} as {}".format(
+            self.filename, self.ext))
 
 
 class MP3File(AudioFile):
     def __init__(self, filename):
         super().__init__(filename)
         self.ext = "mp3"
-        
+
     def play(self):
         # super().play()
         print("playing {} as mp3".format(self.filename))
@@ -24,7 +25,7 @@ class WavFile(AudioFile):
     def __init__(self, filename):
         super().__init__(filename)
         self.ext = filename[-3:]
-        
+
     def play(self):
         print("playing {} as {}".format(self.filename, self.ext))
 
@@ -33,19 +34,20 @@ class OggFile(AudioFile):
     def __init__(self, filename):
         super().__init__(filename)
         self.ext = filename[-3:]
-        
+
     def play(self):
         print("playing {} as ogg".format(self.filename))
 
-        
+
 class FlacFile(AudioFile):
-    def __init__(self,filename):
+    def __init__(self, filename):
         super().__init__(filename)
         self.ext = filename[-3:]
-        
+
     def play(self):
- 
+
         print("playing {} as flac".format(self.filename))
+
 
 print("===split line ===")
 mp3 = MP3File("myfile.mp3")
@@ -71,5 +73,3 @@ cfile = FlacFile("myfile.flac")
 music_file = [afile, bfile, cfile]
 for x in music_file:
     x.play()
-
-

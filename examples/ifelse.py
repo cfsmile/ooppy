@@ -11,7 +11,7 @@ chTest = ['1', '2', '3', '4', '5']
 a = '6'
 
 if a in chTest:
-# if a not in chTest:
+    # if a not in chTest:
     print(a)
 else:
     print(chTest)

@@ -13,7 +13,7 @@ print(r'c:\nowhere')
 rpath = r'c:\program files\fnord\foo\bar\baz\frozz\bozz'
 print(rpath)
 
-print(r'Let\'s go!') # leave \' as it be
+print(r'Let\'s go!')  # leave \' as it be
 
-# print(r'This is illegal\') 
+# print(r'This is illegal\')
 print(r'c:\program files\foo\bar''\\')

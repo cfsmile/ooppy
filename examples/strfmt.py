@@ -14,7 +14,8 @@
 
 
 # 2. formatting according to the argument's names
-'Coordinates: {latitude}, {longitude}'.format(latitude='37.24N', longitude='-115.81W')
+'Coordinates: {latitude}, {longitude}'.format(latitude='37.24N',
+                                              longitude='-115.81W')
 
 coord = {'latitude': '37.24N', 'longitude': '-115.81W'}
 'Coordinates: {latitude}, {longitude}'.format(**coord)
@@ -25,11 +26,15 @@ c = 3-5j
 ('The complex number {0} is formed from the real part {0.real} '
  'and the imaginary part {0.imag}.').format(c)
 
+
 class Point:
+
     def __init__(self, x, y):
         self.x, self.y = x, y
+
     def __str__(self):
         return 'Point({self.x}, {self.y})'.format(self=self)
+
 
 str(Point(4, 2))
 
@@ -54,7 +59,8 @@ coord = (3, 5)
 
 '{: f}; {: f}'.format(3.14, -3.14)  # show a space for positive numbers
 
-'{:-f}; {:-f}'.format(3.14, -3.14)  # show only the minus -- same as '{:f}; {:f}'
+# show only the minus -- # same as '{:f}; {:f}'
+'{:-f}; {:-f}'.format(3.14, -3.14)
 
 # 8. delimination of thousand
 '{:,}'.format(1234567890)

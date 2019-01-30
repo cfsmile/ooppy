@@ -17,4 +17,3 @@ print(cm.sqrt(-1))
 # 5. wierd usage, like binding
 from math import sqrt as st1
 from xmath import sqrt as st2
-

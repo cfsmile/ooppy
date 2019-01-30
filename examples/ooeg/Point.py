@@ -4,10 +4,11 @@
 
 import math
 
+
 class Point:
     """ Represents a point in two-dimensional geometric coordinates. """
 
-    def __init__(self):    
+    def __init__(self):
         """Initialize the position of a new point. The x and y coords can be
   specified. If they are not, the point default to the (1,1)."""
         self.x = 1
@@ -29,7 +30,8 @@ class Point:
             (self.x - other_point.x) ** 2 +
             (self.y - other_point.y) ** 2)
 
-  # useage
+
+# useage
 p1 = Point()
 p2 = Point()
 
@@ -43,7 +45,6 @@ assert (p2.calculate_distance(p1) == p1.calculate_distance(p2))
 p1.move(3, 4)
 print(p1.calculate_distance(p2))
 print(p1.calculate_distance(p1))
-
 
 # Any idea to polish the code?
 # In the programming world, duplicate code is considered evil.

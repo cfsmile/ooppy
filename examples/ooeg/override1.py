@@ -8,8 +8,8 @@ class B(A):
     def hello(self):  # override superclass's hello()
         print("Hello, I'm B")
 
+
 a = A()
 b = B()
 a.hello()
 b.hello()
-

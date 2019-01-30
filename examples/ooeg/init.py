@@ -1,9 +1,11 @@
 # coding: utf-8
 #!/usr/bin/env python
 
+
 class Robot:
     """A Robot class"""
     def __init__(self, name=None):
+
         print("__init__ has been executed!")
         self.name = name
 
@@ -12,10 +14,11 @@ class Robot:
         print("Robot has been destroyed")
 
     def say_hi(self):
+
         if self.name:
             print("Hi, I am" + self.name)
         else:
-            print("Hi, I am a robot without a name.") 
+            print("Hi, I am a robot without a name.")
 
 
 x = Robot()

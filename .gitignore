@@ -1,7 +1,12 @@
+
 .gitignore
 
 tmp_test/
+docs/
+py/
 
+
+*.pyc
 *.*~
 *.*aux
 *.*log

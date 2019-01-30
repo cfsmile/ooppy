@@ -1,5 +1,6 @@
 class Contact:
     all_contacts = []
+
     def __init__(self, name='', email='', **kwargs):
         super().__init__(**kwargs)
         self.name = name
@@ -8,7 +9,7 @@ class Contact:
 
 
 class AddressHolder:
-    def __init__(self, street='', city='', state='',code='', **kwargs):
+    def __init__(self, street='', city='', state='', code='', **kwargs):
         super().__int__(**kwargs)
         self.street = street
         self.city = city

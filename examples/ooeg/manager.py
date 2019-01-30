@@ -2,6 +2,7 @@ import sys
 import os
 from zip_processor import ZipProcessor
 
+
 class ZipReplace:
     def __init__(self, filename, search_string, replace_string):
         super().__init__(filename)
@@ -9,20 +10,24 @@ class ZipReplace:
         self.replace_string = replace_string
 
     def process_files(self):
-        """Perform a search and replace on all files in the temporary directory."""
+        """Perform a search and replace on all files in the temporary
+        directory."""
         for filename in self.temp_directory.iterdir():
             with filename.open as file:
                 contents = file.read()
 
-            contents = contents.replace(self.search_string, self.replace_string)
+            contents = contents.replace(self.search_string,
+                                        self.replace_string)
 
             with filename.open("w") as file:
                 file.write(contents)
 
+
 if __name__ == "__main__":
     ZipReplace(*sys.argv[1:4]).process_zip()
 
-# =====
+
+# ==== ====
 import os
 import shutil
 import zipfile
@@ -42,7 +47,9 @@ class ZipProcessor:
     3. Zipping up the new files.
     """
     def __init__(self, filename, search_string, replace_string):
-        """"""
+        """Test init"""
+        pass
+
     def __init__(self, zipname):
         """"""
         self.zipname = zipname
@@ -54,12 +61,6 @@ class ZipProcessor:
         self.temp_directory = Path("unzipped-{}".format(filename))
 
     def zip_find_replace(self):
-    def process_zip(self):
-        """"""
-        self.unzip_files()
-        self.process_files()
-        self.zip_files()
-        
         """An overall 'manager' method for each the three steps. This method
         delegates responsibility to other methods.
         """
@@ -67,11 +68,17 @@ class ZipProcessor:
         self.find_replace()
         self.zip_files()
 
+    def process_zip(self):
+        """"""
+        self.unzip_files()
+        self.process_files()
+        self.zip_files()
+
     def unzip_files(self):
         """"""
         self.temp_directory.mkdir()
         # with zipfile.ZipFile(self.filename) as zip:
-        with zipfile.ZipFile(self.zipname) as zip
+        with zipfile.ZipFile(self.zipname) as zip:
             zip.extractall(str(self.temp_directory))
 
     def find_replace(self):
@@ -79,7 +86,8 @@ class ZipProcessor:
         for filename in self.temp_directory.iterdir():
             with filename.open() as file:
                 contents = file.read()
-            contents = contents.replace(self.search_string, self.replace_string)
+            contents = contents.replace(self.search_string,
+                                        self.replace_string)
             with filename.open('w') as file:
                 file.write(contents)
 
@@ -99,10 +107,11 @@ def main():
 if __name__ == "__main__":
     main()
 
-#====
+# === ===
 from zip_processor import ZipProcessor
 import sys
 from PIL import Image  #  pip install pillow
+
 
 class ScaleZip(ZipProcessor):
 
@@ -113,8 +122,10 @@ class ScaleZip(ZipProcessor):
             scaled = im.resize((640, 480))
             scaled.save(str(filename))
 
+
 def main():
     ScaleZip(*sys.argv[1:4]).process_zip()
+
 
 if __name__ == "__main__":
     main()

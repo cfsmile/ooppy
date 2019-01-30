@@ -20,8 +20,8 @@ numbers[:]
 numbers[0:10:1]
 numbers[0:10:2]
 numbers[3:6:3]
-number[::4]
-number[8:3:-1]
+numbers[::4]
+numbers[8:3:-1]
 numbers[10:0:-2]
 numbers[0:10:-2]
 numbers[::-2]
@@ -47,7 +47,7 @@ months = [
 # A list with one ending for each number form 1 to 31
 endings = ['st', 'nd', 'rd'] + 17 * ['th'] \
           + ['st', 'nd', 'rd'] + 7 * ['th'] \
-          ['st']
+          + ['st']
 
 #  year = input('Year:')
 #  month = input('Month(1-12):')
