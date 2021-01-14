@@ -54,7 +54,7 @@ print(x/y) # error without exception
 try:
     x = 10
     y = 0
-exception ZeroDivisioinError:
+exception ZeroDivisionError:
     print("The second number can't be zero!")
 \end{python}
 比较一下，用if条件表达式来判断异常，在上例情况是可行的。但如果有十种异常情况，就需要至少十个if条件表达式，程序会很乱。而使用try...except程序结构十分清晰。
