@@ -16333,14 +16333,17 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Part-2-Object-oriented-programming">Part 2 Object-oriented programming<a class="anchor-link" href="#Part-2-Object-oriented-programming">&#182;</a></h2>
+<h2 id="Part-2-Object-oriented-programming">Part 2 Object-oriented programming<a class="anchor-link" href="#Part-2-Object-oriented-programming">&#182;</a></h2><ul>
+<li><a href="https://pythonguides.com/object-oriented-programming-python/">Object oriented programming python </a></li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#31532;&#19971;&#31456;&#12288;&#22522;&#26412;&#38754;&#21521;&#23545;&#35937;&#25216;&#26415;">&#31532;&#19971;&#31456;&#12288;&#22522;&#26412;&#38754;&#21521;&#23545;&#35937;&#25216;&#26415;<a class="anchor-link" href="#&#31532;&#19971;&#31456;&#12288;&#22522;&#26412;&#38754;&#21521;&#23545;&#35937;&#25216;&#26415;">&#182;</a></h3><p>结构化编程，重点在编写函数，处理数据，数据和函数分开定义，松散关联。面向对象编程，重点在创建对象。对象既包含数据又包含处理数据函数，二者定义放入同一个数据结构中，密不可分。这个数据结构称为\emph{类}。程序运行时，依据类中的定义，创建对象。</p>
+<h3 id="&#31532;&#19971;&#31456;&#12288;&#22522;&#26412;&#38754;&#21521;&#23545;&#35937;&#25216;&#26415;">&#31532;&#19971;&#31456;&#12288;&#22522;&#26412;&#38754;&#21521;&#23545;&#35937;&#25216;&#26415;<a class="anchor-link" href="#&#31532;&#19971;&#31456;&#12288;&#22522;&#26412;&#38754;&#21521;&#23545;&#35937;&#25216;&#26415;">&#182;</a></h3><p>结构化编程，重点在编写函数，处理数据。数据和函数分开定义，松散关联。面向对象编程，重点在创建对象。若干对象交互作用，完成任务。对象包含数据，又包含处理数据函数，二者定义在同一个数据类型中，紧密关联。这个数据类型称为\emph{类}。类是自定义的数据类型。程序运行时，依据类中的定义，以类为模范，创建对象。</p>
 <p>面向对象程序设计技术源于对隐藏信息的需要。结构化编程与面向对象编程，如海大和吉大图书馆，分别采用开放数据与控制访问制度。书就像数据，控制访问情况下，只能通过馆员借还书，绝对不允许自己动手。面向对象程序中，对象的数据称为<em>属性</em>，对象的函数称为<em>方法</em>。这样的程序中，数据仿佛被隐藏和保护起来，访问受到严格控制，只能通过特定函数读取、修改数据。这种隐藏和保护数据术语称为<em>信息封装</em>。</p>
 
 </div>
@@ -16349,14 +16352,29 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="&#12288;TODO:-&#20107;&#20214;&#21709;&#24212;&#27169;&#24335;">&#12288;TODO: &#20107;&#20214;&#21709;&#24212;&#27169;&#24335;<a class="anchor-link" href="#&#12288;TODO:-&#20107;&#20214;&#21709;&#24212;&#27169;&#24335;">&#182;</a></h4>
+<h4 id="&#12288;TODO:-&#20107;&#20214;&#21709;&#24212;&#27169;&#24335;-Event-driven-programming">&#12288;TODO: &#20107;&#20214;&#21709;&#24212;&#27169;&#24335; Event driven programming<a class="anchor-link" href="#&#12288;TODO:-&#20107;&#20214;&#21709;&#24212;&#27169;&#24335;-Event-driven-programming">&#182;</a></h4><p><a href="https://stackoverflow.com/questions/22101731/what-is-the-relation-of-event-driven-and-object-oriented-programming">source:</a></p>
+<ol>
+<li>Object Oriented Programming (OOP) and Event-Driven Programming (EDP) are orthogonal, which means that they can be used together.</li>
+<li>In OOP with EDP all OOP principles (encapsulation, inheritance and polymorphism) stay intact.</li>
+<li>In OOP with EDP objects acquire some mechanism of publishing event notifications and subscribing to event notifications from other objects.</li>
+<li>The difference between OOP with / without EDP is control flow between objects.</li>
+<li>In OOP without EDP control moves from one object to another object on a method call. Object mainly invokes methods of other objects.</li>
+<li>In OOP with EDP control moves from one object to another object on event notification. Object subscribes on notifications from other objects, then waits for notifications from the objects it is subscribed on, does some work based on notification and publishes it's own notifications.</li>
+<li>Conclusion: OOP+EDP is "exactly our old friend OOP" with control flow inverted thanks to Event-Driven Design.</li>
+</ol>
+<p>The algorithm of a sequential (non-event-driven) program is like a recipe: begin at the beginning, work through until you get to the end, then stop.</p>
+<p>An event-driven program is more like the controls of a car: anything can happen any time in any order.</p>
+<p>The Object-Oriented principle seems more applicable to an event-driven model because each of the "controls" is basically unrelated to the others (separation of concerns), and order of events is mostly not important, as is coincidence in time: you can turn on the wipers, turn off the defroster, steer and accelerate all at the same time, and the actions do not affect each other. That is also possible in some cases with a recipe, but it is up to the chef (compiler / optimizer / cpu) to deduce it.</p>
+<p>A sequential program can be OO: nobody minds if the blender and the oven are disconnected and do their own thing. I hope this was a useful analogy.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="&#19968;&#20999;&#30342;&#23545;&#35937;">&#19968;&#20999;&#30342;&#23545;&#35937;<a class="anchor-link" href="#&#19968;&#20999;&#30342;&#23545;&#35937;">&#182;</a></h4><p>Python支持面向对象编程，将数据和操作数据的函数抽象为一整体，用术语\emph{对象}来刻画这个整体。每个对象有唯一的标识、属于某种数据类型，有值。Python中所有事物都是对象。列表是对象，42是对象，模块是对象，函数是对象。</p>
+<h4 id="&#19968;&#20999;&#30342;&#23545;&#35937;">&#19968;&#20999;&#30342;&#23545;&#35937;<a class="anchor-link" href="#&#19968;&#20999;&#30342;&#23545;&#35937;">&#182;</a></h4><p>python是多范式编程语言，支持过程式编程、面向对象编程、以及函数式编程。</p>
+<p>面向对象编程，将数据和操作数据的函数抽象为一整体，用术语\emph{对象}来刻画这个整体。每个对象有唯一的标识、属于某种数据类型，有值。Python中所有事物都是对象。列表是对象，42是对象，模块是对象，函数是对象。</p>
 <blockquote><p>One of my goals for Python was to make it so that all objects were ``first class."  By this, I meant that I wanted all objects that could be named in the language(e.g., integers, strings, functions, classes, modules, methods, and so on) to have equal status. That is, they can be assigned to variables, placed in lists, stored in dictionaryes, passed as argumetns, and so forth.''
     --Guido van Rossum(Blog, The History of Python, February 27, 2009)</p>
 </blockquote>
@@ -16414,7 +16432,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="&#23545;&#35937;&#30340;&#25968;&#25454;&#31867;&#22411;">&#23545;&#35937;&#30340;&#25968;&#25454;&#31867;&#22411;<a class="anchor-link" href="#&#23545;&#35937;&#30340;&#25968;&#25454;&#31867;&#22411;">&#182;</a></h5><p>对象的数据类型定义了对象数据的取值范围，同时定义了对象可以完成的操作。数据类型本身也是对象，它的数据类型就是自身。</p>
+<h5 id="&#23545;&#35937;&#30340;&#25968;&#25454;&#31867;&#22411;">&#23545;&#35937;&#30340;&#25968;&#25454;&#31867;&#22411;<a class="anchor-link" href="#&#23545;&#35937;&#30340;&#25968;&#25454;&#31867;&#22411;">&#182;</a></h5><p>对象数据类型定义了对象数据的取值范围，定义了对象可以完成的操作。数据类型自身也是对象，它的数据类型就是其自身。</p>
 
 </div>
 </div>
@@ -16465,7 +16483,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="&#31867;">&#31867;<a class="anchor-link" href="#&#31867;">&#182;</a></h4><p>类是用户自定义对象的数据类型，是创建对象的模板。定义类语法如下。</p>
+<h4 id="&#31867;">&#31867;<a class="anchor-link" href="#&#31867;">&#182;</a></h4><p>类是自定义对象的数据类型，是创建对象的模板。定义类语法如下。</p>
 <p><pre>
 class 类名(父类1, 父类2...):
       """类说明"""
@@ -17778,268 +17796,1217 @@ purpose.</p>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="==================">==================<a class="anchor-link" href="#==================">&#182;</a></h1><h1 id="file-:-auth.py">file : auth.py<a class="anchor-link" href="#file-:-auth.py">&#182;</a></h1><h1 id="==================">==================<a class="anchor-link" href="#==================">&#182;</a></h1><h1 id="!-/usr/bin/env-python">! /usr/bin/env python<a class="anchor-link" href="#!-/usr/bin/env-python">&#182;</a></h1><h1 id="---encoding:utf-8---">-<em>- encoding:utf-8 -</em>-<a class="anchor-link" href="#---encoding:utf-8---">&#182;</a></h1><p>import hashlib</p>
+<h1 id="exceptions-and-errors-inheritance-hierarchy">exceptions and errors inheritance hierarchy<a class="anchor-link" href="#exceptions-and-errors-inheritance-hierarchy">&#182;</a></h1><p>class AuthException(Exception):
+    """We'll also be defining several exceptions as we go along. We'll start
+    with a special <code>AuthException</code> base class that accepts a <code>username</code> and
+    optional <code>user</code> object as parameters; most of our self-defined exceptions
+    will inherit from this one.
+    This second parameter should be an instance of the <code>User</code> class associated
+    with that <code>username</code>."""
+    def <strong>init</strong>(self, username, user=None):
+        """"""
+        super().<strong>init</strong>(username, user)
+        self.username = username
+        self.user = user</p>
+<p>class UsernameAlreadyExists(AuthException):
+    """"""
+    pass</p>
+<p>class PasswordTooShort(AuthException):
+    """"""
+    pass</p>
+<p>class InvalidUsername(AuthException):
+    """"""
+    pass</p>
+<p>class InvalidPassword(AuthException):
+    """"""
+    pass</p>
+<p>class PermissionError(AuthException):
+    """"""
+    pass</p>
+<p>class NotLoggedInError(AuthException):
+    """"""
+    pass</p>
+<p>class NotPermittedError(AuthException):
+    """"""
+    pass</p>
+<h1 id="Domain-classes">Domain classes<a class="anchor-link" href="#Domain-classes">&#182;</a></h1><p>class User:
+    """a <code>User</code> class that stores the <code>username</code> and an encrypted <code>password</code>.
+    """
+    def <strong>init</strong>(self, username, password):
+        """Create a new user object. The passord will be encrypted before
+        stroing."""
+        self.username = username
+        self.password = self._encrypt_pw(password)
+        self.is_logged_in = False</p>
+
+<pre><code>def _encrypt_pw(self, password):
+    """Encrypt the password with the username and return the sha digest.
+
+    Since the code for encrypting a password is required in both `__init__`
+    and `check_password`, we pull it out to its own method.
+    This way, it only needs to be changed in one place if someone realizes
+    it is insecure and needs imporvement.
+    """
+    hash_string = (self.username + password)
+    hash_string = hash_string.encode("utf8")
+    return hashlib.sha256(hash_string).hexdigest()
+
+def check_password(self, password):
+    """Return True if the password is valid for this user,
+    False otherwise."""
+    encrypted = self._encrypt_pw(password)
+    return encrypted == self.password
+
+
+</code></pre>
+<p>class Authenticator:
+    """It can simply be a mapping of <code>username</code>s to <code>user</code> objects, so we'll
+    start with a dictionary in the initialization function.</p>
+
+<pre><code>The method for adding a user needs to check the two conditions(`password`
+length and previously existing `user`s) before creating a new `User`
+instance and adding it to the dictionary """
+def __init__(self):
+    """Construct an authenticator to manage users logging in and out.
+
+    ps: __init__ is not a constructor function. __new__ is the constructor
+    function. __init__ is the initialization function
+    """
+    self.users = {}
+
+def add_user(self, username, password):
+    """"""
+    if username in self.users:
+        raise UsernameAlreadyExists(username)
+    if len(password) &lt; 6:
+        raise PasswordTooShort(username)
+
+    self.users[username] = User(username, password)
+
+def login(self, username, password):
+    """"""
+    try:
+        user = self.users[username]
+    except KeyError:
+        raise InvalidUsername(username)
+
+    if not user.check_password(password):
+        raise InvalidPassword(username, user)
+
+    user.is_logged_in = True
+    return True
+
+def is_logged_in(self, username):
+    """"""
+    if username in self.users:
+        return self.users[username].is_logged_in
+    return False
+
+
+</code></pre>
+<p>class Authorizor:
+    """"""
+    def <strong>init</strong>(self, authenticator):
+        """"""
+        self.authenticator = authenticator
+        self.permissions = {}</p>
+
+<pre><code>def add_permission(self, perm_name):
+    """Create a new permission that users can be added to"""
+    try:
+        perm_set = self.permissions[perm_name]
+    except KeyError:
+        self.permissions[perm_name] = set()
+    else:
+        raise PermissionError("Permission Exists")
+
+def permit_user(self, perm_name, username):
+    """Grant the given permission to the user"""
+    try:
+        perm_set = self.permissions[perm_name]
+    except KeyError:
+        raise PermissionError("Permission does not exist")
+    else:
+        if username not in self.authenticator.users:
+            raise InvalidUsername(username)
+        perm_set.add(username)
+
+def check_permission(self, perm_name, username):
+    """"""
+    if not self.authenticator.is_logged_in(username):
+        raise NotLoggedInError(username)
+    try:
+        perm_set = self.permissions[perm_name]
+    except KeyError:
+        raise PermissionError("Permission does not exist")
+    else:
+        if username not in perm_set:
+            raise NotPermittedError(username)
+        else:
+            return True
+
+
+</code></pre>
+<p>authenticator = Authenticator()
+authorizor = Authorizor(authenticator)</p>
+<h1 id="main-function">main function<a class="anchor-link" href="#main-function">&#182;</a></h1><h1 id="def-main():">def main():<a class="anchor-link" href="#def-main():">&#182;</a></h1><h1 id="&quot;&quot;&quot;&quot;&quot;&quot;">""""""<a class="anchor-link" href="#&quot;&quot;&quot;&quot;&quot;&quot;">&#182;</a></h1><h1 id="authenticator-=-Authenticator()">authenticator = Authenticator()<a class="anchor-link" href="#authenticator-=-Authenticator()">&#182;</a></h1><h1 id="authorizor-=-Authorizor(authenticator)">authorizor = Authorizor(authenticator)<a class="anchor-link" href="#authorizor-=-Authorizor(authenticator)">&#182;</a></h1><h1 id="if-name-==-&quot;main&quot;:">if <strong>name</strong> == "<strong>main</strong>":<a class="anchor-link" href="#if-name-==-&quot;main&quot;:">&#182;</a></h1><h1 id="main()">main()<a class="anchor-link" href="#main()">&#182;</a></h1><h5 id="test-shell-command">test shell command<a class="anchor-link" href="#test-shell-command">&#182;</a></h5><h4 id="#">#<a class="anchor-link" href="##">&#182;</a></h4><h1 id="Python-3.5.2-(default,-Nov-17-2016,-17:05:23)">Python 3.5.2 (default, Nov 17 2016, 17:05:23)<a class="anchor-link" href="#Python-3.5.2-(default,-Nov-17-2016,-17:05:23)">&#182;</a></h1><h1 id="[GCC-5.4.0-20160609]-on-linux">[GCC 5.4.0 20160609] on linux<a class="anchor-link" href="#[GCC-5.4.0-20160609]-on-linux">&#182;</a></h1><h1 id="Type-&quot;help&quot;,-&quot;copyright&quot;,-&quot;credits&quot;-or-&quot;license&quot;-for-more-information.">Type "help", "copyright", "credits" or "license" for more information.<a class="anchor-link" href="#Type-&quot;help&quot;,-&quot;copyright&quot;,-&quot;credits&quot;-or-&quot;license&quot;-for-more-information.">&#182;</a></h1><h1 id="&gt;&gt;&gt;-import-auth">&gt;&gt;&gt; import auth<a class="anchor-link" href="#&gt;&gt;&gt;-import-auth">&#182;</a></h1><h1 id="&gt;&gt;&gt;-authenticator-=-auth.Authenticator()">&gt;&gt;&gt; authenticator = auth.Authenticator()<a class="anchor-link" href="#&gt;&gt;&gt;-authenticator-=-auth.Authenticator()">&#182;</a></h1><h1 id="&gt;&gt;&gt;-authorizor-=-auth.Authorizor(authenticator)">&gt;&gt;&gt; authorizor = auth.Authorizor(authenticator)<a class="anchor-link" href="#&gt;&gt;&gt;-authorizor-=-auth.Authorizor(authenticator)">&#182;</a></h1><h1 id="&gt;&gt;&gt;-authenticator.add_user(&quot;joe&quot;,-&quot;joepassword&quot;)">&gt;&gt;&gt; authenticator.add_user("joe", "joepassword")<a class="anchor-link" href="#&gt;&gt;&gt;-authenticator.add_user(&quot;joe&quot;,-&quot;joepassword&quot;)">&#182;</a></h1><h1 id="&gt;&gt;&gt;-authorizor.add_permission(&quot;paint&quot;)">&gt;&gt;&gt; authorizor.add_permission("paint")<a class="anchor-link" href="#&gt;&gt;&gt;-authorizor.add_permission(&quot;paint&quot;)">&#182;</a></h1><h1 id="&gt;&gt;&gt;-authorizor.check_permission(&quot;paint&quot;,-&quot;joe&quot;)">&gt;&gt;&gt; authorizor.check_permission("paint", "joe")<a class="anchor-link" href="#&gt;&gt;&gt;-authorizor.check_permission(&quot;paint&quot;,-&quot;joe&quot;)">&#182;</a></h1><h1 id="Traceback-(most-recent-call-last):">Traceback (most recent call last):<a class="anchor-link" href="#Traceback-(most-recent-call-last):">&#182;</a></h1><h1>File "<stdin>", line 1, in <module></h1>
+<h1 id="File-&quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;,-line-162,-in-check_permission">File "/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py", line 162, in check_permission<a class="anchor-link" href="#File-&quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;,-line-162,-in-check_permission">&#182;</a></h1><h1 id="raise-NotLoggedInError(username)">raise NotLoggedInError(username)<a class="anchor-link" href="#raise-NotLoggedInError(username)">&#182;</a></h1><h1 id="auth.NotLoggedInError:-('joe',-None)">auth.NotLoggedInError: ('joe', None)<a class="anchor-link" href="#auth.NotLoggedInError:-('joe',-None)">&#182;</a></h1><h1 id="&gt;&gt;&gt;-authenticator.is_logged_in(&quot;joe&quot;)">&gt;&gt;&gt; authenticator.is_logged_in("joe")<a class="anchor-link" href="#&gt;&gt;&gt;-authenticator.is_logged_in(&quot;joe&quot;)">&#182;</a></h1><h1 id="False">False<a class="anchor-link" href="#False">&#182;</a></h1><h1 id="&gt;&gt;&gt;-authenticator.login(&quot;joe&quot;,-&quot;joepassword&quot;)">&gt;&gt;&gt; authenticator.login("joe", "joepassword")<a class="anchor-link" href="#&gt;&gt;&gt;-authenticator.login(&quot;joe&quot;,-&quot;joepassword&quot;)">&#182;</a></h1><h1 id="True">True<a class="anchor-link" href="#True">&#182;</a></h1><h1 id="&gt;&gt;&gt;-authorizor.check_permission(&quot;paint&quot;,-&quot;joe&quot;)">&gt;&gt;&gt; authorizor.check_permission("paint", "joe")<a class="anchor-link" href="#&gt;&gt;&gt;-authorizor.check_permission(&quot;paint&quot;,-&quot;joe&quot;)">&#182;</a></h1><h1 id="Traceback-(most-recent-call-last):">Traceback (most recent call last):<a class="anchor-link" href="#Traceback-(most-recent-call-last):">&#182;</a></h1><h1>File "<stdin>", line 1, in <module></h1>
+<h1 id="File-&quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;,-line-169,-in-check_permission">File "/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py", line 169, in check_permission<a class="anchor-link" href="#File-&quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;,-line-169,-in-check_permission">&#182;</a></h1><h1 id="raise-NotLoggedInError(username)">raise NotLoggedInError(username)<a class="anchor-link" href="#raise-NotLoggedInError(username)">&#182;</a></h1><h1 id="auth.NotLoggedInError:-('joe',-None)">auth.NotLoggedInError: ('joe', None)<a class="anchor-link" href="#auth.NotLoggedInError:-('joe',-None)">&#182;</a></h1><h1 id="&gt;&gt;&gt;-authenticator.is_logged_in(&quot;joe&quot;)">&gt;&gt;&gt; authenticator.is_logged_in("joe")<a class="anchor-link" href="#&gt;&gt;&gt;-authenticator.is_logged_in(&quot;joe&quot;)">&#182;</a></h1><h1 id="True">True<a class="anchor-link" href="#True">&#182;</a></h1><h1 id="&gt;&gt;&gt;-authorizor.check_permission(&quot;paint&quot;,-&quot;joe&quot;)">&gt;&gt;&gt; authorizor.check_permission("paint", "joe")<a class="anchor-link" href="#&gt;&gt;&gt;-authorizor.check_permission(&quot;paint&quot;,-&quot;joe&quot;)">&#182;</a></h1><h1 id="Traceback-(most-recent-call-last):">Traceback (most recent call last):<a class="anchor-link" href="#Traceback-(most-recent-call-last):">&#182;</a></h1><h1>File "<stdin>", line 1, in <module></h1>
+<h1 id="File-&quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;,-line-169,-in-check_permission">File "/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py", line 169, in check_permission<a class="anchor-link" href="#File-&quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;,-line-169,-in-check_permission">&#182;</a></h1><h1 id="raise-NotLoggedInError(username)">raise NotLoggedInError(username)<a class="anchor-link" href="#raise-NotLoggedInError(username)">&#182;</a></h1><h1 id="auth.NotLoggedInError:-('joe',-None)">auth.NotLoggedInError: ('joe', None)<a class="anchor-link" href="#auth.NotLoggedInError:-('joe',-None)">&#182;</a></h1><h1 id="&gt;&gt;&gt;-authorizor.check_permission(&quot;mix&quot;,-&quot;joe&quot;)">&gt;&gt;&gt; authorizor.check_permission("mix", "joe")<a class="anchor-link" href="#&gt;&gt;&gt;-authorizor.check_permission(&quot;mix&quot;,-&quot;joe&quot;)">&#182;</a></h1><h1 id="Traceback-(most-recent-call-last):">Traceback (most recent call last):<a class="anchor-link" href="#Traceback-(most-recent-call-last):">&#182;</a></h1><h1 id="File-&quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;,-line-164,-in-check_permission">File "/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py", line 164, in check_permission<a class="anchor-link" href="#File-&quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;,-line-164,-in-check_permission">&#182;</a></h1><h1 id="perm_set-=-self.permissions[perm_name]">perm_set = self.permissions[perm_name]<a class="anchor-link" href="#perm_set-=-self.permissions[perm_name]">&#182;</a></h1><h1 id="KeyError:-'mix'">KeyError: 'mix'<a class="anchor-link" href="#KeyError:-'mix'">&#182;</a></h1><h1 id="During-handling-of-the-above-exception,-another-exception-occurred:">During handling of the above exception, another exception occurred:<a class="anchor-link" href="#During-handling-of-the-above-exception,-another-exception-occurred:">&#182;</a></h1><h1 id="Traceback-(most-recent-call-last):">Traceback (most recent call last):<a class="anchor-link" href="#Traceback-(most-recent-call-last):">&#182;</a></h1><h1>File "<stdin>", line 1, in <module></h1>
+<h1 id="File-&quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;,-line-166,-in-check_permission">File "/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py", line 166, in check_permission<a class="anchor-link" href="#File-&quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;,-line-166,-in-check_permission">&#182;</a></h1><h1 id="raise-PermissionError(&quot;Permission-does-not-exist&quot;)">raise PermissionError("Permission does not exist")<a class="anchor-link" href="#raise-PermissionError(&quot;Permission-does-not-exist&quot;)">&#182;</a></h1><h1 id="auth.PermissionError:-('Permission-does-not-exist',-None)">auth.PermissionError: ('Permission does not exist', None)<a class="anchor-link" href="#auth.PermissionError:-('Permission-does-not-exist',-None)">&#182;</a></h1><h1 id="&gt;&gt;&gt;-authorizor.permit_user(&quot;mix&quot;,-&quot;joe&quot;)">&gt;&gt;&gt; authorizor.permit_user("mix", "joe")<a class="anchor-link" href="#&gt;&gt;&gt;-authorizor.permit_user(&quot;mix&quot;,-&quot;joe&quot;)">&#182;</a></h1><h1 id="Traceback-(most-recent-call-last):">Traceback (most recent call last):<a class="anchor-link" href="#Traceback-(most-recent-call-last):">&#182;</a></h1><h1 id="File-&quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;,-line-151,-in-permit_user">File "/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py", line 151, in permit_user<a class="anchor-link" href="#File-&quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;,-line-151,-in-permit_user">&#182;</a></h1><h1 id="perm_set-=-self.permissions[perm_name]">perm_set = self.permissions[perm_name]<a class="anchor-link" href="#perm_set-=-self.permissions[perm_name]">&#182;</a></h1><h1 id="KeyError:-'mix'">KeyError: 'mix'<a class="anchor-link" href="#KeyError:-'mix'">&#182;</a></h1><h1 id="During-handling-of-the-above-exception,-another-exception-occurred:">During handling of the above exception, another exception occurred:<a class="anchor-link" href="#During-handling-of-the-above-exception,-another-exception-occurred:">&#182;</a></h1><h1 id="Traceback-(most-recent-call-last):">Traceback (most recent call last):<a class="anchor-link" href="#Traceback-(most-recent-call-last):">&#182;</a></h1><h1>File "<stdin>", line 1, in <module></h1>
+<h1 id="File-&quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;,-line-153,-in-permit_user">File "/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py", line 153, in permit_user<a class="anchor-link" href="#File-&quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;,-line-153,-in-permit_user">&#182;</a></h1><h1 id="raise-PermissionError(&quot;Permission-does-not-exist&quot;)">raise PermissionError("Permission does not exist")<a class="anchor-link" href="#raise-PermissionError(&quot;Permission-does-not-exist&quot;)">&#182;</a></h1><h1 id="auth.PermissionError:-('Permission-does-not-exist',-None)">auth.PermissionError: ('Permission does not exist', None)<a class="anchor-link" href="#auth.PermissionError:-('Permission-does-not-exist',-None)">&#182;</a></h1><h1 id="&gt;&gt;&gt;-authorizor.permit_user(&quot;paint&quot;,-&quot;joe&quot;)">&gt;&gt;&gt; authorizor.permit_user("paint", "joe")<a class="anchor-link" href="#&gt;&gt;&gt;-authorizor.permit_user(&quot;paint&quot;,-&quot;joe&quot;)">&#182;</a></h1><h1 id="&gt;&gt;&gt;-authorizor.check_permission(&quot;paint&quot;,-&quot;joe&quot;)">&gt;&gt;&gt; authorizor.check_permission("paint", "joe")<a class="anchor-link" href="#&gt;&gt;&gt;-authorizor.check_permission(&quot;paint&quot;,-&quot;joe&quot;)">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>WE CAN solve a problem in python by creating objects in our programs.</p>
+<h2 id="OOP-concepts">OOP concepts<a class="anchor-link" href="#OOP-concepts">&#182;</a></h2><p>class, object, method, inheritance, polymorphism encapsulation,data abstraction</p>
+<p>A class is a blueprint for the object.  We construct instances from the class.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#==================</span>
-<span class="c1">#  file : auth.py</span>
-<span class="c1">#==================</span>
-
-<span class="c1">#! /usr/bin/env python</span>
-<span class="c1"># -*- encoding:utf-8 -*-</span>
-
-
-<span class="kn">import</span> <span class="nn">hashlib</span>
-
-
-<span class="c1"># exceptions and errors inheritance hierarchy</span>
-<span class="k">class</span> <span class="nc">AuthException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;We&#39;ll also be defining several exceptions as we go along. We&#39;ll start</span>
-<span class="sd">    with a special `AuthException` base class that accepts a `username` and</span>
-<span class="sd">    optional `user` object as parameters; most of our self-defined exceptions</span>
-<span class="sd">    will inherit from this one.</span>
-<span class="sd">    This second parameter should be an instance of the `User` class associated</span>
-<span class="sd">    with that `username`.&quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">user</span>
-
-
-<span class="k">class</span> <span class="nc">UsernameAlreadyExists</span><span class="p">(</span><span class="n">AuthException</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
-    <span class="k">pass</span>
-
-
-<span class="k">class</span> <span class="nc">PasswordTooShort</span><span class="p">(</span><span class="n">AuthException</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
-    <span class="k">pass</span>
-
-
-<span class="k">class</span> <span class="nc">InvalidUsername</span><span class="p">(</span><span class="n">AuthException</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
-    <span class="k">pass</span>
-
-
-<span class="k">class</span> <span class="nc">InvalidPassword</span><span class="p">(</span><span class="n">AuthException</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
-    <span class="k">pass</span>
-
-
-<span class="k">class</span> <span class="nc">PermissionError</span><span class="p">(</span><span class="n">AuthException</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
-    <span class="k">pass</span>
-
-
-<span class="k">class</span> <span class="nc">NotLoggedInError</span><span class="p">(</span><span class="n">AuthException</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
-    <span class="k">pass</span>
-
-
-<span class="k">class</span> <span class="nc">NotPermittedError</span><span class="p">(</span><span class="n">AuthException</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
-    <span class="k">pass</span>
-
-
-<span class="c1"># Domain classes</span>
-<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;a `User` class that stores the `username` and an encrypted `password`.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Create a new user object. The passord will be encrypted before</span>
-<span class="sd">        stroing.&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_encrypt_pw</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">is_logged_in</span> <span class="o">=</span> <span class="kc">False</span>
-
-    <span class="k">def</span> <span class="nf">_encrypt_pw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Encrypt the password with the username and return the sha digest.</span>
-
-<span class="sd">        Since the code for encrypting a password is required in both `__init__`</span>
-<span class="sd">        and `check_password`, we pull it out to its own method.</span>
-<span class="sd">        This way, it only needs to be changed in one place if someone realizes</span>
-<span class="sd">        it is insecure and needs imporvement.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">hash_string</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">+</span> <span class="n">password</span><span class="p">)</span>
-        <span class="n">hash_string</span> <span class="o">=</span> <span class="n">hash_string</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">hash_string</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
-
-    <span class="k">def</span> <span class="nf">check_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Return True if the password is valid for this user,</span>
-<span class="sd">        False otherwise.&quot;&quot;&quot;</span>
-        <span class="n">encrypted</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_encrypt_pw</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">encrypted</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span>
-
-
-<span class="k">class</span> <span class="nc">Authenticator</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;It can simply be a mapping of `username`s to `user` objects, so we&#39;ll</span>
-<span class="sd">    start with a dictionary in the initialization function.</span>
-
-<span class="sd">    The method for adding a user needs to check the two conditions(`password`</span>
-<span class="sd">    length and previously existing `user`s) before creating a new `User`</span>
-<span class="sd">    instance and adding it to the dictionary &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Construct an authenticator to manage users logging in and out.</span>
-
-<span class="sd">        ps: __init__ is not a constructor function. __new__ is the constructor</span>
-<span class="sd">        function. __init__ is the initialization function</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">users</span> <span class="o">=</span> <span class="p">{}</span>
-
-    <span class="k">def</span> <span class="nf">add_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">username</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">users</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">UsernameAlreadyExists</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">password</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">PasswordTooShort</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">users</span><span class="p">[</span><span class="n">username</span><span class="p">]</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">users</span><span class="p">[</span><span class="n">username</span><span class="p">]</span>
-        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">InvalidUsername</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="o">.</span><span class="n">check_password</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">InvalidPassword</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
-
-        <span class="n">user</span><span class="o">.</span><span class="n">is_logged_in</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="k">return</span> <span class="kc">True</span>
-
-    <span class="k">def</span> <span class="nf">is_logged_in</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">username</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">users</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">users</span><span class="p">[</span><span class="n">username</span><span class="p">]</span><span class="o">.</span><span class="n">is_logged_in</span>
-        <span class="k">return</span> <span class="kc">False</span>
-
-
-<span class="k">class</span> <span class="nc">Authorizor</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">authenticator</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">authenticator</span> <span class="o">=</span> <span class="n">authenticator</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">permissions</span> <span class="o">=</span> <span class="p">{}</span>
-
-    <span class="k">def</span> <span class="nf">add_permission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">perm_name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Create a new permission that users can be added to&quot;&quot;&quot;</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">perm_set</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="n">perm_name</span><span class="p">]</span>
-        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="n">perm_name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">PermissionError</span><span class="p">(</span><span class="s2">&quot;Permission Exists&quot;</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">permit_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">perm_name</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Grant the given permission to the user&quot;&quot;&quot;</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">perm_set</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="n">perm_name</span><span class="p">]</span>
-        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">PermissionError</span><span class="p">(</span><span class="s2">&quot;Permission does not exist&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">username</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">authenticator</span><span class="o">.</span><span class="n">users</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="n">InvalidUsername</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
-            <span class="n">perm_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">check_permission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">perm_name</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">authenticator</span><span class="o">.</span><span class="n">is_logged_in</span><span class="p">(</span><span class="n">username</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">NotLoggedInError</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">perm_set</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="n">perm_name</span><span class="p">]</span>
-        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">PermissionError</span><span class="p">(</span><span class="s2">&quot;Permission does not exist&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">username</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">perm_set</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="n">NotPermittedError</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="kc">True</span>
-
-
-<span class="n">authenticator</span> <span class="o">=</span> <span class="n">Authenticator</span><span class="p">()</span>
-<span class="n">authorizor</span> <span class="o">=</span> <span class="n">Authorizor</span><span class="p">(</span><span class="n">authenticator</span><span class="p">)</span>
-
-
-<span class="c1"># main function</span>
-<span class="c1"># def main():</span>
-<span class="c1">#     &quot;&quot;&quot;&quot;&quot;&quot;</span>
-<span class="c1">#     authenticator = Authenticator()</span>
-<span class="c1">#     authorizor = Authorizor(authenticator)</span>
-
-
-<span class="c1"># if __name__ == &quot;__main__&quot;:</span>
-<span class="c1">#     main()</span>
-
-
-<span class="c1">##### test shell command</span>
-<span class="c1">#####</span>
-<span class="c1"># Python 3.5.2 (default, Nov 17 2016, 17:05:23)</span>
-<span class="c1"># [GCC 5.4.0 20160609] on linux</span>
-<span class="c1"># Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span>
-<span class="c1"># &gt;&gt;&gt; import auth</span>
-<span class="c1"># &gt;&gt;&gt; authenticator = auth.Authenticator()</span>
-<span class="c1"># &gt;&gt;&gt; authorizor = auth.Authorizor(authenticator)</span>
-<span class="c1"># &gt;&gt;&gt; authenticator.add_user(&quot;joe&quot;, &quot;joepassword&quot;)</span>
-<span class="c1"># &gt;&gt;&gt; authorizor.add_permission(&quot;paint&quot;)</span>
-<span class="c1"># &gt;&gt;&gt; authorizor.check_permission(&quot;paint&quot;, &quot;joe&quot;)</span>
-<span class="c1"># Traceback (most recent call last):</span>
-<span class="c1">#   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span>
-<span class="c1">#   File &quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;, line 162, in check_permission</span>
-<span class="c1">#     raise NotLoggedInError(username)</span>
-<span class="c1"># auth.NotLoggedInError: (&#39;joe&#39;, None)</span>
-<span class="c1"># &gt;&gt;&gt; authenticator.is_logged_in(&quot;joe&quot;)</span>
-<span class="c1"># False</span>
-<span class="c1"># &gt;&gt;&gt; authenticator.login(&quot;joe&quot;, &quot;joepassword&quot;)</span>
-<span class="c1"># True</span>
-<span class="c1"># &gt;&gt;&gt; authorizor.check_permission(&quot;paint&quot;, &quot;joe&quot;)</span>
-<span class="c1"># Traceback (most recent call last):</span>
-<span class="c1">#   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span>
-<span class="c1">#   File &quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;, line 169, in check_permission</span>
-<span class="c1">#     raise NotLoggedInError(username)</span>
-<span class="c1"># auth.NotLoggedInError: (&#39;joe&#39;, None)</span>
-<span class="c1"># &gt;&gt;&gt; authenticator.is_logged_in(&quot;joe&quot;)</span>
-<span class="c1"># True</span>
-<span class="c1"># &gt;&gt;&gt; authorizor.check_permission(&quot;paint&quot;, &quot;joe&quot;)</span>
-<span class="c1"># Traceback (most recent call last):</span>
-<span class="c1">#   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span>
-<span class="c1">#   File &quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;, line 169, in check_permission</span>
-<span class="c1">#     raise NotLoggedInError(username)</span>
-<span class="c1"># auth.NotLoggedInError: (&#39;joe&#39;, None)</span>
-<span class="c1"># &gt;&gt;&gt; authorizor.check_permission(&quot;mix&quot;, &quot;joe&quot;)</span>
-<span class="c1"># Traceback (most recent call last):</span>
-<span class="c1">#   File &quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;, line 164, in check_permission</span>
-<span class="c1">#     perm_set = self.permissions[perm_name]</span>
-<span class="c1"># KeyError: &#39;mix&#39;</span>
-
-<span class="c1"># During handling of the above exception, another exception occurred:</span>
-
-<span class="c1"># Traceback (most recent call last):</span>
-<span class="c1">#   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span>
-<span class="c1">#   File &quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;, line 166, in check_permission</span>
-<span class="c1">#     raise PermissionError(&quot;Permission does not exist&quot;)</span>
-<span class="c1"># auth.PermissionError: (&#39;Permission does not exist&#39;, None)</span>
-<span class="c1"># &gt;&gt;&gt; authorizor.permit_user(&quot;mix&quot;, &quot;joe&quot;)</span>
-<span class="c1"># Traceback (most recent call last):</span>
-<span class="c1">#   File &quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;, line 151, in permit_user</span>
-<span class="c1">#     perm_set = self.permissions[perm_name]</span>
-<span class="c1"># KeyError: &#39;mix&#39;</span>
-
-<span class="c1"># During handling of the above exception, another exception occurred:</span>
-
-<span class="c1"># Traceback (most recent call last):</span>
-<span class="c1">#   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span>
-<span class="c1">#   File &quot;/home/fred/Projcect/projects/venv_dir/blackjack/auth/auth.py&quot;, line 153, in permit_user</span>
-<span class="c1">#     raise PermissionError(&quot;Permission does not exist&quot;)</span>
-<span class="c1"># auth.PermissionError: (&#39;Permission does not exist&#39;, None)</span>
-<span class="c1"># &gt;&gt;&gt; authorizor.permit_user(&quot;paint&quot;, &quot;joe&quot;)</span>
-<span class="c1"># &gt;&gt;&gt; authorizor.check_permission(&quot;paint&quot;, &quot;joe&quot;)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a class</span>
+<span class="k">class</span> <span class="nc">student</span><span class="p">:</span>
+    <span class="n">roll</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;__main__.student&#39;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In python, an object is a real-world entity that has its state and behavior, everything in python is an object.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create an object</span>
+<span class="k">class</span> <span class="nc">student</span><span class="p">:</span>
+    <span class="n">roll</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="n">student</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a1</span><span class="o">.</span><span class="n">roll</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Instance attribute is an attribute which is attached to an instance of the class.  The instance is accessed by using th edot notation.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">teacher</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;John&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">salary</span><span class="o">=</span><span class="mi">100000</span>
+<span class="n">t1</span><span class="o">=</span><span class="n">teacher</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t1</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t1</span><span class="o">.</span><span class="n">salary</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>John
+100000
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A class attribute is an attribute whose value remains the same for all instances of a class.  It is defined at a class level rather than inside the method. The value of the class attribute is shared by all objects.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">teacher</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;Welcome&quot;</span>
+
+<span class="c1"># Note, there is not any teacher obejcts existing right now.    </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">teacher</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Welcome
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>init is always executed when the class is initiated. We use the init to assign the values to object properties.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">roll</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roll</span> <span class="o">=</span> <span class="n">roll</span>
+
+<span class="n">a1</span> <span class="o">=</span> <span class="n">student</span><span class="p">(</span><span class="s2">&quot;Eelon&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a1</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a1</span><span class="o">.</span><span class="n">roll</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Eelon
+24
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>a method is functions defined inside the body of a class and it is used to define the behavior of an object.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">roll</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roll</span> <span class="o">=</span> <span class="n">roll</span>
+    
+    <span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Welcome to python &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        
+<span class="n">a1</span> <span class="o">=</span> <span class="n">student</span><span class="p">(</span><span class="s2">&quot;Elon&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
+<span class="n">a1</span><span class="o">.</span><span class="n">function</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Welcome to python Elon
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><a href="https://pythonguides.com/string-methods-in-python/">String methods in Python with examples</a></li>
+<li><a href="https://pythonguides.com/python-dictionary-methods/">Python Dictionary Methods + Examples </a></li>
+<li><a href="https://pythonguides.com/python-list-methods/">11 Python list methods</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>The self parameter is used to reference the current instance of a class and it should be the first parameter of any function in class. </li>
+<li>We can access the attributes and method of a class in python.</li>
+<li>We can use another parameter name instead of a "self" (remember positional parameter?)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">newobj</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">roll</span><span class="p">):</span>
+        <span class="n">newobj</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">newobj</span><span class="o">.</span><span class="n">roll</span> <span class="o">=</span> <span class="n">roll</span>
+    
+    <span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">newobj</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Welcome to python &quot;</span> <span class="o">+</span> <span class="n">newobj</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="n">student</span><span class="p">(</span><span class="s2">&quot;Elon&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
+<span class="n">a1</span><span class="o">.</span><span class="n">function</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Welcome to python Elon
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>A class is a collection of objects or we can say it is a blueprint of objects which has common behavior and attributes.</li>
+<li>The object is an instance of the class which has state and behavior.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">teacher</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="nb">id</span><span class="p">,</span><span class="n">salary</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">salary</span> <span class="o">=</span> <span class="n">salary</span>
+<span class="n">obj1</span> <span class="o">=</span> <span class="n">teacher</span><span class="p">(</span><span class="s2">&quot;Simon&quot;</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span><span class="mi">12500</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">obj1</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#39;name&#39;: &#39;Simon&#39;, &#39;id&#39;: 101, &#39;salary&#39;: 12500}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can modify the properties of an object.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">roll</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roll</span> <span class="o">=</span> <span class="n">roll</span>
+    <span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Welcome to python &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="n">student</span><span class="p">(</span><span class="s2">&quot;Elon&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
+<span class="n">a1</span><span class="o">.</span><span class="n">roll</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a1</span><span class="o">.</span><span class="n">roll</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>30
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Inheritance is the process in which class inherit all the properties and methods from another class.  The new class is called derived class or child class and the one from which it derived is called parent class or base class.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Teacher</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">myfirst</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is my first function&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Teacher</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mysecond</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is my second function&#39;</span><span class="p">)</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">Child</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">myfirst</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">mysecond</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>This is my first function
+This is my second function
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Types of inheritance depends upon the number of child and parent class involved.  There are four types of inheritance in python.</p>
+<ol>
+<li>Single Inheritance</li>
+<li>Multiple Inheritance</li>
+<li>Multilevel Inheritance</li>
+<li>Hierarchical Inheritance</li>
+<li>Hybrid Inheritance</li>
+</ol>
+<p>In single inheritance child class inherits only a single parent class. Here, you can access the parent class function using the child class object and child class inherits the property of a single parent class.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Teacher</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">myfirst1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is my first function&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Teacher</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mysecond2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is my second function&#39;</span><span class="p">)</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">Child</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">myfirst1</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">mysecond2</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>This is my first function
+This is my second function
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In multiple inheritance a child class inherits from more than one parent class. Here you can inherit both parent class function using the child class object and the child class inherits the property of multiple parent class.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Teacher1</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">myfirst1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is my first function&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Teacher2</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">mysecond2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is my second function&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Teacher1</span><span class="p">,</span><span class="n">Teacher2</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mythird3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is my third function&#39;</span><span class="p">)</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">Child</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">myfirst1</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">mysecond2</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">mythird3</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>This is my first function
+This is my second function
+This is my third function
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In multilevel inheritance child class becomes a parent class for another child class. Here, the child class act as a parent class for another child class.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Teacher</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">myfirst1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is my first function&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Teacher</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mysecond2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is my second function&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Child2</span><span class="p">(</span><span class="n">Child</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mythird3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is my third function&#39;</span><span class="p">)</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">Child2</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">myfirst1</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">mysecond2</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">mythird3</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>This is my first function
+This is my second function
+This is my third function
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In hierarchical inheritance more than one derive class to inherit properties from parent class.Here, we have a parent class and two child classes or derived class.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Teacher</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">myfirst1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is my first function&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Teacher</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mysecond2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is my second function&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Child2</span><span class="p">(</span><span class="n">Teacher</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mythird3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is my third function&#39;</span><span class="p">)</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">Child</span><span class="p">()</span>
+<span class="n">obj1</span> <span class="o">=</span> <span class="n">Child2</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">myfirst1</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">mysecond2</span><span class="p">()</span>
+<span class="n">obj1</span><span class="o">.</span><span class="n">myfirst1</span><span class="p">()</span>
+<span class="n">obj1</span><span class="o">.</span><span class="n">mythird3</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>This is my first function
+This is my second function
+This is my first function
+This is my third function
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Hybrid inheritance involve multiple type of inheritance taking place in a single program. Hybrid inheritance involve multiple type of inheritance taking place in a single program.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Teacher</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">myfirst1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is my first function&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Teacher</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mysecond2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is my second function&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Child2</span><span class="p">(</span><span class="n">Teacher</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mythird3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is my third function&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Child3</span><span class="p">(</span><span class="n">Child</span><span class="p">,</span><span class="n">Teacher</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">myfourth4</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is my fourth function&#39;</span><span class="p">)</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">Child3</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">myfirst1</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">mysecond2</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>This is my first function
+This is my second function
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Python method overriding means creating two methods with the same name and the same number of parameters but the different print messages.</li>
+<li>the method overriding allows us to change or override the parent class function in the child class. Method overriding is an example of run time polymorphism(dynamic binding).</li>
+<li>The child class inherits from the teacher class which is parent class and it will override the message.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Teacher</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">new</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I am Teacher&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Teacher</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">new</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I am Child&quot;</span><span class="p">)</span>
+
+<span class="n">obj</span><span class="o">=</span><span class="n">Child</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>I am Child
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Python method overloading means we can have the same name but different arguments and a method can have one or more arguments.</li>
+<li>Calling the same method in different ways is called method overloading in python. Method overloading is an example of compile-time polymorphism.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Teacher</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">new</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Welcome &#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Welcome&#39;</span><span class="p">)</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">Teacher</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;sam&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Welcome
+Welcome sam
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Polymorphism in Python means more than one form. Also, we can say it is a condition of occurrence in different forms.</li>
+<li>Polymorphism is one of the important concepts in programming. For example, we know that the “+” operator is used for adding two integer numbers, and for the string, the same ” + ” operator is used for string concatenation.</li>
+<li>"+" operator can perform different operations for distinct data types.  In this way, polymorphism works.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">val1</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">val2</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">val1</span><span class="o">+</span><span class="n">val2</span><span class="p">)</span>
+
+<span class="n">string1</span> <span class="o">=</span> <span class="s2">&quot;Welcome&quot;</span>
+<span class="n">string2</span> <span class="o">=</span> <span class="s2">&quot;Python Guides&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string1</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">string2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>30
+Welcome Python Guides
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Encapsulation is the process of wrapping up variables and methods into a single unit, it is the fundamental concepts of object-oriented programming.</li>
+<li>In python, though there is no explicit access modifier by using (__) double underscores we can make variable private.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Teacher</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">salary</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__salary</span> <span class="o">=</span> <span class="n">salary</span>
+
+    <span class="k">def</span> <span class="nf">disp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__salary</span><span class="p">)</span>
+
+<span class="n">teacher</span> <span class="o">=</span> <span class="n">Teacher</span><span class="p">(</span><span class="s1">&#39;Suzan&#39;</span><span class="p">,</span> <span class="mi">500000</span><span class="p">)</span>
+<span class="n">teacher</span><span class="o">.</span><span class="n">disp</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">teacher</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">teacher</span><span class="o">.</span><span class="n">__salary</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Suzan
+500000
+Suzan
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-23-bb5055abc0c3&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">     11</span> teacher<span class="ansi-blue-fg">.</span>disp<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     12</span> print<span class="ansi-blue-fg">(</span>teacher<span class="ansi-blue-fg">.</span>name<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 13</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>teacher<span class="ansi-blue-fg">.</span>__salary<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">AttributeError</span>: &#39;Teacher&#39; object has no attribute &#39;__salary&#39;</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>In python, abstraction is used for hiding the internal details and showing the functionalities. Abstraction means hiding the real implementation and knowing how to use it as a user and it is achieved by using abstract classes and interfaces.</li>
+<li>An abstract class is a class that provides incomplete functionality and the interface provides the method names without method bodies.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="k">import</span> <span class="n">ABC</span><span class="p">,</span><span class="n">abstractmethod</span>
+
+<span class="k">class</span> <span class="nc">teacher</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">teach_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">salary</span><span class="p">):</span>
+        <span class="k">pass</span> 
+
+<span class="k">class</span> <span class="nc">child1</span><span class="p">(</span><span class="n">teacher</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">teach_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">id</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;teach_id is 14520&quot;</span><span class="p">)</span>
+        
+<span class="k">class</span> <span class="nc">elementaryTeacher</span><span class="p">(</span><span class="n">teacher</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">teach_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;teach_id is et_0001&quot;</span><span class="p">)</span>
+        
+<span class="n">teach1</span> <span class="o">=</span> <span class="n">child1</span><span class="p">()</span>
+<span class="n">teach1</span><span class="o">.</span><span class="n">teach_id</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+
+<span class="n">elemTeac</span> <span class="o">=</span> <span class="n">elementaryTeacher</span><span class="p">()</span>
+<span class="n">elemTeac</span><span class="o">.</span><span class="n">teach_id</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>teach_id is 14520
+teach_id is et_0001
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
