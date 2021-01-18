@@ -1,11 +1,8 @@
 
 .gitignore
 
-tmp_test/
-docs/
 py/
-
-.ipynb_checkpoints/*
+.ipynb_checkpoints/
 
 *.pyc
 *.*~
