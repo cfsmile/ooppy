@@ -1,6 +1,7 @@
 
 .gitignore
 
+examples/
 py/
 .ipynb_checkpoints/
 
